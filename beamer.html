@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beamer sessie 1 | AI Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --accent: #5C7A5A;
+      --accent-donker: #4A6349;
+      --accent-licht: #EDF3EC;
+      --inkt: #1C1713;
+      --bg: #F7F4F0;
+      --border: #E4DDD6;
+      --text-muted: #7A6E66;
+      --warm: #7D6034;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--inkt);
+      -webkit-font-smoothing: antialiased;
+    }
+    section {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2rem, 6vw, 6rem);
+      border-bottom: 1px solid var(--border);
+    }
+    .tijd {
+      font-size: clamp(0.9rem, 1.4vw, 1.3rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+    h1 {
+      font-size: clamp(2rem, 5.5vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: clamp(1.5rem, 3vw, 3rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3.6vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    p, li { font-size: clamp(1.05rem, 2.1vw, 2rem); line-height: 1.5; }
+    ol, ul { padding-left: 1.4em; }
+    li { margin-bottom: clamp(0.7rem, 1.6vw, 1.6rem); }
+    li::marker { color: var(--accent); font-weight: 700; }
+    strong { color: var(--accent-donker); }
+    .link {
+      font-size: clamp(1.4rem, 4.2vw, 4rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      word-break: break-word;
+      line-height: 1.2;
+    }
+    .sub { font-size: clamp(1rem, 1.8vw, 1.7rem); color: var(--text-muted); margin-top: 1.5rem; }
+    pre {
+      background: var(--accent-licht);
+      border-left: 6px solid var(--accent);
+      padding: clamp(1rem, 2.2vw, 2rem);
+      overflow-x: auto;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: clamp(0.75rem, 1.35vw, 1.25rem); line-height: 1.6; }
+    .hint {
+      position: fixed; right: 1rem; bottom: 1rem;
+      font-size: 0.8rem; color: var(--text-muted);
+      background: rgba(255,255,255,0.85); padding: 0.4rem 0.7rem; border-radius: 6px;
+    }
+    @media print { .hint { display: none; } section { min-height: auto; page-break-after: always; } }
+  </style>
+</head>
+<body>
+
+  <section>
+    <div class="tijd">14:30 &middot; opening</div>
+    <h1>AI Playground</h1>
+    <p class="link">guuswitjes.github.io/minor-ce-playground</p>
+    <p class="sub">Open deze op je laptop. E&eacute;n laptop per duo is genoeg.</p>
+  </section>
+
+  <section>
+    <div class="tijd">14:30 &middot; wat je straks in handen hebt</div>
+    <h2>Om kwart over vier heb je drie dingen die je volgende week nodig hebt</h2>
+    <ol>
+      <li><strong>Een eerste deskresearch op je eigen opdrachtgever</strong>, met bronnen die je zelf hebt gecheckt.
+        Dat is een stuk van je lowstake.</li>
+      <li><strong>Een schets van de keten</strong> waar die opdrachtgever in zit. Het begin van je stakeholdermapping.</li>
+      <li><strong>Vijf vragen om aan je opdrachtgever te stellen</strong>, waarvan het antwoord nergens te vinden is.
+        Die heb je donderdag om half drie nodig.</li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="tijd">14:42 &middot; opdracht 1</div>
+    <h2>Welke zou jij meenemen?</h2>
+    <p>Voor je liggen vier uitkomsten over dezelfde keten. Ze komen alle vier uit AI. Meer weet je niet.</p>
+    <ol>
+      <li>Zet ze op volgorde: welke zou jij meenemen naar je opdrachtgever, welke laat je liggen?</li>
+      <li>Schrijf per stuk op waarop je dat baseert.</li>
+      <li>En de belangrijkste: <strong>wat denk je dat er anders gevraagd is?</strong></li>
+    </ol>
+    <p class="sub">Tien minuten. E&eacute;n laptop per duo, alleen om te lezen.</p>
+  </section>
+
+  <section>
+    <div class="tijd">15:00 &middot; opdracht 2</div>
+    <h2>Klopt dit wel?</h2>
+    <p>Je krijgt een nummer. Pak die claim van de site.</p>
+    <p><strong>Zoek de primaire bron.</strong> Niet de eerste pagina die het herhaalt, maar waar het cijfer vandaan komt.</p>
+    <p>Schrijf op: <strong>klopt</strong> &middot; <strong>klopt niet</strong> &middot; <strong>kan het niet vinden</strong>.
+      En hoe je daarachter kwam.</p>
+    <p class="sub">Zeven minuten.</p>
+  </section>
+
+  <section>
+    <div class="tijd">15:12 &middot; opdracht 3</div>
+    <h2>Schrijf je eigen opdracht. Plak hem niet.</h2>
+    <pre><code>Rol
+Je bent onderzoeker en kent de sector van [ onze opdrachtgever ].
+
+Gebruiker en kennisniveau
+Wij zijn studenten in de minor Circulaire Economie.
+Wat wij al weten: [ ... ]
+Wat wij niet weten: [ ... ]
+
+Taak
+Breng de keten, de spelers en de spanningen in kaart.
+
+Context
+Onze opdrachtgever is [ wie ] en doet [ wat ]. Die zit in de keten van
+[ van ... tot ... ]. De vraag gaat ongeveer over [ ... ], en volgende week
+spreken wij ze voor het eerst.
+
+Output
+Kopjes en korte alinea's, met bij elke bewering een bron met jaartal en een
+link. Sluit af met vijf vragen die wij aan de opdrachtgever moeten stellen
+omdat het antwoord nergens openbaar staat.
+
+Grenzen
+Als iets niet naar een primaire bron te herleiden is, zeg dat, en gok niet.
+Zoek naar wat wij nog niet weten, niet naar bevestiging van wat wij
+hierboven al zeiden.</code></pre>
+    <p class="sub">Geen stukken of gegevens van je opdrachtgever in een open AI-tool. Openbare informatie is genoeg.</p>
+  </section>
+
+  <section>
+    <div class="tijd">15:20 &middot; terwijl hij draait</div>
+    <h2>Een run duurt ongeveer tien minuten. Die tijd zit je niet te wachten.</h2>
+    <ol>
+      <li><strong>Teken je keten zoals jij hem nu denkt.</strong> Schakels achter elkaar, en drie soorten pijlen:
+        materiaal, geld, informatie. Hulpmiddel 10.</li>
+      <li><strong>Schrijf drie dingen op die je verwacht dat eruit komt.</strong> Plus &eacute;&eacute;n ding waarvan je
+        hoopt dat het erin staat.</li>
+      <li><strong>Schrijf de drie vragen op</strong> die je sowieso aan je opdrachtgever wilt stellen.</li>
+    </ol>
+    <p class="sub">Wie vooraf opschrijft wat hij verwacht, leest de uitkomst anders.</p>
+  </section>
+
+  <section>
+    <div class="tijd">16:10 &middot; afsluiten</div>
+    <h2>Drie vingers omhoog</h2>
+    <ol>
+      <li>Heb je je <strong>deskresearch</strong>?</li>
+      <li>Heb je je <strong>ketenschets</strong>?</li>
+      <li>Heb je je <strong>vijf vragen</strong>?</li>
+    </ol>
+    <p class="sub">Wie er eentje mist weet nu wat hij vanavond nog doet, en niet volgende week donderdag om kwart over twaalf.</p>
+  </section>
+
+  <div class="hint">pijltjes of spatie</div>
+
+  <script>
+    var secties = Array.prototype.slice.call(document.querySelectorAll('section'));
+    function huidige() {
+      var beste = 0, klein = Infinity;
+      secties.forEach(function (el, i) {
+        var d = Math.abs(el.getBoundingClientRect().top);
+        if (d < klein) { klein = d; beste = i; }
+      });
+      return beste;
+    }
+    document.addEventListener('keydown', function (e) {
+      var i = huidige();
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        if (secties[i + 1]) secties[i + 1].scrollIntoView();
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        if (secties[i - 1]) secties[i - 1].scrollIntoView();
+      } else if (e.key === 'Home') {
+        e.preventDefault(); secties[0].scrollIntoView();
+      }
+    });
+  </script>
+</body>
+</html>
