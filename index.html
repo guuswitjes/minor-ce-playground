@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Playground | Minor Circulaire Economie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <div class="sidebar-overlay" onclick="toggleMenu()"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <span class="brand-subtitle">Circulaire Economie</span>
+          <span class="brand-title">AI Playground</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Start</div>
+          <a href="index.html" class="nav-link active">Home</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Sessies</div>
+          <a href="sessie-1.html" class="nav-link">1 &middot; Deep research</a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">Donderdagmiddag, Connectr</div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
+        <h1 class="page-title">AI Playground</h1>
+      </header>
+
+      <div class="main-content">
+        <p class="lead">
+          Zeven donderdagmiddagen waarin je met AI werkt aan je eigen opdracht. Geen college en geen oplevering:
+          je probeert iets, je kijkt of het standhoudt, en je laat aan de anderen zien wat eruit kwam.
+        </p>
+
+        <div class="callout callout-primary">
+          <p><strong>Waar het om draait:</strong> de kwaliteit van wat je terugkrijgt hangt aan wat je erin stopt.
+          En wat eruit komt, controleer je altijd zelf.</p>
+        </div>
+
+        <h2>Wat je hier vindt</h2>
+        <div class="card-grid">
+          <a href="sessie-1.html" class="card-link">
+            <div class="card">
+              <div class="card-title"><span class="icon">&#9654;</span> Sessie 1, donderdag 10 september</div>
+              <p class="card-text">Deep research op je opdrachtgever en zijn keten, en beoordelen wat eruit komt.
+              Alles wat je die middag nodig hebt staat op deze pagina.</p>
+              <span class="badge badge-primary">Discover</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>De zeven sessies</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Wanneer</th><th>Fase</th><th>Waar het over gaat</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>do 10 sep</td><td>Discover</td><td>Deep research, en de uitkomst beoordelen</td></tr>
+              <tr><td>2</td><td>do 24 sep</td><td>Define</td><td>Van veel naar scherp, en een omgeving die je opdracht kent</td></tr>
+              <tr><td>3</td><td>do 8 okt</td><td>Ideate</td><td>Twee modellen op dezelfde vraag</td></tr>
+              <tr><td>4</td><td>week 46</td><td>Ideate</td><td>AI aan je eigen bestanden</td></tr>
+              <tr><td>5</td><td>week 48</td><td>Develop</td><td>Een werkende keten rond je opdracht</td></tr>
+              <tr><td>6</td><td>week 50</td><td>Develop</td><td>Laten falen en bijschaven</td></tr>
+              <tr><td>7</td><td>na de kerst</td><td>Deliver</td><td>Afmaken, delen en verantwoorden</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="section-intro">Sessie 1 tot en met 3 liggen vast. De rest stellen we bij op wat we in de eerste drie zien.</p>
+
+        <div class="divider"></div>
+
+        <h2>Wat je zelf meeneemt</h2>
+        <ul>
+          <li>Je laptop, en het AI-account dat je hebt. Werkt iets niet, dan doe je het samen met je duo</li>
+          <li>Je eigen opdracht en wat je tot nu toe over je opdrachtgever weet</li>
+          <li>Hulpmiddel <strong>06 Slim AI gebruiken</strong> en <strong>05 Onderbouwen</strong> uit de studentenhandleiding.
+            Daar staat de opbouw van een opdracht en de CRAAP-test in, en die gebruiken we hier</li>
+        </ul>
+
+        <div class="callout callout-info">
+          <p><strong>Let op je opdrachtgever.</strong> Zet geen stukken of gegevens van je opdrachtgever in een open AI-tool.
+          Openbare informatie over de sector en de keten is genoeg. Dat staat ook in hulpmiddel 06.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
