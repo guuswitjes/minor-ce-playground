@@ -104,29 +104,33 @@
     section.compact li { margin-bottom: clamp(0.5rem, 0.9vw, 0.9rem); }
     section.compact h2 { font-size: clamp(1.3rem, 2.9vw, 2.6rem); margin-bottom: clamp(1rem, 2vw, 1.8rem); }
     .bouwsteen { color: var(--accent-donker); font-weight: 700; }
-    @media print { .hint { display: none; } section { min-height: auto; page-break-after: always; } }
+    .balk {
+      position: fixed; right: 0.9rem; bottom: 0.9rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; z-index: 10;
+      opacity: 0.35; transition: opacity 0.2s;
+    }
+    .balk:hover { opacity: 1; }
+    .balk button {
+      font: inherit; font-weight: 600;
+      color: var(--inkt); background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.35rem 0.7rem; cursor: pointer;
+    }
+    .balk button:hover { background: #fff; border-color: var(--accent); }
+    .teller { color: var(--text-muted); background: rgba(255,255,255,0.92); padding: 0.35rem 0.55rem; border-radius: 6px; }
+    @media print { .balk { display: none; } section { min-height: auto; page-break-after: always; } }
   </style>
 </head>
 <body>
 
-  <section>
-    <div class="tijd">14:30 &middot; opening</div>
+  <section data-notes="Start bij hun eigen Nijl-uitkomst, niet bij jezelf. Vraag: vorige week bouwden jullie allemaal een onderhandelaar met dezelfde training, waarom hield die ene het vol en de rest niet? Laat ze het zelf zeggen. Komt er 'betere prompt', duw dan door: iedereen had dezelfde promptopbouw geleerd, wat zat er dan anders in? Waar je op uitkomt: het verschil zat niet in hoe ze het vroegen maar in wat ze erin hadden gestopt.">
     <h1>AI Playground</h1>
-    <div class="openrij">
-      <div class="tekst">
-        <p class="link">guuswitjes.github.io/minor-ce-playground</p>
-        <p class="sub">Scan de code of typ de link over. Open hem op je laptop, &eacute;&eacute;n per duo is genoeg.</p>
-      </div>
-      <div>
-        <div class="qr"><svg viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR-code naar guuswitjes.github.io/minor-ce-playground"><rect width="41" height="41" fill="#ffffff"/><path d="M4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM20 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM27 4h1v1h-1zM30 4h1v1h-1zM31 4h1v1h-1zM32 4h1v1h-1zM33 4h1v1h-1zM34 4h1v1h-1zM35 4h1v1h-1zM36 4h1v1h-1zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM30 5h1v1h-1zM36 5h1v1h-1zM4 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM33 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM4 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM22 7h1v1h-1zM23 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM30 7h1v1h-1zM32 7h1v1h-1zM33 7h1v1h-1zM34 7h1v1h-1zM36 7h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM17 8h1v1h-1zM18 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM33 8h1v1h-1zM34 8h1v1h-1zM36 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM15 9h1v1h-1zM18 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM36 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM31 10h1v1h-1zM32 10h1v1h-1zM33 10h1v1h-1zM34 10h1v1h-1zM35 10h1v1h-1zM36 10h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM26 11h1v1h-1zM27 11h1v1h-1zM28 11h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM13 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM21 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM30 12h1v1h-1zM31 12h1v1h-1zM32 12h1v1h-1zM33 12h1v1h-1zM34 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM11 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM27 13h1v1h-1zM30 13h1v1h-1zM31 13h1v1h-1zM33 13h1v1h-1zM34 13h1v1h-1zM35 13h1v1h-1zM36 13h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM18 14h1v1h-1zM19 14h1v1h-1zM20 14h1v1h-1zM21 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM32 14h1v1h-1zM34 14h1v1h-1zM35 14h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM21 15h1v1h-1zM22 15h1v1h-1zM23 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM32 15h1v1h-1zM33 15h1v1h-1zM34 15h1v1h-1zM35 15h1v1h-1zM36 15h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM10 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM16 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM24 16h1v1h-1zM26 16h1v1h-1zM29 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM35 16h1v1h-1zM36 16h1v1h-1zM7 17h1v1h-1zM9 17h1v1h-1zM11 17h1v1h-1zM12 17h1v1h-1zM13 17h1v1h-1zM16 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM25 17h1v1h-1zM27 17h1v1h-1zM30 17h1v1h-1zM34 17h1v1h-1zM35 17h1v1h-1zM36 17h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM17 18h1v1h-1zM19 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM26 18h1v1h-1zM29 18h1v1h-1zM30 18h1v1h-1zM35 18h1v1h-1zM4 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM11 19h1v1h-1zM12 19h1v1h-1zM15 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM29 19h1v1h-1zM30 19h1v1h-1zM32 19h1v1h-1zM34 19h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM11 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM26 20h1v1h-1zM29 20h1v1h-1zM31 20h1v1h-1zM32 20h1v1h-1zM36 20h1v1h-1zM4 21h1v1h-1zM5 21h1v1h-1zM9 21h1v1h-1zM12 21h1v1h-1zM15 21h1v1h-1zM16 21h1v1h-1zM20 21h1v1h-1zM23 21h1v1h-1zM24 21h1v1h-1zM27 21h1v1h-1zM30 21h1v1h-1zM31 21h1v1h-1zM33 21h1v1h-1zM34 21h1v1h-1zM36 21h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM7 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM13 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM26 22h1v1h-1zM29 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM34 22h1v1h-1zM35 22h1v1h-1zM5 23h1v1h-1zM7 23h1v1h-1zM8 23h1v1h-1zM13 23h1v1h-1zM14 23h1v1h-1zM15 23h1v1h-1zM17 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM23 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM31 23h1v1h-1zM32 23h1v1h-1zM33 23h1v1h-1zM34 23h1v1h-1zM36 23h1v1h-1zM5 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM13 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM26 24h1v1h-1zM28 24h1v1h-1zM29 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM35 24h1v1h-1zM36 24h1v1h-1zM4 25h1v1h-1zM5 25h1v1h-1zM6 25h1v1h-1zM8 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM16 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM24 25h1v1h-1zM27 25h1v1h-1zM30 25h1v1h-1zM31 25h1v1h-1zM33 25h1v1h-1zM36 25h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM17 26h1v1h-1zM23 26h1v1h-1zM29 26h1v1h-1zM33 26h1v1h-1zM34 26h1v1h-1zM35 26h1v1h-1zM4 27h1v1h-1zM7 27h1v1h-1zM9 27h1v1h-1zM12 27h1v1h-1zM13 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM18 27h1v1h-1zM20 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM28 27h1v1h-1zM29 27h1v1h-1zM30 27h1v1h-1zM33 27h1v1h-1zM34 27h1v1h-1zM35 27h1v1h-1zM4 28h1v1h-1zM10 28h1v1h-1zM14 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM26 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1zM29 28h1v1h-1zM30 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM12 29h1v1h-1zM15 29h1v1h-1zM18 29h1v1h-1zM20 29h1v1h-1zM21 29h1v1h-1zM22 29h1v1h-1zM23 29h1v1h-1zM25 29h1v1h-1zM27 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM34 29h1v1h-1zM36 29h1v1h-1zM4 30h1v1h-1zM5 30h1v1h-1zM6 30h1v1h-1zM7 30h1v1h-1zM8 30h1v1h-1zM9 30h1v1h-1zM10 30h1v1h-1zM14 30h1v1h-1zM18 30h1v1h-1zM19 30h1v1h-1zM21 30h1v1h-1zM24 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1zM30 30h1v1h-1zM32 30h1v1h-1zM34 30h1v1h-1zM35 30h1v1h-1zM4 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM15 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM23 31h1v1h-1zM25 31h1v1h-1zM27 31h1v1h-1zM28 31h1v1h-1zM32 31h1v1h-1zM33 31h1v1h-1zM34 31h1v1h-1zM35 31h1v1h-1zM4 32h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM8 32h1v1h-1zM10 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM15 32h1v1h-1zM16 32h1v1h-1zM18 32h1v1h-1zM20 32h1v1h-1zM28 32h1v1h-1zM29 32h1v1h-1zM30 32h1v1h-1zM31 32h1v1h-1zM32 32h1v1h-1zM33 32h1v1h-1zM36 32h1v1h-1zM4 33h1v1h-1zM6 33h1v1h-1zM7 33h1v1h-1zM8 33h1v1h-1zM10 33h1v1h-1zM12 33h1v1h-1zM13 33h1v1h-1zM19 33h1v1h-1zM22 33h1v1h-1zM25 33h1v1h-1zM27 33h1v1h-1zM28 33h1v1h-1zM29 33h1v1h-1zM32 33h1v1h-1zM34 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM4 34h1v1h-1zM6 34h1v1h-1zM7 34h1v1h-1zM8 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM14 34h1v1h-1zM16 34h1v1h-1zM17 34h1v1h-1zM18 34h1v1h-1zM19 34h1v1h-1zM20 34h1v1h-1zM21 34h1v1h-1zM22 34h1v1h-1zM24 34h1v1h-1zM25 34h1v1h-1zM26 34h1v1h-1zM27 34h1v1h-1zM28 34h1v1h-1zM29 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM33 34h1v1h-1zM4 35h1v1h-1zM10 35h1v1h-1zM13 35h1v1h-1zM15 35h1v1h-1zM16 35h1v1h-1zM19 35h1v1h-1zM22 35h1v1h-1zM23 35h1v1h-1zM24 35h1v1h-1zM25 35h1v1h-1zM26 35h1v1h-1zM27 35h1v1h-1zM32 35h1v1h-1zM33 35h1v1h-1zM34 35h1v1h-1zM4 36h1v1h-1zM5 36h1v1h-1zM6 36h1v1h-1zM7 36h1v1h-1zM8 36h1v1h-1zM9 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM17 36h1v1h-1zM18 36h1v1h-1zM19 36h1v1h-1zM21 36h1v1h-1zM22 36h1v1h-1zM23 36h1v1h-1zM24 36h1v1h-1zM26 36h1v1h-1zM27 36h1v1h-1zM28 36h1v1h-1zM29 36h1v1h-1zM31 36h1v1h-1zM35 36h1v1h-1z" fill="#1C1713"/></svg></div>
-        <p class="qr-bij">Scan mij</p>
-      </div>
-    </div>
+    <p class="sub">Sessie 1 &middot; deep research, en beoordelen wat eruit komt</p>
   </section>
 
-  <section>
-    <div class="tijd">14:30 &middot; wat je straks in handen hebt</div>
-    <h2>Om kwart over vier heb je drie dingen die je volgende week nodig hebt</h2>
+  <section data-notes="Niet overslaan, dit haalt de is-dit-een-spelletje-vraag weg. Zeg het ongeveer in deze woorden. Sluit dit blok af met de accountpeiling: handen omhoog, wie heeft een betaald ChatGPT-account, wie een betaalde Claude, wie geen van beide. Onthoud waar de lege plekken zitten, daar loop je straks als eerste langs.">
+    <h2>Aan het eind heb je drie dingen die je volgende week nodig hebt</h2>
     <ol>
       <li><strong>Een eerste deskresearch op je eigen opdrachtgever</strong>, met bronnen die je zelf hebt gecheckt.
         Dat is een stuk van je lowstake.</li>
@@ -136,20 +140,26 @@
     </ol>
   </section>
 
-  <section>
-    <div class="tijd">14:42 &middot; opdracht 1</div>
+  <section class="compact" data-notes="Start eerst je live deep research op het andere scherm, dan pas deze slide. Zeg erbij dat je hem laat lopen en ondertussen doorgaat, want dat is precies de werkwijze van straks. Vraag drie is het punt, niet de ranglijst. Verwacht dat een deel uitkomst 4 bovenaan zet vanwege de Gelderse context met 2Switch, en dat een deel uitkomst 2 hoog zet omdat die de langste is. Allebei prima, doorvragen. Merkt iemand op dat ze oplopen met het nummer: belonen en vragen waarom.">
     <h2>Welke zou jij meenemen?</h2>
-    <p>Voor je liggen vier uitkomsten over dezelfde keten. Ze komen alle vier uit AI. Meer weet je niet.</p>
-    <ol>
-      <li>Zet ze op volgorde: welke zou jij meenemen naar je opdrachtgever, welke laat je liggen?</li>
-      <li>Schrijf per stuk op waarop je dat baseert.</li>
-      <li>En de belangrijkste: <strong>wat denk je dat er anders gevraagd is?</strong></li>
-    </ol>
+    <div class="openrij">
+      <div class="tekst">
+        <p>Vier uitkomsten over dezelfde keten. Ze komen alle vier uit AI. Meer weet je niet.</p>
+        <ol>
+          <li>Zet ze op volgorde: welke zou jij meenemen naar je opdrachtgever, welke laat je liggen?</li>
+          <li>Schrijf per stuk op waarop je dat baseert.</li>
+          <li>En de belangrijkste: <strong>wat denk je dat er anders gevraagd is?</strong></li>
+        </ol>
+      </div>
+      <div>
+        <div class="qr"><svg viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR-code naar guuswitjes.github.io/minor-ce-playground"><rect width="41" height="41" fill="#ffffff"/><path d="M4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM20 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM27 4h1v1h-1zM30 4h1v1h-1zM31 4h1v1h-1zM32 4h1v1h-1zM33 4h1v1h-1zM34 4h1v1h-1zM35 4h1v1h-1zM36 4h1v1h-1zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM30 5h1v1h-1zM36 5h1v1h-1zM4 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM33 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM4 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM22 7h1v1h-1zM23 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM30 7h1v1h-1zM32 7h1v1h-1zM33 7h1v1h-1zM34 7h1v1h-1zM36 7h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM17 8h1v1h-1zM18 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM33 8h1v1h-1zM34 8h1v1h-1zM36 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM15 9h1v1h-1zM18 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM36 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM31 10h1v1h-1zM32 10h1v1h-1zM33 10h1v1h-1zM34 10h1v1h-1zM35 10h1v1h-1zM36 10h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM26 11h1v1h-1zM27 11h1v1h-1zM28 11h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM13 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM21 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM30 12h1v1h-1zM31 12h1v1h-1zM32 12h1v1h-1zM33 12h1v1h-1zM34 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM11 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM27 13h1v1h-1zM30 13h1v1h-1zM31 13h1v1h-1zM33 13h1v1h-1zM34 13h1v1h-1zM35 13h1v1h-1zM36 13h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM18 14h1v1h-1zM19 14h1v1h-1zM20 14h1v1h-1zM21 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM32 14h1v1h-1zM34 14h1v1h-1zM35 14h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM21 15h1v1h-1zM22 15h1v1h-1zM23 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM32 15h1v1h-1zM33 15h1v1h-1zM34 15h1v1h-1zM35 15h1v1h-1zM36 15h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM10 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM16 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM24 16h1v1h-1zM26 16h1v1h-1zM29 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM35 16h1v1h-1zM36 16h1v1h-1zM7 17h1v1h-1zM9 17h1v1h-1zM11 17h1v1h-1zM12 17h1v1h-1zM13 17h1v1h-1zM16 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM25 17h1v1h-1zM27 17h1v1h-1zM30 17h1v1h-1zM34 17h1v1h-1zM35 17h1v1h-1zM36 17h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM17 18h1v1h-1zM19 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM26 18h1v1h-1zM29 18h1v1h-1zM30 18h1v1h-1zM35 18h1v1h-1zM4 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM11 19h1v1h-1zM12 19h1v1h-1zM15 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM29 19h1v1h-1zM30 19h1v1h-1zM32 19h1v1h-1zM34 19h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM11 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM26 20h1v1h-1zM29 20h1v1h-1zM31 20h1v1h-1zM32 20h1v1h-1zM36 20h1v1h-1zM4 21h1v1h-1zM5 21h1v1h-1zM9 21h1v1h-1zM12 21h1v1h-1zM15 21h1v1h-1zM16 21h1v1h-1zM20 21h1v1h-1zM23 21h1v1h-1zM24 21h1v1h-1zM27 21h1v1h-1zM30 21h1v1h-1zM31 21h1v1h-1zM33 21h1v1h-1zM34 21h1v1h-1zM36 21h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM7 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM13 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM26 22h1v1h-1zM29 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM34 22h1v1h-1zM35 22h1v1h-1zM5 23h1v1h-1zM7 23h1v1h-1zM8 23h1v1h-1zM13 23h1v1h-1zM14 23h1v1h-1zM15 23h1v1h-1zM17 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM23 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM31 23h1v1h-1zM32 23h1v1h-1zM33 23h1v1h-1zM34 23h1v1h-1zM36 23h1v1h-1zM5 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM13 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM26 24h1v1h-1zM28 24h1v1h-1zM29 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM35 24h1v1h-1zM36 24h1v1h-1zM4 25h1v1h-1zM5 25h1v1h-1zM6 25h1v1h-1zM8 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM16 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM24 25h1v1h-1zM27 25h1v1h-1zM30 25h1v1h-1zM31 25h1v1h-1zM33 25h1v1h-1zM36 25h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM17 26h1v1h-1zM23 26h1v1h-1zM29 26h1v1h-1zM33 26h1v1h-1zM34 26h1v1h-1zM35 26h1v1h-1zM4 27h1v1h-1zM7 27h1v1h-1zM9 27h1v1h-1zM12 27h1v1h-1zM13 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM18 27h1v1h-1zM20 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM28 27h1v1h-1zM29 27h1v1h-1zM30 27h1v1h-1zM33 27h1v1h-1zM34 27h1v1h-1zM35 27h1v1h-1zM4 28h1v1h-1zM10 28h1v1h-1zM14 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM26 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1zM29 28h1v1h-1zM30 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM12 29h1v1h-1zM15 29h1v1h-1zM18 29h1v1h-1zM20 29h1v1h-1zM21 29h1v1h-1zM22 29h1v1h-1zM23 29h1v1h-1zM25 29h1v1h-1zM27 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM34 29h1v1h-1zM36 29h1v1h-1zM4 30h1v1h-1zM5 30h1v1h-1zM6 30h1v1h-1zM7 30h1v1h-1zM8 30h1v1h-1zM9 30h1v1h-1zM10 30h1v1h-1zM14 30h1v1h-1zM18 30h1v1h-1zM19 30h1v1h-1zM21 30h1v1h-1zM24 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1zM30 30h1v1h-1zM32 30h1v1h-1zM34 30h1v1h-1zM35 30h1v1h-1zM4 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM15 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM23 31h1v1h-1zM25 31h1v1h-1zM27 31h1v1h-1zM28 31h1v1h-1zM32 31h1v1h-1zM33 31h1v1h-1zM34 31h1v1h-1zM35 31h1v1h-1zM4 32h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM8 32h1v1h-1zM10 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM15 32h1v1h-1zM16 32h1v1h-1zM18 32h1v1h-1zM20 32h1v1h-1zM28 32h1v1h-1zM29 32h1v1h-1zM30 32h1v1h-1zM31 32h1v1h-1zM32 32h1v1h-1zM33 32h1v1h-1zM36 32h1v1h-1zM4 33h1v1h-1zM6 33h1v1h-1zM7 33h1v1h-1zM8 33h1v1h-1zM10 33h1v1h-1zM12 33h1v1h-1zM13 33h1v1h-1zM19 33h1v1h-1zM22 33h1v1h-1zM25 33h1v1h-1zM27 33h1v1h-1zM28 33h1v1h-1zM29 33h1v1h-1zM32 33h1v1h-1zM34 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM4 34h1v1h-1zM6 34h1v1h-1zM7 34h1v1h-1zM8 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM14 34h1v1h-1zM16 34h1v1h-1zM17 34h1v1h-1zM18 34h1v1h-1zM19 34h1v1h-1zM20 34h1v1h-1zM21 34h1v1h-1zM22 34h1v1h-1zM24 34h1v1h-1zM25 34h1v1h-1zM26 34h1v1h-1zM27 34h1v1h-1zM28 34h1v1h-1zM29 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM33 34h1v1h-1zM4 35h1v1h-1zM10 35h1v1h-1zM13 35h1v1h-1zM15 35h1v1h-1zM16 35h1v1h-1zM19 35h1v1h-1zM22 35h1v1h-1zM23 35h1v1h-1zM24 35h1v1h-1zM25 35h1v1h-1zM26 35h1v1h-1zM27 35h1v1h-1zM32 35h1v1h-1zM33 35h1v1h-1zM34 35h1v1h-1zM4 36h1v1h-1zM5 36h1v1h-1zM6 36h1v1h-1zM7 36h1v1h-1zM8 36h1v1h-1zM9 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM17 36h1v1h-1zM18 36h1v1h-1zM19 36h1v1h-1zM21 36h1v1h-1zM22 36h1v1h-1zM23 36h1v1h-1zM24 36h1v1h-1zM26 36h1v1h-1zM27 36h1v1h-1zM28 36h1v1h-1zM29 36h1v1h-1zM31 36h1v1h-1zM35 36h1v1h-1z" fill="#1C1713"/></svg></div>
+        <p class="qr-bij">guuswitjes.github.io/<br>minor-ce-playground</p>
+      </div>
+    </div>
     <p class="sub">Tien minuten. E&eacute;n laptop per duo, alleen om te lezen.</p>
   </section>
 
-  <section class="compact">
-    <div class="tijd">15:00 &middot; opdracht 2</div>
+  <section class="compact" data-notes="Roep de nummers om, zorg dat claim 1, 2 en 7 in elk geval vergeven zijn. Zeg VOORAF dat niet gevonden een geldige uitkomst is, niet achteraf, anders voelt een duo zeven minuten lang dat het faalt. Rondloopvraag: waar heb je dat vandaan, en is dat de plek waar het cijfer geboren is? In de ronde alleen de kapotte claims, en bewaar claim 2 of 7 voor het laatst.">
     <h2>Klopt dit wel?</h2>
     <p>Je krijgt een nummer. Pak die claim van de site en <strong>zoek de primaire bron</strong>. Niet de eerste pagina
       die het herhaalt, maar waar het cijfer vandaan komt.</p>
@@ -160,8 +170,7 @@
       citeren zijn samen &eacute;&eacute;n bron.</p>
   </section>
 
-  <section class="compact">
-    <div class="tijd">15:12 &middot; opdracht 3</div>
+  <section class="compact" data-notes="Schrijven, niet plakken. Zeg erbij dat de vier bouwstenen uit hulpmiddel 06 gewoon in deze zes zitten, dan hoeven ze niet te kiezen welk lijstje geldt. Bouwsteen 4 en 6 zijn vandaag de belangrijkste, dat staat ook in hun e-learning. AVG: geen gegevens van de opdrachtgever in een open tool. Duo zonder opdrachtgever: sector of thema pakken, dat is volwaardig; heeft het duo helemaal niets, dan dummy A of B onderaan de site. Het gesprek over een echte opdracht doe je in de rondloop, niet nu.">
     <h2>Schrijf je eigen opdracht. Plak hem niet.</h2>
     <ol>
       <li><span class="bouwsteen">Rol</span> &middot; wie moet dit voor je uitzoeken?</li>
@@ -178,8 +187,7 @@
       Geen gegevens van je opdrachtgever in een open AI-tool.</p>
   </section>
 
-  <section>
-    <div class="tijd">15:20 tot 15:32 &middot; terwijl hij draait</div>
+  <section data-notes="Taak twee is de belangrijkste en wordt het vaakst overgeslagen: wie vooraf opschrijft wat hij verwacht, leest de uitkomst anders. Zeg bij taak drie dat die vragen straks terugkomen, dan schrijven ze ze serieuzer op. Loop eerst langs de duo's zonder betaald account. Let op duo's die hun opdracht kaal houden: vraag wat de opdrachtgever ook alweer doet.">
     <h2>Een run duurt ongeveer tien minuten. Die tijd zit je niet te wachten.</h2>
     <ol>
       <li><strong>Teken je keten zoals jij hem nu denkt.</strong> Schakels achter elkaar, en drie soorten pijlen:
@@ -191,24 +199,22 @@
     <p class="sub">Wie vooraf opschrijft wat hij verwacht, leest de uitkomst anders.</p>
   </section>
 
-  <section class="compact">
-    <div class="tijd">15:32 tot 15:57 &middot; als de uitkomst binnen is</div>
+  <section class="compact" data-notes="Drie stappen, elk gekoppeld aan een van je drie beloftes. Loop je uit, knip dan in het gridblok en niet in de bronnencheck: het grid maken ze thuis af, de bronnencheck niet. Rondloopvraag bij de laatste stap: welke van deze vijf had je zelf kunnen opzoeken? Daar sneuvelen er meestal twee. Research nog niet binnen: laat ze het grid vullen met wat ze zelf weten.">
     <h2>Drie stappen, en dan heb je alles wat je volgende week nodig hebt</h2>
     <ol>
-      <li><strong>15:32 &middot; naast je schets, en dan het grid.</strong> Wat had je al, wat is nieuw, waar zat je
+      <li><strong>Naast je schets, en dan het grid.</strong> Wat had je al, wat is nieuw, waar zat je
         ernaast? Haal daarna de spelers uit je keten en zet ze in het macht/belang-grid van hulpmiddel 08.
         <em>Dat is je stakeholdermapping.</em></li>
-      <li><strong>15:42 &middot; check je eigen bronnen.</strong> Je vroeg om een lijstje met bepalende beweringen, dus
+      <li><strong>Check je eigen bronnen.</strong> Je vroeg om een lijstje met bepalende beweringen, dus
         dat staat er al. Pak degene die je het hardst nodig hebt, en zoek de primaire bron. Pak er ook een die de AI
         &ldquo;zeker&rdquo; noemde. <em>Dat is je deskresearch.</em></li>
-      <li><strong>15:50 &middot; jouw vijf vragen.</strong> Voeg je eigen drie van 15:20 samen met de vijf uit je
+      <li><strong>Jouw vijf vragen.</strong> Voeg je eigen drie van net samen met de vijf uit je
         uitkomst. Test per vraag: <strong>had ik dit zelf kunnen opzoeken in tien minuten?</strong> Zo ja, schrappen,
         dat is huiswerk. <em>De rest neem je mee naar je opdrachtgever.</em></li>
     </ol>
   </section>
 
-  <section>
-    <div class="tijd">16:10 &middot; afsluiten</div>
+  <section data-notes="Drie vingers, dertig seconden, echt langslopen. Daarna twee zinnen. Een: open voor donderdag hulpmiddel 09 Opdrachtgever-afspraken, daar staan de vragen over de opdracht zelf, jullie vijf komen daar bovenop. Twee: wie hier iets in ziet dat groter is dan vanmiddag, een onderzoeksmachine voor je eigen sector bijvoorbeeld, kan dat als kortcyclisch project oppakken, kom even langs. Meer hoef je niet te zeggen, je opent alleen de deur.">
     <h2>Drie vingers omhoog</h2>
     <ol>
       <li>Heb je je <strong>deskresearch</strong>?</li>
@@ -218,10 +224,21 @@
     <p class="sub">Wie er eentje mist weet nu wat hij vanavond nog doet, en niet vlak voor de deadline.</p>
   </section>
 
-  <div class="hint">pijltjes of spatie</div>
+  <div class="balk">
+    <span class="teller" id="teller"></span>
+    <button id="knop-notities" type="button">Notities</button>
+    <button id="knop-scherm" type="button">Volledig scherm</button>
+  </div>
 
   <script>
     var secties = Array.prototype.slice.call(document.querySelectorAll('section'));
+    var notitieVenster = null;
+
+    function titelVan(sec) {
+      var k = sec.querySelector('h1, h2');
+      return k ? k.textContent.trim() : '';
+    }
+
     function huidige() {
       var beste = 0, klein = Infinity;
       secties.forEach(function (el, i) {
@@ -230,18 +247,103 @@
       });
       return beste;
     }
+
+    function ga(i) {
+      if (secties[i]) secties[i].scrollIntoView();
+    }
+
+    /* ---------- Volledig scherm ---------- */
+    document.getElementById('knop-scherm').addEventListener('click', function () {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    });
+    document.addEventListener('fullscreenchange', function () {
+      document.getElementById('knop-scherm').textContent =
+        document.fullscreenElement ? 'Verlaat volledig scherm' : 'Volledig scherm';
+    });
+
+    /* ---------- Notitievenster ---------- */
+    var NOTITIE_HTML = [
+      '<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">',
+      '<title>Notities</title><style>',
+      'body{font:16px/1.55 Inter,system-ui,sans-serif;margin:0;padding:1.6rem;',
+      'background:#1C1713;color:#F7F4F0;}',
+      '.kop{display:flex;justify-content:space-between;align-items:baseline;',
+      'font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#B0A49A;',
+      'border-bottom:1px solid #3a332d;padding-bottom:.7rem;margin-bottom:1.2rem;}',
+      'h1{font-size:1.5rem;line-height:1.25;margin:0 0 1.1rem;color:#fff;}',
+      '#notitie{font-size:1.15rem;line-height:1.65;}',
+      '.volgende{margin-top:2rem;padding-top:1rem;border-top:1px solid #3a332d;',
+      'font-size:.95rem;color:#B0A49A;}',
+      '.volgende b{color:#D0E3CF;font-weight:600;}',
+      '.leeg{color:#7A6E66;font-style:italic;}',
+      '</style></head><body>',
+      '<div class="kop"><span id="tel"></span><span id="klok"></span></div>',
+      '<h1 id="titel"></h1><div id="notitie"></div>',
+      '<div class="volgende">Hierna: <b id="volgende"></b></div>',
+      '<script>setInterval(function(){var d=new Date();',
+      'document.getElementById("klok").textContent=',
+      'String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");},1000);',
+      '<\/script></body></html>'
+    ].join('');
+
+    document.getElementById('knop-notities').addEventListener('click', function () {
+      if (notitieVenster && !notitieVenster.closed) { notitieVenster.focus(); return; }
+      notitieVenster = window.open('', 'notities', 'width=580,height=780');
+      if (!notitieVenster) {
+        alert('Je browser blokkeert het pop-upvenster. Sta pop-ups toe voor deze pagina.');
+        return;
+      }
+      notitieVenster.document.open();
+      notitieVenster.document.write(NOTITIE_HTML);
+      notitieVenster.document.close();
+      setTimeout(schrijfNotitie, 60);
+    });
+
+    function schrijfNotitie() {
+      var i = huidige();
+      document.getElementById('teller').textContent = (i + 1) + ' / ' + secties.length;
+      if (!notitieVenster || notitieVenster.closed) return;
+      var d = notitieVenster.document;
+      if (!d.getElementById('titel')) return;
+      d.getElementById('tel').textContent = 'Slide ' + (i + 1) + ' van ' + secties.length;
+      d.getElementById('titel').textContent = titelVan(secties[i]);
+      var n = secties[i].getAttribute('data-notes');
+      d.getElementById('notitie').innerHTML = n
+        ? n.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        : '<span class="leeg">Geen notities bij deze slide.</span>';
+      d.getElementById('volgende').textContent =
+        secties[i + 1] ? titelVan(secties[i + 1]) : 'einde';
+    }
+
+    /* ---------- Navigatie ---------- */
     document.addEventListener('keydown', function (e) {
       var i = huidige();
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
-        e.preventDefault();
-        if (secties[i + 1]) secties[i + 1].scrollIntoView();
+        e.preventDefault(); ga(i + 1);
       } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        e.preventDefault();
-        if (secties[i - 1]) secties[i - 1].scrollIntoView();
+        e.preventDefault(); ga(i - 1);
       } else if (e.key === 'Home') {
-        e.preventDefault(); secties[0].scrollIntoView();
+        e.preventDefault(); ga(0);
+      } else if (e.key === 'End') {
+        e.preventDefault(); ga(secties.length - 1);
       }
     });
+
+    var bezig = false;
+    window.addEventListener('scroll', function () {
+      if (bezig) return;
+      bezig = true;
+      requestAnimationFrame(function () { bezig = false; schrijfNotitie(); });
+    });
+    window.addEventListener('unload', function () {
+      if (notitieVenster && !notitieVenster.closed) notitieVenster.close();
+    });
+
+    schrijfNotitie();
   </script>
 </body>
 </html>
