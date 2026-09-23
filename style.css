@@ -876,3 +876,195 @@ pre code {
   padding: 0.12rem 0.5rem;
   vertical-align: middle;
 }
+
+
+/* ---------------------------------------------------------------
+   Sessie 2. Alles hieronder is nieuw voor sessie 2 en raakt sessie 1
+   niet: de kopieerknop hangt aan pre.kopieerbaar, de rest aan
+   .sporen of aan body.sessie-2.
+   --------------------------------------------------------------- */
+
+/* Kleine bijregel onder een blok. */
+.bij {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.45rem;
+}
+
+/* Kopieerknop op een promptblok. De pre krijgt ruimte bovenin zodat de
+   knop nooit over de eerste regel valt. */
+pre.kopieerbaar {
+  position: relative;
+  padding-top: 2.8rem;
+}
+
+.kopieer-knop {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-donker);
+  background: var(--surface);
+  border: 1px solid var(--accent-medium);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.8rem;
+  min-height: 34px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.kopieer-knop:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--wit);
+}
+
+.kopieer-knop.gelukt {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--wit);
+}
+
+/* Spoor A en spoor B achter twee tabs. */
+.sporen {
+  margin: 1.25rem 0 0;
+}
+
+.spoor-knoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.spoor-knoppen button {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1.1rem;
+  min-height: 44px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.spoor-knoppen button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.spoor-knoppen button[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--wit);
+}
+
+.spoor-paneel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.spoor-paneel[hidden] {
+  display: none;
+}
+
+.spoor-paneel h4 {
+  font-size: 1rem;
+  color: var(--accent-donker);
+  margin: 1.75rem 0 0.5rem;
+}
+
+.spoor-paneel > p:first-child,
+.spoor-paneel > h4:first-child {
+  margin-top: 0;
+}
+
+/* Klapbaar blok: de kop moet ook met het toetsenbord te bedienen zijn. */
+.collapsible-header:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* Telefoon. De site staat standaard op 15px en kleiner, en dat is voor
+   deze pagina te klein: hier wordt in de zaal van een telefoon gelezen
+   en gekopieerd. Daarom alles wat tekst is op minimaal 16px. */
+@media (max-width: 640px) {
+  .sessie-2 p,
+  .sessie-2 li,
+  .sessie-2 td,
+  .sessie-2 .lead,
+  .sessie-2 .section-intro,
+  .sessie-2 .bij,
+  .sessie-2 .callout p,
+  .sessie-2 pre code {
+    font-size: 16px;
+  }
+
+  .sessie-2 .spoor-knoppen button {
+    font-size: 16px;
+    flex: 1 1 100%;
+  }
+
+  .sessie-2 .spoor-paneel {
+    padding: 1rem 1rem 1.25rem;
+  }
+
+  /* Geen horizontaal schuiven: de tabellen vallen uit elkaar in blokken. */
+  .sessie-2 table,
+  .sessie-2 .stappen thead,
+  .sessie-2 .stappen tbody,
+  .sessie-2 .stappen tr,
+  .sessie-2 .stappen td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sessie-2 .stappen thead {
+    display: none;
+  }
+
+  .sessie-2 .stappen tr {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sessie-2 .stappen tr:last-child {
+    border-bottom: none;
+  }
+
+  .sessie-2 .stappen td {
+    border: none;
+    padding: 0.1rem 0;
+  }
+
+  .sessie-2 .stappen td::before {
+    content: attr(data-label);
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--tekst-donker);
+  }
+
+  .sessie-2 .stappen td:first-child::before {
+    margin-top: 0;
+  }
+
+  .sessie-2 .stappen tr:hover td {
+    background: transparent;
+  }
+}

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessie 2, van oplossing naar probleem | AI Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sessie-2">
+  <div class="layout">
+    <div class="sidebar-overlay" onclick="toggleMenu()"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <span class="brand-subtitle">Circulaire Economie</span>
+          <span class="brand-title">AI Playground</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Start</div>
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Sessies</div>
+          <a href="sessie-1.html" class="nav-link">1 &middot; Deep research</a>
+          <a href="sessie-2.html" class="nav-link active">2 &middot; Van oplossing naar probleem</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Het bord</div>
+          <a href="https://ideeenbord-ce.web.app" class="nav-link">Idee&euml;nbord openen</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Op deze pagina</div>
+          <a href="#belofte" class="nav-link">Wat je om 16:15 hebt</a>
+          <a href="#werkvorm-1" class="nav-link">Werkvorm 1</a>
+          <a href="#keten" class="nav-link">Werkvorm 2, de keten</a>
+          <a href="#startlijst" class="nav-link">Startlijst met idee&euml;n</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Materiaal sessie 1</div>
+          <a href="uitkomst-1.html" class="nav-link">Uitkomst 1</a>
+          <a href="uitkomst-2.html" class="nav-link">Uitkomst 2</a>
+          <a href="uitkomst-3.html" class="nav-link">Uitkomst 3</a>
+          <a href="uitkomst-4.html" class="nav-link">Uitkomst 4</a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">24 september, 14:30 tot 16:15<br>Connectr, Arnhem</div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
+        <h1 class="page-title">Sessie 2 &middot; Van oplossing naar probleem</h1>
+      </header>
+
+      <div class="main-content">
+        <p class="lead">
+          Het bouwen lukt. In drie weken maakte je een GPT, een website, een app en een onderzoeksrapport.
+          Wat nog niet vanzelf gaat, is weten <em>wat</em> je bouwt en <em>voor wie</em>.
+          Daar gaat vanmiddag over.
+        </p>
+
+        <div class="callout callout-primary">
+          <p><strong>Een goed antwoord op de verkeerde vraag is nog steeds fout.</strong>
+          Dat staat in je eigen hulpmiddel 11. Vanmiddag draai je de volgorde om: eerst het probleem, dan het ding.</p>
+        </div>
+
+        <h2 id="belofte">Wat je om 16:15 in handen hebt</h2>
+        <p>Geen huiswerk achteraf. Twee dingen die je volgende week nodig hebt:</p>
+        <ol>
+          <li><strong>Een probleemdefinitie in &eacute;&eacute;n zin</strong>, met een How Might We-vraag erbij,
+            en onder elke oorzaak waar die op rust. Die zet je in je project paper, dat donderdag 1 oktober af moet.</li>
+          <li><strong>&Eacute;&eacute;n idee voor iets dat je met AI wilt maken</strong>, herschreven tot een echt probleem,
+            op de lijst van de groep. Daar kan je volgende kortcyclische project uit komen.</li>
+        </ol>
+        <div class="callout callout-info">
+          <p><strong>Staat jullie probleemdefinitie al?</strong> Dan maak je in plaats van de eerste een briefing
+          die je zo aan Claude Code of Codex kunt geven. Dat is spoor B, verderop op deze pagina.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="werkvorm-1">Werkvorm 1 &middot; Van oplossing naar probleem</h2>
+        <p class="section-intro">In duo&#39;s, vijftien minuten plus een ronde. Dit doe je met de hand, zonder AI.</p>
+
+        <div class="callout callout-primary">
+          <p><strong>Het bord staat hier:</strong>
+            <a href="https://ideeenbord-ce.web.app">ideeenbord-ce.web.app</a></p>
+          <p>Twee kolommen. Links wat jullie al maakten, rechts wat jullie nog willen maken.
+            Je hoeft niet in te loggen.</p>
+        </div>
+
+        <h3>Eerst: drie idee&euml;n</h3>
+        <pre class="kopieerbaar"><code>Schrijf drie dingen op die jullie met AI zouden willen maken.
+Voor jezelf, voor je studie, of voor je opdrachtgever.
+E&eacute;n regel per idee, op het bord in de tweede kolom.
+Vijf minuten.</code></pre>
+        <p>Kom je niet op drie? Onderaan deze pagina staat een startlijst, ingeklapt.</p>
+
+        <h3>Dan: ruilen en herschrijven</h3>
+        <pre class="kopieerbaar"><code>Ruil met het duo naast je.
+Herschrijf elk idee van dat duo van oplossing naar probleem:
+
+- Voor wie is dit een probleem?
+- Wat gebeurt er nu, zonder dat ding?
+- Hoe vaak, en wat kost het nu: tijd, geld, ergernis?
+
+Staat er nog een oplossing in? Haal hem eruit.
+Tien minuten.</code></pre>
+        <p>Dit is gereedschap 3 uit hulpmiddel 11, het herformuleren van de opdracht.
+          Je eigen idee herschrijven lukt slecht, want je ziet de oplossing al voor je.
+          Een ander duo stelt de vragen die jij overslaat.</p>
+
+        <div class="callout callout-primary">
+          <p><strong>De toets voor de lijst.</strong> Weet je voor wie het een probleem is,
+          en kun je in twee weken een eerste versie hebben? Twee keer ja, dan blijft het idee staan.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="keten">Werkvorm 2 &middot; De keten</h2>
+        <p class="section-intro">In duo&#39;s, vijfenveertig minuten. Nu met AI, op alles wat je voor je opdrachtgever hebt verzameld.</p>
+
+        <p>Je doet het in vier stappen. Na elke stap kijk je zelf, en pas je aan voor je verdergaat.
+          De output van de ene stap is de input van de volgende. Dat is een promptketen.</p>
+
+        <div class="callout callout-primary">
+          <p><strong>Na elke stap drie vragen</strong>, die ken je van training 1:
+          wat klopt niet, wat mist, wat kan duidelijker?</p>
+        </div>
+
+        <div class="callout callout-info" id="avg">
+          <p><strong>Let op de AVG, lees dit voor je begint.</strong></p>
+          <p>In de tool mag: openbare informatie, je eigen deskresearch, en je eigen samenvatting van het gesprek
+            in je eigen woorden.</p>
+          <p>Eruit blijven: namen van mensen, interne documenten, en cijfers die de opdrachtgever alleen aan jullie gaf.
+            Dat staat ook in hulpmiddel 06.</p>
+        </div>
+
+        <h3>De vier stappen, met de tijden</h3>
+        <div class="table-wrap">
+          <table class="stappen">
+            <thead>
+              <tr><th>Tijd</th><th>Stap</th><th>Wat je doet</th><th>Check voor je verdergaat</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Tijd">15:10</td><td data-label="Stap"><strong>0</strong> project</td><td data-label="Wat je doet">Project aanmaken, materiaal erin, projectinstructie</td><td data-label="Check voor je verdergaat">Staat er niets in dat niet naar buiten mag?</td></tr>
+              <tr><td data-label="Tijd">15:15</td><td data-label="Stap"><strong>1</strong> ordenen</td><td data-label="Wat je doet">Vier bakken: feiten, aannames, tegenspraak, gaten</td><td data-label="Check voor je verdergaat">Twee feiten terugzoeken in het bestand</td></tr>
+              <tr><td data-label="Tijd">15:25</td><td data-label="Stap"><strong>2</strong> doorvragen</td><td data-label="Wat je doet">5x waarom en een probleemboom</td><td data-label="Check voor je verdergaat">Welke oorzaak kiezen wij, en hoeveel treden rusten op een aanname?</td></tr>
+              <tr><td data-label="Tijd">15:35</td><td data-label="Stap"><strong>3</strong> aanscherpen</td><td data-label="Wat je doet">Probleem in &eacute;&eacute;n zin, drie How Might We-vragen</td><td data-label="Check voor je verdergaat">Geen oplossing, geen &#8220;en&#8221;, in eigen woorden</td></tr>
+              <tr><td data-label="Tijd">15:45</td><td data-label="Stap"><strong>4</strong> aanvallen</td><td data-label="Wat je doet">De AI speelt de opdrachtgever</td><td data-label="Check voor je verdergaat">Wat kun je zelf uitzoeken, en wat vraag je de opdrachtgever?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-info">
+          <p><strong>De projectinstructie typ je zelf over</strong> en vul je aan.
+          De vier stapprompts mag je plakken. Het denkwerk zit in de check tussen de stappen.</p>
+        </div>
+
+        <h3>Kies je spoor</h3>
+        <div class="sporen">
+          <div class="spoor-knoppen" role="tablist" aria-label="Kies spoor A of spoor B">
+            <button type="button" role="tab" id="tab-a" aria-controls="paneel-a" aria-selected="true" data-spoor="a">
+              Spoor A &middot; je eigen project
+            </button>
+            <button type="button" role="tab" id="tab-b" aria-controls="paneel-b" aria-selected="false" data-spoor="b">
+              Spoor B &middot; een briefing
+            </button>
+          </div>
+
+          <div class="spoor-paneel" id="paneel-a" role="tabpanel" aria-labelledby="tab-a">
+            <p><strong>Spoor A is de standaard.</strong> Je werkt op je eigen project.
+              Het doel is een probleemdefinitie voor je project paper, dat over een week af moet.
+              De stappen volgen de vier gereedschappen van hulpmiddel 11, in die volgorde.</p>
+
+            <h4>Stap 0 &middot; het project</h4>
+            <p>Maak een project aan in ChatGPT of Claude. Zet erin als bestanden:</p>
+            <ul>
+              <li>De deskresearch voor de lowstake van 17 september, inclusief de deep research uit sessie 1</li>
+              <li>Je eigen aantekeningen van het gesprek met de opdrachtgever, in eigen woorden, zonder namen</li>
+              <li>De ketenschets en het stakeholdergrid, als die er zijn</li>
+              <li>De opdracht zoals de opdrachtgever hem letterlijk gaf</li>
+            </ul>
+            <p>De projectinstructie. Deze typ je zelf over en vul je aan:</p>
+            <pre class="kopieerbaar"><code>Wie wij zijn
+Wij zijn studenten in de minor Circulaire Economie van de HAN. We werken in een duo
+voor een opdrachtgever uit [ sector ], die in de keten van [ van ... tot ... ] zit.
+
+Wat er in dit project staat
+Onze deskresearch, onze eigen aantekeningen van het eerste gesprek met de
+opdrachtgever, en de opdracht zoals die ons gegeven is.
+
+Wat je doet
+Je helpt ons in vier stappen van veel materiaal naar &eacute;&eacute;n scherp probleem.
+Per bericht doe je &eacute;&eacute;n stap, de stap die wij vragen. Niet meer.
+
+Grenzen
+Werk alleen met wat in de bestanden staat en wat wij in de chat zeggen.
+Staat iets er niet in, zeg dat dan. Vul niets uit jezelf aan zonder erbij te
+zetten dat het van jou komt. Wij beslissen na elke stap wat doorgaat.</code></pre>
+            <p class="bij">Dit zijn vier van de zes bouwstenen uit je e-learning: gebruiker, context, taak en grenzen.
+              Hoofdstuk 7 gaat over projecten, als je wilt nalezen hoe dat werkt.</p>
+
+            <h4>Stap 1 &middot; ordenen</h4>
+            <pre class="kopieerbaar"><code>Stap 1, ordenen.
+Lees alles in dit project. Trek nog geen conclusie.
+Zet wat je vindt in vier bakken, met maximaal acht punten per bak:
+
+1. Feiten: met bij elk punt uit welk bestand het komt, en welke bron daar
+   genoemd wordt
+2. Aannames: wat wij of de research denken, zonder dat het onderbouwd is
+3. Tegenspraak: waar twee stukken elkaar tegenspreken
+4. Gaten: wat we moeten weten om het probleem te snappen, maar nergens staat
+
+Twijfel je of iets een feit of een aanname is, zet het dan bij de aannames.</code></pre>
+            <div class="callout callout-primary">
+              <p><strong>Check voor stap 2</strong></p>
+              <ul>
+                <li>Wat klopt niet, wat mist, wat kan duidelijker?</li>
+                <li>Pak twee punten uit bak 1 en zoek ze terug in het bestand. Staan ze er echt zo?</li>
+                <li>Zet in de chat wat eruit moet en wat erbij moet. Pas daarna door naar stap 2</li>
+              </ul>
+            </div>
+
+            <h4>Stap 2 &middot; doorvragen</h4>
+            <p class="bij">Gereedschap 1 en 2 uit hulpmiddel 11.</p>
+            <pre class="kopieerbaar"><code>Stap 2, doorvragen. Gebruik de bakken zoals we ze net hebben aangepast.
+
+1. Wat is het symptoom: wat gebeurt er bij onze opdrachtgever dat je kunt zien?
+   Beschrijf het zonder verklaring.
+2. Vraag vanaf dat symptoom vijf keer waarom. Zet bij elke stap waarop je het
+   baseert: een punt uit bak 1 (noem het), of het woord AANNAME als het uit
+   bak 2 komt.
+3. Maak een probleemboom: &eacute;&eacute;n kernprobleem in &eacute;&eacute;n zin, minstens vier oorzaken
+   met bij elke oorzaak of onze opdrachtgever er invloed op heeft, en de
+   gevolgen, met voor wie.</code></pre>
+            <div class="callout callout-primary">
+              <p><strong>Check voor stap 3</strong></p>
+              <ul>
+                <li>Op welke trede van de ladder zit een oorzaak waar jullie binnen je project iets aan kunnen doen?
+                  Hulpmiddel 11 zegt: kun je er niets aan doen, ga dan een trede terug</li>
+                <li>Tel de AANNAMES in de ladder. Elke aanname is een vraag voor je opdrachtgever. Schrijf ze op</li>
+                <li>Kies &eacute;&eacute;n oorzaak. Dat is jullie keuze, niet die van de AI</li>
+              </ul>
+            </div>
+
+            <h4>Stap 3 &middot; aanscherpen</h4>
+            <p class="bij">Gereedschap 3 en 4 uit hulpmiddel 11.</p>
+            <pre class="kopieerbaar"><code>Stap 3, aanscherpen.
+Wij kiezen deze oorzaak: [ jullie keuze uit stap 2 ].
+Dit vroeg onze opdrachtgever letterlijk: [ de opdracht zoals gegeven ].
+
+1. Herschrijf de opdracht als probleem in plaats van als oplossing.
+   E&eacute;n zin, zonder het woord "en".
+2. Schrijf drie How Might We-vragen: &eacute;&eacute;n te breed, &eacute;&eacute;n te smal, en &eacute;&eacute;n
+   ertussenin. Zeg bij elke vraag waarom.</code></pre>
+            <div class="callout callout-primary">
+              <p><strong>Check voor stap 4</strong></p>
+              <ul>
+                <li>Zit er nog een oplossing in je probleem? Haal hem eruit</li>
+                <li>Staat er &#8220;en&#8221; in? Dan zijn het er twee. Kies er &eacute;&eacute;n</li>
+                <li>Schrijf het probleem en de How Might We opnieuw op, in je eigen woorden, zonder te plakken</li>
+              </ul>
+            </div>
+
+            <h4>Stap 4 &middot; aanvallen</h4>
+            <pre class="kopieerbaar"><code>Stap 4, aanvallen.
+Speel nu onze opdrachtgever, en wees kritisch.
+Dit is ons probleem: [ ... ]
+Dit is onze How Might We-vraag: [ ... ]
+
+1. Welke aanname onder dit probleem is het zwakst? Wijs hem aan in de bakken
+   van stap 1.
+2. Wat zou jij als opdrachtgever niet herkennen, of anders zeggen?
+3. Geef drie vragen die wij jou moeten stellen om te weten of dit het echte
+   probleem is.</code></pre>
+            <div class="callout callout-primary">
+              <p><strong>Check, en daarmee klaar.</strong> Streep de vragen door die je zelf kunt uitzoeken.
+              Dezelfde test als in sessie 1: kun je het in tien minuten zelf opzoeken, dan is het huiswerk.
+              De rest gaat mee naar het volgende gesprek met je opdrachtgever.</p>
+            </div>
+
+            <h4>Waar de uitkomst landt</h4>
+            <div class="table-wrap">
+              <table class="stappen">
+                <thead><tr><th>Uit de keten</th><th>Waar het heen gaat</th></tr></thead>
+                <tbody>
+                  <tr><td>Het probleem in &eacute;&eacute;n zin</td><td>Hulpmiddel 11, &#8220;ons scherpe probleem&#8221;, en hulpmiddel 17, bouwsteen 1</td></tr>
+                  <tr><td>De How Might We-vraag</td><td>Hulpmiddel 11, &#8220;onze How Might We-vraag&#8221;</td></tr>
+                  <tr><td>De ladder en de boom, met waar elke trede op rust</td><td>Hulpmiddel 11, gereedschap 1 en 2, en de onderbouwing onder bouwsteen 1</td></tr>
+                  <tr><td>De toetsvragen</td><td>Hulpmiddel 11, &#8220;getoetst bij de opdrachtgever&#8221;, na het gesprek</td></tr>
+                  <tr><td>Welke stappen de AI deed en wat jullie veranderden</td><td>De verantwoordingstabel in hulpmiddel 06</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="spoor-paneel" id="paneel-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+            <p><strong>Spoor B is voor duo&#39;s van wie de probleemdefinitie al staat.</strong>
+              Laat die in &eacute;&eacute;n zin zien: staat er geen oplossing in en geen &#8220;en&#8221;, dan mag je door.
+              Loopt je kortcyclische project 1 vast op wat het precies moet opleveren, dan mag spoor B ook daarop.</p>
+            <p>Je werkt op een idee van de lijst. Het doel is een briefing die je zo aan Claude Code of Codex kunt geven.
+              Dezelfde vier stappen, lichter.</p>
+
+            <h4>Stap 0 &middot; de start</h4>
+            <p>Een nieuwe chat, of een project. Plak het idee zoals het na werkvorm 1 op het bord staat,
+              dus al herschreven als probleem. Dezelfde AVG-regel geldt.</p>
+
+            <h4>Stap 1 &middot; ordenen</h4>
+            <pre class="kopieerbaar"><code>Stap 1, ordenen.
+Dit is ons idee, al herschreven als probleem: [ de regel van het bord ].
+Trek nog geen conclusie. Zet in drie bakken:
+
+1. Wat we zeker weten over dit probleem, en hoe we dat weten
+2. Wat we aannemen
+3. Wat we niet weten</code></pre>
+
+            <h4>Stap 2 &middot; doorvragen</h4>
+            <pre class="kopieerbaar"><code>Stap 2, doorvragen.
+Vraag vijf keer waarom dit een probleem is, en voor wie. Zet bij elke stap of
+het uit bak 1 komt of een aanname is. Stop als je bij iets komt waar een eerste
+versie binnen twee weken iets aan kan doen.</code></pre>
+
+            <h4>Stap 3 &middot; aanscherpen</h4>
+            <pre class="kopieerbaar"><code>Stap 3, aanscherpen.
+1. Wat moet de eerste versie doen? Maximaal drie dingen.
+2. Wat doet hij bewust niet?
+3. Hoe weten we na twee weken of het werkt? Iets wat je kunt tellen of zien.</code></pre>
+
+            <h4>Stap 4 &middot; aanvallen</h4>
+            <pre class="kopieerbaar"><code>Stap 4, aanvallen.
+Speel de persoon voor wie dit bedoeld is. Waarom zou je dit niet gebruiken?
+Noem drie redenen, de lastigste eerst.</code></pre>
+
+            <h4>De briefing</h4>
+            <pre class="kopieerbaar"><code>Maak van stap 1 tot en met 4 &eacute;&eacute;n briefing voor Claude Code, met deze kopjes:
+Doel &middot; Voor wie &middot; Het probleem dat het oplost &middot; Wat de eerste versie doet &middot;
+Wat hij niet doet &middot; Hoe we weten dat het werkt &middot; Waar het mag draaien
+
+Schrijf niets op wat niet uit dit gesprek komt.</code></pre>
+            <div class="callout callout-primary">
+              <p><strong>Check.</strong> Lees de briefing regel voor regel. Kun je elke regel terugvinden
+              in een van de vier stappen? Wat je niet terugvindt, heeft de AI zelf bedacht.
+              Haal het weg, of beslis er bewust zelf over.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="startlijst">Startlijst met idee&euml;n</h2>
+        <p class="section-intro">Alleen openklappen als je bij werkvorm 1 niet op drie idee&euml;n komt.
+          Je eigen idee is altijd beter dan een van deze.</p>
+
+        <div class="collapsible">
+          <div class="collapsible-header" role="button" tabindex="0" aria-expanded="false" aria-controls="startlijst-inhoud">
+            <h3 class="collapsible-title">Vier idee&euml;n om mee te starten</h3>
+            <span class="collapsible-icon">+</span>
+          </div>
+          <div class="collapsible-content" id="startlijst-inhoud">
+            <ol>
+              <li><strong>Een leerbot voor het tentamen van 29 oktober.</strong>
+                Een project met de theorie-e-learnings en je eigen aantekeningen, dat je overhoort
+                en de antwoorden niet voorzegt.</li>
+              <li><strong>Een schrijfassistent op je eigen teksten</strong>, met een stijlanalyse en stijlregels.</li>
+              <li><strong>Een onderzoeksmachine voor de sector van je opdrachtgever.</strong>
+                De dikke opdracht uit sessie 1, vast ingericht, zodat je hem elke maand opnieuw kunt draaien
+                en kunt zien wat er veranderde.</li>
+              <li><strong>Iets voor je eigen werk in de minor.</strong>
+                Waar verlies je als duo elke week tijd?</li>
+            </ol>
+            <p><strong>Per idee op het bord:</strong> het idee in &eacute;&eacute;n regel &middot; voor wie &middot; het probleem &middot;
+              eerste versie in twee weken, ja of nee &middot; welk duo.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-info">
+          <p><strong>De lijst blijft staan.</strong> Wat vanmiddag op het bord komt, wordt bijgehouden.
+          Zie je een idee dat groter is dan vanmiddag, dan kun je het oppakken als kortcyclisch project 2,
+          met oplevering op 15 oktober. Kom langs, dan denken we mee.</p>
+        </div>
+
+        <div class="divider"></div>
+        <p class="bij">Sessie 3 is donderdag 8 oktober: twee modellen op dezelfde vraag, en varianten naast elkaar.</p>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
