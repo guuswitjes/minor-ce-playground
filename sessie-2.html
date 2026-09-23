@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="sessie-2">
+<body class="sessie-2" data-pagina="sessie-2">
   <div class="layout">
     <div class="sidebar-overlay" onclick="toggleMenu()"></div>
     <aside class="sidebar" id="sidebar">
@@ -27,25 +27,11 @@
         <div class="nav-section">
           <div class="nav-section-title">Sessies</div>
           <a href="sessie-1.html" class="nav-link">1 &middot; Deep research</a>
-          <a href="sessie-2.html" class="nav-link active">2 &middot; Van oplossing naar probleem</a>
+          <a href="sessie-2.html" class="nav-link">2 &middot; Van oplossing naar probleem</a>
         </div>
         <div class="nav-section">
           <div class="nav-section-title">Het bord</div>
-          <a href="https://ideeenbord-ce.web.app" class="nav-link">Idee&euml;nbord openen</a>
-        </div>
-        <div class="nav-section">
-          <div class="nav-section-title">Op deze pagina</div>
-          <a href="#belofte" class="nav-link">Wat je om 16:15 hebt</a>
-          <a href="#werkvorm-1" class="nav-link">Werkvorm 1</a>
-          <a href="#keten" class="nav-link">Werkvorm 2, de keten</a>
-          <a href="#startlijst" class="nav-link">Startlijst met idee&euml;n</a>
-        </div>
-        <div class="nav-section">
-          <div class="nav-section-title">Materiaal sessie 1</div>
-          <a href="uitkomst-1.html" class="nav-link">Uitkomst 1</a>
-          <a href="uitkomst-2.html" class="nav-link">Uitkomst 2</a>
-          <a href="uitkomst-3.html" class="nav-link">Uitkomst 3</a>
-          <a href="uitkomst-4.html" class="nav-link">Uitkomst 4</a>
+          <a href="https://ideeenbord-ce.web.app" class="nav-link" target="_blank" rel="noopener">Idee&euml;nbord openen</a>
         </div>
       </nav>
       <div class="sidebar-footer">24 september, 14:30 tot 16:15<br>Connectr, Arnhem</div>
@@ -162,7 +148,7 @@ Tien minuten.</code></pre>
           De vier stapprompts mag je plakken. Het denkwerk zit in de check tussen de stappen.</p>
         </div>
 
-        <h3>Kies je spoor</h3>
+        <h3 id="sporen">Kies je spoor</h3>
         <div class="sporen">
           <div class="spoor-knoppen" role="tablist" aria-label="Kies spoor A of spoor B">
             <button type="button" role="tab" id="tab-a" aria-controls="paneel-a" aria-selected="true" data-spoor="a">
