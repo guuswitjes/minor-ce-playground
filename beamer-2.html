@@ -28,12 +28,13 @@
       -webkit-font-smoothing: antialiased;
     }
     section {
+      position: relative;
       min-height: 100vh;
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: clamp(2rem, 6vw, 6rem);
+      padding: clamp(2rem, 5vw, 5rem);
       border-bottom: 1px solid var(--border);
     }
     .tijd {
@@ -42,59 +43,58 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--warm);
-      margin-bottom: clamp(1rem, 2vw, 2rem);
-    }
-    h1 {
-      font-size: clamp(2rem, 5.5vw, 5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: clamp(1.5rem, 3vw, 3rem);
+      margin-bottom: clamp(0.8rem, 1.6vw, 1.5rem);
     }
     h2 {
-      font-size: clamp(1.5rem, 3.6vw, 3.2rem);
+      font-size: clamp(1.5rem, 3.4vw, 3rem);
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -0.015em;
-      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: clamp(1rem, 2vw, 1.8rem);
     }
-    p, li { font-size: clamp(1.05rem, 2.1vw, 2rem); line-height: 1.5; }
-    ol, ul { padding-left: 1.4em; }
-    li { margin-bottom: clamp(0.7rem, 1.6vw, 1.6rem); }
-    li::marker { color: var(--accent); font-weight: 700; }
-    strong { color: var(--accent-donker); }
-    .link {
-      font-size: clamp(1.4rem, 4.2vw, 4rem);
+    h3 {
+      font-size: clamp(1.05rem, 2vw, 1.8rem);
       font-weight: 700;
       color: var(--accent-donker);
-      word-break: break-word;
-      line-height: 1.2;
+      margin-bottom: 0.4rem;
     }
-    .sub { font-size: clamp(1rem, 1.8vw, 1.7rem); color: var(--text-muted); margin-top: 1.5rem; }
+    p, li { font-size: clamp(1rem, 1.8vw, 1.7rem); line-height: 1.5; }
+    strong { color: var(--accent-donker); }
+    .sub { font-size: clamp(0.95rem, 1.6vw, 1.5rem); color: var(--text-muted); margin-top: 1.2rem; }
+
+    /* Scherm 1: twee QR-codes naast elkaar */
     .openrij {
       display: flex;
-      gap: clamp(1.5rem, 4vw, 4.5rem);
+      gap: clamp(2rem, 6vw, 6rem);
       align-items: flex-start;
       flex-wrap: wrap;
+      justify-content: center;
     }
-    .openrij .tekst { flex: 1 1 340px; min-width: 0; }
+    .qr-kolom { display: flex; flex-direction: column; align-items: center; }
     .qr {
-      flex: 0 0 auto;
-      width: clamp(150px, 24vw, 360px);
+      width: clamp(180px, 26vw, 400px);
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.10);
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
     }
-    .qr svg { display: block; width: 100%; height: auto; border-radius: 12px; }
-    .qr-bij { font-size: clamp(0.85rem, 1.3vw, 1.2rem); color: var(--text-muted); text-align: center; margin-top: 0.6rem; }
-    .qr-kolom { flex: 0 1 auto; display: flex; flex-direction: column; align-items: center; }
+    .qr svg { display: block; width: 100%; height: auto; border-radius: 14px; }
     .qr-label {
-      font-size: clamp(1rem, 1.9vw, 1.8rem); font-weight: 700;
-      color: var(--inkt); text-align: center; margin-top: 0.7rem;
+      font-size: clamp(1.1rem, 2.1vw, 2rem);
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.8rem;
     }
-    /* Kleine QR rechtsboven op de werkvormschermen. Wie de pagina kwijt
-       is, hoeft niet te vragen: scannen kan het hele blok door. */
-    section { position: relative; }
+    .qr-url {
+      font-size: clamp(0.9rem, 1.6vw, 1.5rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      text-align: center;
+      line-height: 1.25;
+      word-break: break-word;
+      margin-top: 0.2rem;
+    }
+
+    /* Kleine QR rechtsboven op de werkvormschermen */
     .qr-hoek {
       position: absolute;
       top: clamp(1.2rem, 3vh, 2.5rem);
@@ -111,53 +111,50 @@
     .qr-hoek svg { display: block; width: 100%; height: auto; }
     .qr-hoek p {
       font-size: clamp(0.7rem, 1vw, 1.1rem);
-      color: var(--text-muted);
       font-weight: 600;
+      color: var(--text-muted);
       margin-top: 0.4rem;
       line-height: 1.25;
     }
-    @media print { .qr-hoek { display: none; } }
 
-    .qr-url {
-      font-size: clamp(0.9rem, 1.6vw, 1.5rem); font-weight: 700;
-      color: var(--accent-donker); text-align: center; line-height: 1.25;
-      word-break: break-word; margin-top: 0.15rem;
+    /* De twee opdrachtblokken van werkvorm 1, naast elkaar */
+    .opdrachten {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2.5rem);
+      flex-wrap: wrap;
+      align-items: stretch;
     }
-    pre {
-      background: var(--accent-licht);
-      border-left: 6px solid var(--accent);
-      padding: clamp(1rem, 2.2vw, 2rem);
-      overflow-x: auto;
-      border-radius: 8px;
-      margin-top: 1rem;
+    .opdracht {
+      flex: 1 1 340px;
+      background: #fff;
+      border: 2px solid var(--accent-medium);
+      border-radius: 12px;
+      padding: clamp(1rem, 2vw, 2rem);
     }
-    code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: clamp(0.75rem, 1.35vw, 1.25rem); line-height: 1.6; }
-    section.compact p, section.compact li { font-size: clamp(0.95rem, 1.6vw, 1.5rem); }
-    section.compact li { margin-bottom: clamp(0.5rem, 0.9vw, 0.9rem); }
-    section.compact h2 { font-size: clamp(1.3rem, 2.9vw, 2.6rem); margin-bottom: clamp(1rem, 2vw, 1.8rem); }
-    .citaat {
-      font-size: clamp(1.8rem, 4.6vw, 4.2rem);
+    .opdracht .duur {
+      font-size: clamp(0.8rem, 1.3vw, 1.2rem);
       font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      border-left: clamp(6px, 0.8vw, 12px) solid var(--accent);
-      padding-left: clamp(1rem, 2.4vw, 2.6rem);
+      color: var(--warm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
+    .opdracht ul { margin: 0.5rem 0 0 1.2em; }
+    .opdracht li { margin-bottom: 0.3em; }
 
-    /* De keten, getekend. Vijf stappen met een check ertussen. */
+    /* De keten, getekend */
     .keten {
       display: flex;
       align-items: stretch;
       gap: clamp(0.4rem, 0.9vw, 1rem);
       flex-wrap: wrap;
-      margin-bottom: clamp(1.2rem, 2.4vw, 2.4rem);
+      margin-bottom: clamp(1rem, 2vw, 2rem);
     }
     .stap {
       flex: 1 1 140px;
       background: #fff;
       border: 2px solid var(--accent-medium);
       border-radius: 10px;
-      padding: clamp(0.6rem, 1.2vw, 1.2rem);
+      padding: clamp(0.6rem, 1.1vw, 1.1rem);
       display: flex;
       flex-direction: column;
       gap: 0.25em;
@@ -166,64 +163,34 @@
       font-size: clamp(0.85rem, 1.5vw, 1.4rem);
       font-weight: 700;
       color: var(--warm);
-      letter-spacing: 0.04em;
     }
     .stap .nr {
-      font-size: clamp(1.1rem, 2.2vw, 2rem);
+      font-size: clamp(1.05rem, 2vw, 1.8rem);
       font-weight: 700;
       color: var(--accent-donker);
       line-height: 1.1;
     }
     .stap .wat {
-      font-size: clamp(0.8rem, 1.35vw, 1.25rem);
+      font-size: clamp(0.78rem, 1.3vw, 1.2rem);
       color: var(--text-muted);
       line-height: 1.35;
     }
     .check {
-      flex: 0 0 auto;
       align-self: center;
-      font-size: clamp(0.7rem, 1.15vw, 1.05rem);
+      font-size: clamp(0.68rem, 1.1vw, 1rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--accent);
-      writing-mode: horizontal-tb;
-      text-align: center;
-      line-height: 1.2;
     }
     .drievragen {
       background: var(--accent-licht);
       border-left: clamp(5px, 0.7vw, 10px) solid var(--accent);
       border-radius: 8px;
-      padding: clamp(0.9rem, 1.8vw, 1.8rem);
+      padding: clamp(0.9rem, 1.6vw, 1.6rem);
     }
-    .drievragen p { font-size: clamp(1rem, 2vw, 1.9rem); font-weight: 600; margin: 0; }
+    .drievragen p { font-size: clamp(1rem, 1.9vw, 1.8rem); font-weight: 600; margin: 0; }
 
-    .kolommen {
-      display: flex;
-      gap: clamp(1rem, 3vw, 3rem);
-      flex-wrap: wrap;
-      margin-bottom: clamp(1.2rem, 2.4vw, 2.4rem);
-    }
-    .kolom {
-      flex: 1 1 260px;
-      background: #fff;
-      border: 2px solid var(--accent-medium);
-      border-radius: 10px;
-      padding: clamp(0.9rem, 1.8vw, 1.8rem);
-    }
-    .kolom h3 {
-      font-size: clamp(1.1rem, 2.2vw, 2rem);
-      color: var(--accent-donker);
-      margin-bottom: 0.4em;
-    }
-    .kolom p { font-size: clamp(0.9rem, 1.6vw, 1.5rem); color: var(--text-muted); margin: 0; }
-
-    .hint {
-      position: fixed; right: 1rem; bottom: 1rem;
-      font-size: 0.8rem; color: var(--text-muted);
-      background: rgba(255,255,255,0.85); padding: 0.4rem 0.7rem; border-radius: 6px;
-    }
     .balk {
       position: fixed; right: 0.9rem; bottom: 0.9rem;
       display: flex; align-items: center; gap: 0.5rem;
@@ -239,12 +206,12 @@
     }
     .balk button:hover { background: #fff; border-color: var(--accent); }
     .teller { color: var(--text-muted); background: rgba(255,255,255,0.92); padding: 0.35rem 0.55rem; border-radius: 6px; }
-    @media print { .balk { display: none; } section { min-height: auto; page-break-after: always; } }
+    @media print { .balk, .qr-hoek { display: none; } section { min-height: auto; page-break-after: always; } }
   </style>
 </head>
 <body>
 
-  <section data-notes="Geen introductie van jezelf, val meteen binnen. Zeg alleen: open de site, en zet op het bord wat jullie in drie weken met AI hebben gemaakt. Een regel per ding, vier minuten. Kaarten komen in de kolom Gemaakt, dat is de linkerkolom. Terwijl zij scannen en typen kijk je op je eigen laptop mee hoe de kolom vollloopt. Wie de QR niet openkrijgt koppel je aan een duo dat het wel heeft.">
+  <section data-notes="DIT SCHERM BLIJFT STAAN TOT 14:47.&#10;&#10;14:30. Geen introductie van jezelf. Zeg alleen: open de site, en zet op het bord wat jullie in drie weken met AI hebben gemaakt. Een regel per ding, in de kolom Gemaakt, met de naam van je opdrachtgever erbij. Vier minuten. Lees er daarna vier of vijf hardop voor, van verschillende duo&#x27;s.&#10;&#10;14:38. Twee vragen aan de groep. Een: wat kun je nu maken dat je eind augustus nog niet kon? Twee: wie heeft op 14 september in een keer om een complete site gevraagd, wat kwam eruit? Dan de draai in je eigen woorden: het bouwen lukt dus, wat nog niet vanzelf gaat is weten wat je bouwt en voor wie. Citeer hulpmiddel 11: een goed antwoord op de verkeerde vraag is nog steeds fout. LET OP: gebruik Fabians zin over een tool zonder scherp probleem NIET, die is van zijn training op 12 oktober.&#10;&#10;DE BELOFTE, drie dingen, zeg ze hardop. Een: een probleemdefinitie in een zin met een How Might We, voor je paper van 1 oktober. Twee: een omgeving die je opdrachtgever kent, en die bouw je vanmiddag. Drie: een idee op de lijst van de groep. Zeg erbij dat punt twee het ding is dat ze maken, anders voelt dit als een middag praten. En de keuze: waar stop je de 45 minuten in, je opdracht scherp krijgen of een tool briefen?&#10;&#10;14:45. Twee minuten je eigen verhaal: eerst welk probleem je had, pas daarna wat je maakte. Loop met een lege of demo-wereld, of deze site. Geen echte gegevens op de beamer.">
     <div class="tijd">14:30</div>
     <h2>Alles staat online</h2>
     <div class="openrij">
@@ -259,67 +226,40 @@
         <p class="qr-url">ideeenbord-ce.web.app</p>
       </div>
     </div>
-    <p class="sub">E&eacute;n laptop per duo is genoeg. Twee minuten.</p>
+    <p class="sub">E&eacute;n laptop per duo is genoeg.</p>
   </section>
 
-  <section data-notes="Dit blok laat de groep zien hoeveel ze al kunnen, en het vult meteen de kolom Gemaakt, waar je om 15:55 op terugkomt. Vier minuten schrijven. Lees er daarna vier of vijf hardop voor, van verschillende duo's. Wat er komt: de Nijl-GPT, de deep research op hun opdrachtgever, de oceaanwebsite, de portfolio-app. Niet becommentarieren, alleen voorlezen.">
-    <div class="tijd">14:30 tot 14:38</div>
-    <h1>Wat hebben jullie in drie weken met AI gemaakt?</h1>
-    <p class="sub">E&eacute;n regel per ding, in de kolom Gemaakt. Vier minuten.</p>
-  </section>
-
-  <section data-notes="Eerst twee vragen aan de groep. Een: wat kun je nu maken dat je eind augustus nog niet kon? Laat ze antwoorden, het wordt website, app, eigen GPT, onderzoeksrapport in tien minuten. Twee: wie heeft op 14 september in een keer om een complete site gevraagd, wat kwam eruit? Stap 5 op Fabians bord was bouwen in stappen, dat komt vanmiddag terug. Dan de draai in je eigen woorden: het bouwen lukt dus, wat nog niet vanzelf gaat is weten wat je bouwt en voor wie. LET OP: gebruik Fabians zin over een tool zonder scherp probleem hier NIET, die hoort bij zijn training van 12 oktober.">
-    <div class="tijd">14:38 tot 14:45</div>
-    <h1 class="citaat">Een goed antwoord op de verkeerde vraag is nog steeds fout.</h1>
-    <p class="sub">Uit jullie eigen hulpmiddel 11</p>
-  </section>
-
-  <section data-notes="Sla dit niet over, in sessie 1 werkte het. Punt 2 is nieuw en het is het ding dat ze vanmiddag bouwen: zeg dat expliciet, anders voelt een Define-sessie als een middag praten. Zeg het ongeveer in deze woorden en noem 1 oktober hardop, dat is de haak. Daarna, rond 14:45, twee minuten je eigen verhaal: eerst welk probleem je had, pas daarna wat je maakte. Dat is de volgorde die je van hen vraagt. Kies vooraf: Loop met een lege of demo-wereld, of deze site. Bij Loop geen echte taken en contacten op de beamer. Twijfel je, neem de site: het probleem was dat je niets wilde printen en dat de zaal een plek moest hebben voor alles.">
-    <div class="tijd">Om 16:15</div>
-    <h2>Wat je vanmiddag in handen krijgt</h2>
-    <ol>
-      <li><strong>Een probleemdefinitie in &eacute;&eacute;n zin</strong>, met een How Might We-vraag,
-        en onder elke oorzaak waar die op rust. Voor je project paper van <strong>1 oktober</strong>.</li>
-      <li><strong>Een omgeving die je opdrachtgever kent.</strong> Die bouw je vanmiddag, en die blijft staan.</li>
-      <li><strong>Een idee op de lijst van de groep</strong>, herschreven tot een echt probleem.</li>
-    </ol>
-    <p class="sub">En je kiest zelf waar je de 45 minuten in stopt: je opdracht scherp krijgen, of een tool briefen.</p>
-  </section>
-
-  <section data-notes="Laat ze vrij. Wat er komt zijn bijna allemaal oplossingen: een app die, een chatbot voor, een dashboard met. Dat is precies de bedoeling, want dat is het materiaal voor de volgende slide. Duo's die niets verzinnen stuur je naar de startlijst, die staat ingeklapt onderaan sessie-2.html. Vijf minuten, hard op de tijd.">
+  <section data-notes="DIT SCHERM BLIJFT STAAN VAN 14:47 TOT 15:10.&#10;&#10;Laat ze bij het eerste blok vrij. Wat er komt zijn bijna allemaal oplossingen: een app die, een chatbot voor, een dashboard met. Dat is precies de bedoeling, dat is het materiaal voor het tweede blok. Duo&#x27;s die niets verzinnen stuur je naar de startlijst onderaan sessie-2.html.&#10;&#10;Bij het tweede blok: zeg dat de vrager zich strikt aan de drie vragen houdt en niets invult voor de ander, en dat ze per idee wisselen. Het potloodje staat rechtsboven op hun eigen kaart.&#10;&#10;DIT IS ZWAKKER DAN RUILEN MET EEN ANDER DUO, want twee mensen die aan hetzelfde idee hangen zien dezelfde oplossing. Jouw rondlopen is hier dus het belangrijkst. Spiekbriefje. Bij &quot;een app die&quot;: voor wie is dat een probleem en wat doen ze nu? Bij &quot;een chatbot voor de opdrachtgever&quot;: welke vragen blijven daar nu liggen, en hoe vaak? Bij &quot;meer bewustwording van&quot;: bij wie, en wat doen ze daarna anders? Een idee met &quot;en&quot; erin: dat zijn er twee, laat ze kiezen. Te groot: wat kun je in twee weken laten zien?&#10;&#10;15:02. Ronde met drie duo&#x27;s, twee vragen: welk idee sneuvelde toen het een probleem moest worden, en welk werd scherper? Het eerste is het interessantst. Daarna de brug: dit deden jullie met de hand op een regel, nu doen we het met AI op alles wat je verzameld hebt.">
     <div class="qr-hoek"><div class="kader"><svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR-code naar guuswitjes.github.io/minor-ce-playground/sessie-2.html"><rect width="45" height="45" fill="#ffffff"/><path d="M6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM19 6h1v1h-1zM22 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM29 6h1v1h-1zM32 6h1v1h-1zM33 6h1v1h-1zM34 6h1v1h-1zM35 6h1v1h-1zM36 6h1v1h-1zM37 6h1v1h-1zM38 6h1v1h-1zM6 7h1v1h-1zM12 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM22 7h1v1h-1zM27 7h1v1h-1zM28 7h1v1h-1zM29 7h1v1h-1zM30 7h1v1h-1zM32 7h1v1h-1zM38 7h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM15 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM24 8h1v1h-1zM25 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM34 8h1v1h-1zM35 8h1v1h-1zM36 8h1v1h-1zM38 8h1v1h-1zM6 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM26 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM32 9h1v1h-1zM34 9h1v1h-1zM35 9h1v1h-1zM36 9h1v1h-1zM38 9h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM19 10h1v1h-1zM20 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM25 10h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h1v1h-1zM35 10h1v1h-1zM36 10h1v1h-1zM38 10h1v1h-1zM6 11h1v1h-1zM12 11h1v1h-1zM15 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM26 11h1v1h-1zM28 11h1v1h-1zM32 11h1v1h-1zM38 11h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM26 12h1v1h-1zM28 12h1v1h-1zM30 12h1v1h-1zM32 12h1v1h-1zM33 12h1v1h-1zM34 12h1v1h-1zM35 12h1v1h-1zM36 12h1v1h-1zM37 12h1v1h-1zM38 12h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM18 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM28 13h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM27 14h1v1h-1zM30 14h1v1h-1zM32 14h1v1h-1zM35 14h1v1h-1zM37 14h1v1h-1zM38 14h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM23 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM29 15h1v1h-1zM32 15h1v1h-1zM33 15h1v1h-1zM35 15h1v1h-1zM36 15h1v1h-1zM37 15h1v1h-1zM38 15h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM22 16h1v1h-1zM23 16h1v1h-1zM28 16h1v1h-1zM29 16h1v1h-1zM30 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM34 16h1v1h-1zM35 16h1v1h-1zM37 16h1v1h-1zM38 16h1v1h-1zM10 17h1v1h-1zM11 17h1v1h-1zM13 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM18 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM29 17h1v1h-1zM31 17h1v1h-1zM33 17h1v1h-1zM35 17h1v1h-1zM38 17h1v1h-1zM11 18h1v1h-1zM12 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM26 18h1v1h-1zM28 18h1v1h-1zM31 18h1v1h-1zM34 18h1v1h-1zM35 18h1v1h-1zM37 18h1v1h-1zM38 18h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM10 19h1v1h-1zM13 19h1v1h-1zM19 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM30 19h1v1h-1zM33 19h1v1h-1zM35 19h1v1h-1zM37 19h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM12 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM22 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM30 20h1v1h-1zM32 20h1v1h-1zM33 20h1v1h-1zM34 20h1v1h-1zM36 20h1v1h-1zM6 21h1v1h-1zM7 21h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM13 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM19 21h1v1h-1zM21 21h1v1h-1zM24 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM29 21h1v1h-1zM31 21h1v1h-1zM32 21h1v1h-1zM34 21h1v1h-1zM36 21h1v1h-1zM9 22h1v1h-1zM11 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM34 22h1v1h-1zM35 22h1v1h-1zM36 22h1v1h-1zM6 23h1v1h-1zM7 23h1v1h-1zM8 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM13 23h1v1h-1zM15 23h1v1h-1zM16 23h1v1h-1zM21 23h1v1h-1zM24 23h1v1h-1zM26 23h1v1h-1zM27 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM31 23h1v1h-1zM32 23h1v1h-1zM34 23h1v1h-1zM35 23h1v1h-1zM37 23h1v1h-1zM38 23h1v1h-1zM7 24h1v1h-1zM8 24h1v1h-1zM12 24h1v1h-1zM13 24h1v1h-1zM14 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM28 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM34 24h1v1h-1zM36 24h1v1h-1zM37 24h1v1h-1zM6 25h1v1h-1zM9 25h1v1h-1zM11 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM25 25h1v1h-1zM29 25h1v1h-1zM30 25h1v1h-1zM32 25h1v1h-1zM34 25h1v1h-1zM6 26h1v1h-1zM9 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM16 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM27 26h1v1h-1zM35 26h1v1h-1zM36 26h1v1h-1zM38 26h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM13 27h1v1h-1zM15 27h1v1h-1zM16 27h1v1h-1zM17 27h1v1h-1zM20 27h1v1h-1zM22 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM29 27h1v1h-1zM32 27h1v1h-1zM33 27h1v1h-1zM35 27h1v1h-1zM38 27h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM15 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM23 28h1v1h-1zM24 28h1v1h-1zM27 28h1v1h-1zM29 28h1v1h-1zM30 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM33 28h1v1h-1zM37 28h1v1h-1zM38 28h1v1h-1zM7 29h1v1h-1zM8 29h1v1h-1zM14 29h1v1h-1zM16 29h1v1h-1zM17 29h1v1h-1zM18 29h1v1h-1zM19 29h1v1h-1zM21 29h1v1h-1zM24 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM33 29h1v1h-1zM34 29h1v1h-1zM35 29h1v1h-1zM37 29h1v1h-1zM38 29h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM9 30h1v1h-1zM11 30h1v1h-1zM12 30h1v1h-1zM15 30h1v1h-1zM17 30h1v1h-1zM18 30h1v1h-1zM20 30h1v1h-1zM23 30h1v1h-1zM28 30h1v1h-1zM29 30h1v1h-1zM30 30h1v1h-1zM31 30h1v1h-1zM32 30h1v1h-1zM33 30h1v1h-1zM34 30h1v1h-1zM37 30h1v1h-1zM38 30h1v1h-1zM14 31h1v1h-1zM18 31h1v1h-1zM19 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM25 31h1v1h-1zM26 31h1v1h-1zM30 31h1v1h-1zM34 31h1v1h-1zM35 31h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM8 32h1v1h-1zM9 32h1v1h-1zM10 32h1v1h-1zM11 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM15 32h1v1h-1zM16 32h1v1h-1zM17 32h1v1h-1zM18 32h1v1h-1zM19 32h1v1h-1zM22 32h1v1h-1zM24 32h1v1h-1zM25 32h1v1h-1zM26 32h1v1h-1zM29 32h1v1h-1zM30 32h1v1h-1zM32 32h1v1h-1zM34 32h1v1h-1zM6 33h1v1h-1zM12 33h1v1h-1zM14 33h1v1h-1zM15 33h1v1h-1zM16 33h1v1h-1zM18 33h1v1h-1zM19 33h1v1h-1zM22 33h1v1h-1zM25 33h1v1h-1zM27 33h1v1h-1zM29 33h1v1h-1zM30 33h1v1h-1zM34 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM37 33h1v1h-1zM6 34h1v1h-1zM8 34h1v1h-1zM9 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM15 34h1v1h-1zM18 34h1v1h-1zM19 34h1v1h-1zM21 34h1v1h-1zM27 34h1v1h-1zM29 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM32 34h1v1h-1zM33 34h1v1h-1zM34 34h1v1h-1zM36 34h1v1h-1zM6 35h1v1h-1zM8 35h1v1h-1zM9 35h1v1h-1zM10 35h1v1h-1zM12 35h1v1h-1zM14 35h1v1h-1zM17 35h1v1h-1zM18 35h1v1h-1zM21 35h1v1h-1zM22 35h1v1h-1zM24 35h1v1h-1zM26 35h1v1h-1zM28 35h1v1h-1zM29 35h1v1h-1zM33 35h1v1h-1zM38 35h1v1h-1zM6 36h1v1h-1zM8 36h1v1h-1zM9 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM21 36h1v1h-1zM23 36h1v1h-1zM24 36h1v1h-1zM26 36h1v1h-1zM27 36h1v1h-1zM28 36h1v1h-1zM29 36h1v1h-1zM30 36h1v1h-1zM31 36h1v1h-1zM32 36h1v1h-1zM33 36h1v1h-1zM35 36h1v1h-1zM6 37h1v1h-1zM12 37h1v1h-1zM15 37h1v1h-1zM18 37h1v1h-1zM20 37h1v1h-1zM21 37h1v1h-1zM23 37h1v1h-1zM25 37h1v1h-1zM28 37h1v1h-1zM30 37h1v1h-1zM32 37h1v1h-1zM33 37h1v1h-1zM34 37h1v1h-1zM38 37h1v1h-1zM6 38h1v1h-1zM7 38h1v1h-1zM8 38h1v1h-1zM9 38h1v1h-1zM10 38h1v1h-1zM11 38h1v1h-1zM12 38h1v1h-1zM14 38h1v1h-1zM16 38h1v1h-1zM17 38h1v1h-1zM18 38h1v1h-1zM19 38h1v1h-1zM22 38h1v1h-1zM23 38h1v1h-1zM26 38h1v1h-1zM27 38h1v1h-1zM29 38h1v1h-1zM34 38h1v1h-1zM36 38h1v1h-1z" fill="#1C1713"/></svg></div><p>De opdrachten<br>sessie-2.html</p></div>
-    <div class="tijd">14:47 tot 14:52</div>
-    <h2>Drie idee&euml;n</h2>
-    <pre><code>Schrijf drie dingen op die jullie met AI zouden willen maken.
-Voor jezelf, voor je studie, of voor je opdrachtgever.
-E&eacute;n regel per idee, op het bord in de kolom &quot;Dit willen we&quot;.
-Zet de naam van je opdrachtgever erbij.
-Vijf minuten.</code></pre>
+    <div class="tijd">Werkvorm 1 &middot; 14:47 tot 15:10</div>
+    <h2>Van oplossing naar probleem</h2>
+    <div class="opdrachten">
+      <div class="opdracht">
+        <span class="duur">Eerst &middot; 5 minuten</span>
+        <h3>Drie idee&euml;n</h3>
+        <p>Schrijf drie dingen op die jullie met AI zouden willen maken. Voor jezelf,
+          voor je studie, of voor je opdrachtgever.</p>
+        <p class="sub">E&eacute;n regel per idee, in de kolom <strong>Dit willen we</strong>.
+          Zet de naam van je opdrachtgever erbij.</p>
+      </div>
+      <div class="opdracht">
+        <span class="duur">Dan &middot; 10 minuten</span>
+        <h3>Vraag door op je eigen idee&euml;n</h3>
+        <p>E&eacute;n van jullie stelt de vragen, de ander typt. Wissel na elk idee van rol.</p>
+        <ul>
+          <li>Voor wie is dit een probleem?</li>
+          <li>Wat gebeurt er nu, zonder dat ding?</li>
+          <li>Hoe vaak, en wat kost het nu: tijd, geld, ergernis?</li>
+        </ul>
+        <p class="sub">De antwoorden zet je op je kaart, met het potloodje.
+          Staat er nog een oplossing in? Haal hem eruit.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="compact" data-notes="Dit is gereedschap 3 uit hulpmiddel 11, het herformuleren van de opdracht. Het voorbeeld daar is maak een poster, en dat mag je hardop noemen: een app die is precies hetzelfde soort zin. Waarom de een vraagt en de ander typt: je eigen idee herschrijven lukt slecht want je ziet de oplossing al voor je. Zeg erbij dat de vrager zich strikt aan de drie vragen houdt en niets invult voor de ander, en dat ze per idee wisselen. Zeg ook kort dat het potloodje rechtsboven op hun eigen kaart staat. Loop hier rond met het spiekbriefje: bij een app die, vraag voor wie dat een probleem is en wat ze nu doen. Rondlopen met het spiekbriefje: een app die, voor wie is dat een probleem en wat doen ze nu. Meer bewustwording van, bewustwording bij wie en wat doen ze daarna anders. Een idee met en erin, dat zijn er twee. Te groot, wat kun je in twee weken laten zien. Zeg de toets voor de lijst hardop, en herhaal hem tijdens het rondlopen.">
+  <section data-notes="DIT SCHERM BLIJFT STAAN VAN 15:10 TOT 15:55. De tijden erop sturen de duo&#x27;s, jij loopt rond.&#10;&#10;15:10. Drie minuten uitleg, niet meer. Je doet het in vier stappen, na elke stap kijk je zelf en pas je aan voor je verdergaat, de output van de ene stap is de input van de volgende. De drie vragen kennen ze van training 1.&#10;&#10;ZEG DE AVG-REGEL VOOR STAP 0: openbare informatie, eigen deskresearch en je eigen samenvatting mogen erin, namen van personen en interne stukken niet.&#10;&#10;SPOOR KIEZEN, als keuze en niet als uitzondering: waar stop je de 45 minuten in, je opdracht scherp krijgen of een tool briefen? Spoor A blijft wel de standaard vanwege het paper van 1 oktober. Wie naar B wil, laat eerst zijn probleemdefinitie in een zin zien: geen oplossing erin en geen &quot;en&quot;. Dertig seconden per duo.&#10;&#10;STAP 1 IS DE BELANGRIJKSTE CHECK. Vraag bij elk duo actief of ze twee feiten hebben teruggezocht in hun eigen bestand. Let verder op: duo&#x27;s die na stap 1 niets aanpassen, een ladder zonder AANNAME erin, &quot;gebrek aan bewustwording&quot; als grondoorzaak, een probleem met &quot;en&quot; erin, een How Might We met de oplossing erin, en duo&#x27;s die alles plakken zonder het zelf te kunnen zeggen.&#10;&#10;15:55 OOGST. Zet het bord op de beamer: ideeenbord-ce.web.app/beamer.html. Drie duo&#x27;s uit spoor A, twee minuten per duo, een vraag: bij welke stap moest je iets overdoen? Als er tijd is een duo uit spoor B de briefing laten voorlezen.&#10;&#10;16:08 AFSLUITEN. Check met drie vingers: probleem in een zin met How Might We, staat je omgeving, staat je idee op de lijst. Dan de lijst: wie een idee ziet dat groter is kan het als kortcyclisch project 2 oppakken, oplevering 15 oktober, kom langs. Aanbieden, niet opleggen. Sessie 3 is 8 oktober: twee modellen op dezelfde vraag. Exporteer of fotografeer het bord voor je weggaat.">
     <div class="qr-hoek"><div class="kader"><svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR-code naar guuswitjes.github.io/minor-ce-playground/sessie-2.html"><rect width="45" height="45" fill="#ffffff"/><path d="M6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM19 6h1v1h-1zM22 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM29 6h1v1h-1zM32 6h1v1h-1zM33 6h1v1h-1zM34 6h1v1h-1zM35 6h1v1h-1zM36 6h1v1h-1zM37 6h1v1h-1zM38 6h1v1h-1zM6 7h1v1h-1zM12 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM22 7h1v1h-1zM27 7h1v1h-1zM28 7h1v1h-1zM29 7h1v1h-1zM30 7h1v1h-1zM32 7h1v1h-1zM38 7h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM15 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM24 8h1v1h-1zM25 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM34 8h1v1h-1zM35 8h1v1h-1zM36 8h1v1h-1zM38 8h1v1h-1zM6 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM26 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM32 9h1v1h-1zM34 9h1v1h-1zM35 9h1v1h-1zM36 9h1v1h-1zM38 9h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM19 10h1v1h-1zM20 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM25 10h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h1v1h-1zM35 10h1v1h-1zM36 10h1v1h-1zM38 10h1v1h-1zM6 11h1v1h-1zM12 11h1v1h-1zM15 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM26 11h1v1h-1zM28 11h1v1h-1zM32 11h1v1h-1zM38 11h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM26 12h1v1h-1zM28 12h1v1h-1zM30 12h1v1h-1zM32 12h1v1h-1zM33 12h1v1h-1zM34 12h1v1h-1zM35 12h1v1h-1zM36 12h1v1h-1zM37 12h1v1h-1zM38 12h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM18 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM28 13h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM27 14h1v1h-1zM30 14h1v1h-1zM32 14h1v1h-1zM35 14h1v1h-1zM37 14h1v1h-1zM38 14h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM23 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM29 15h1v1h-1zM32 15h1v1h-1zM33 15h1v1h-1zM35 15h1v1h-1zM36 15h1v1h-1zM37 15h1v1h-1zM38 15h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM22 16h1v1h-1zM23 16h1v1h-1zM28 16h1v1h-1zM29 16h1v1h-1zM30 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM34 16h1v1h-1zM35 16h1v1h-1zM37 16h1v1h-1zM38 16h1v1h-1zM10 17h1v1h-1zM11 17h1v1h-1zM13 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM18 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM29 17h1v1h-1zM31 17h1v1h-1zM33 17h1v1h-1zM35 17h1v1h-1zM38 17h1v1h-1zM11 18h1v1h-1zM12 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM26 18h1v1h-1zM28 18h1v1h-1zM31 18h1v1h-1zM34 18h1v1h-1zM35 18h1v1h-1zM37 18h1v1h-1zM38 18h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM10 19h1v1h-1zM13 19h1v1h-1zM19 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM30 19h1v1h-1zM33 19h1v1h-1zM35 19h1v1h-1zM37 19h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM12 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM22 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM30 20h1v1h-1zM32 20h1v1h-1zM33 20h1v1h-1zM34 20h1v1h-1zM36 20h1v1h-1zM6 21h1v1h-1zM7 21h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM13 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM19 21h1v1h-1zM21 21h1v1h-1zM24 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM29 21h1v1h-1zM31 21h1v1h-1zM32 21h1v1h-1zM34 21h1v1h-1zM36 21h1v1h-1zM9 22h1v1h-1zM11 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM34 22h1v1h-1zM35 22h1v1h-1zM36 22h1v1h-1zM6 23h1v1h-1zM7 23h1v1h-1zM8 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM13 23h1v1h-1zM15 23h1v1h-1zM16 23h1v1h-1zM21 23h1v1h-1zM24 23h1v1h-1zM26 23h1v1h-1zM27 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM31 23h1v1h-1zM32 23h1v1h-1zM34 23h1v1h-1zM35 23h1v1h-1zM37 23h1v1h-1zM38 23h1v1h-1zM7 24h1v1h-1zM8 24h1v1h-1zM12 24h1v1h-1zM13 24h1v1h-1zM14 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM28 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM34 24h1v1h-1zM36 24h1v1h-1zM37 24h1v1h-1zM6 25h1v1h-1zM9 25h1v1h-1zM11 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM25 25h1v1h-1zM29 25h1v1h-1zM30 25h1v1h-1zM32 25h1v1h-1zM34 25h1v1h-1zM6 26h1v1h-1zM9 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM16 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM27 26h1v1h-1zM35 26h1v1h-1zM36 26h1v1h-1zM38 26h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM13 27h1v1h-1zM15 27h1v1h-1zM16 27h1v1h-1zM17 27h1v1h-1zM20 27h1v1h-1zM22 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM29 27h1v1h-1zM32 27h1v1h-1zM33 27h1v1h-1zM35 27h1v1h-1zM38 27h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM15 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM23 28h1v1h-1zM24 28h1v1h-1zM27 28h1v1h-1zM29 28h1v1h-1zM30 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM33 28h1v1h-1zM37 28h1v1h-1zM38 28h1v1h-1zM7 29h1v1h-1zM8 29h1v1h-1zM14 29h1v1h-1zM16 29h1v1h-1zM17 29h1v1h-1zM18 29h1v1h-1zM19 29h1v1h-1zM21 29h1v1h-1zM24 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM33 29h1v1h-1zM34 29h1v1h-1zM35 29h1v1h-1zM37 29h1v1h-1zM38 29h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM9 30h1v1h-1zM11 30h1v1h-1zM12 30h1v1h-1zM15 30h1v1h-1zM17 30h1v1h-1zM18 30h1v1h-1zM20 30h1v1h-1zM23 30h1v1h-1zM28 30h1v1h-1zM29 30h1v1h-1zM30 30h1v1h-1zM31 30h1v1h-1zM32 30h1v1h-1zM33 30h1v1h-1zM34 30h1v1h-1zM37 30h1v1h-1zM38 30h1v1h-1zM14 31h1v1h-1zM18 31h1v1h-1zM19 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM25 31h1v1h-1zM26 31h1v1h-1zM30 31h1v1h-1zM34 31h1v1h-1zM35 31h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM8 32h1v1h-1zM9 32h1v1h-1zM10 32h1v1h-1zM11 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM15 32h1v1h-1zM16 32h1v1h-1zM17 32h1v1h-1zM18 32h1v1h-1zM19 32h1v1h-1zM22 32h1v1h-1zM24 32h1v1h-1zM25 32h1v1h-1zM26 32h1v1h-1zM29 32h1v1h-1zM30 32h1v1h-1zM32 32h1v1h-1zM34 32h1v1h-1zM6 33h1v1h-1zM12 33h1v1h-1zM14 33h1v1h-1zM15 33h1v1h-1zM16 33h1v1h-1zM18 33h1v1h-1zM19 33h1v1h-1zM22 33h1v1h-1zM25 33h1v1h-1zM27 33h1v1h-1zM29 33h1v1h-1zM30 33h1v1h-1zM34 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM37 33h1v1h-1zM6 34h1v1h-1zM8 34h1v1h-1zM9 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM15 34h1v1h-1zM18 34h1v1h-1zM19 34h1v1h-1zM21 34h1v1h-1zM27 34h1v1h-1zM29 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM32 34h1v1h-1zM33 34h1v1h-1zM34 34h1v1h-1zM36 34h1v1h-1zM6 35h1v1h-1zM8 35h1v1h-1zM9 35h1v1h-1zM10 35h1v1h-1zM12 35h1v1h-1zM14 35h1v1h-1zM17 35h1v1h-1zM18 35h1v1h-1zM21 35h1v1h-1zM22 35h1v1h-1zM24 35h1v1h-1zM26 35h1v1h-1zM28 35h1v1h-1zM29 35h1v1h-1zM33 35h1v1h-1zM38 35h1v1h-1zM6 36h1v1h-1zM8 36h1v1h-1zM9 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM21 36h1v1h-1zM23 36h1v1h-1zM24 36h1v1h-1zM26 36h1v1h-1zM27 36h1v1h-1zM28 36h1v1h-1zM29 36h1v1h-1zM30 36h1v1h-1zM31 36h1v1h-1zM32 36h1v1h-1zM33 36h1v1h-1zM35 36h1v1h-1zM6 37h1v1h-1zM12 37h1v1h-1zM15 37h1v1h-1zM18 37h1v1h-1zM20 37h1v1h-1zM21 37h1v1h-1zM23 37h1v1h-1zM25 37h1v1h-1zM28 37h1v1h-1zM30 37h1v1h-1zM32 37h1v1h-1zM33 37h1v1h-1zM34 37h1v1h-1zM38 37h1v1h-1zM6 38h1v1h-1zM7 38h1v1h-1zM8 38h1v1h-1zM9 38h1v1h-1zM10 38h1v1h-1zM11 38h1v1h-1zM12 38h1v1h-1zM14 38h1v1h-1zM16 38h1v1h-1zM17 38h1v1h-1zM18 38h1v1h-1zM19 38h1v1h-1zM22 38h1v1h-1zM23 38h1v1h-1zM26 38h1v1h-1zM27 38h1v1h-1zM29 38h1v1h-1zM34 38h1v1h-1zM36 38h1v1h-1z" fill="#1C1713"/></svg></div><p>De opdrachten<br>sessie-2.html</p></div>
-    <div class="tijd">14:52 tot 15:02</div>
-    <h2>Vraag door op je eigen idee&euml;n</h2>
-    <pre><code>Loop jullie drie idee&euml;n langs. E&eacute;n van jullie stelt de vragen,
-de ander typt. Wissel na elk idee van rol.
-
-Bij elk idee drie vragen:
-
-- Voor wie is dit een probleem?
-- Wat gebeurt er nu, zonder dat ding?
-- Hoe vaak, en wat kost het nu: tijd, geld, ergernis?
-
-De antwoorden zet je op je kaart, met het potloodje.
-Staat er nog een oplossing in? Haal hem eruit.
-Tien minuten.</code></pre>
-    <p class="sub"><strong>De toets voor de lijst:</strong> weet je voor wie het een probleem is,
-      en kun je in twee weken een eerste versie hebben? Twee keer ja, dan blijft het staan.</p>
-  </section>
-
-  <section class="compact" data-notes="Drie minuten uitleg, niet meer. Zeg: je doet het in vier stappen, na elke stap kijk je zelf en pas je aan voor je verdergaat, de output van de ene stap is de input van de volgende, dat is een promptketen. De drie vragen kennen ze van training 1. Zeg de AVG-regel VOOR stap 0: openbare informatie, eigen deskresearch en je eigen samenvatting mogen erin, namen en interne stukken niet. Fabian zet op 12 oktober teken de keten eerst op zijn bord, jij laat hem vandaag al getekend zien. Stap 1 is de belangrijkste check: vraag bij elk duo actief of ze twee feiten hebben teruggezocht. Deze slide blijft staan terwijl je rondloopt, dan sturen de duo's zichzelf op de tijden.">
-    <div class="qr-hoek"><div class="kader"><svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR-code naar guuswitjes.github.io/minor-ce-playground/sessie-2.html"><rect width="45" height="45" fill="#ffffff"/><path d="M6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM19 6h1v1h-1zM22 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM29 6h1v1h-1zM32 6h1v1h-1zM33 6h1v1h-1zM34 6h1v1h-1zM35 6h1v1h-1zM36 6h1v1h-1zM37 6h1v1h-1zM38 6h1v1h-1zM6 7h1v1h-1zM12 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM22 7h1v1h-1zM27 7h1v1h-1zM28 7h1v1h-1zM29 7h1v1h-1zM30 7h1v1h-1zM32 7h1v1h-1zM38 7h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM15 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM24 8h1v1h-1zM25 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM34 8h1v1h-1zM35 8h1v1h-1zM36 8h1v1h-1zM38 8h1v1h-1zM6 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM26 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM32 9h1v1h-1zM34 9h1v1h-1zM35 9h1v1h-1zM36 9h1v1h-1zM38 9h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM19 10h1v1h-1zM20 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM25 10h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h1v1h-1zM35 10h1v1h-1zM36 10h1v1h-1zM38 10h1v1h-1zM6 11h1v1h-1zM12 11h1v1h-1zM15 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM26 11h1v1h-1zM28 11h1v1h-1zM32 11h1v1h-1zM38 11h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM26 12h1v1h-1zM28 12h1v1h-1zM30 12h1v1h-1zM32 12h1v1h-1zM33 12h1v1h-1zM34 12h1v1h-1zM35 12h1v1h-1zM36 12h1v1h-1zM37 12h1v1h-1zM38 12h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM18 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM28 13h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM27 14h1v1h-1zM30 14h1v1h-1zM32 14h1v1h-1zM35 14h1v1h-1zM37 14h1v1h-1zM38 14h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM23 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM29 15h1v1h-1zM32 15h1v1h-1zM33 15h1v1h-1zM35 15h1v1h-1zM36 15h1v1h-1zM37 15h1v1h-1zM38 15h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM22 16h1v1h-1zM23 16h1v1h-1zM28 16h1v1h-1zM29 16h1v1h-1zM30 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM34 16h1v1h-1zM35 16h1v1h-1zM37 16h1v1h-1zM38 16h1v1h-1zM10 17h1v1h-1zM11 17h1v1h-1zM13 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM18 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM29 17h1v1h-1zM31 17h1v1h-1zM33 17h1v1h-1zM35 17h1v1h-1zM38 17h1v1h-1zM11 18h1v1h-1zM12 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM26 18h1v1h-1zM28 18h1v1h-1zM31 18h1v1h-1zM34 18h1v1h-1zM35 18h1v1h-1zM37 18h1v1h-1zM38 18h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM10 19h1v1h-1zM13 19h1v1h-1zM19 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM30 19h1v1h-1zM33 19h1v1h-1zM35 19h1v1h-1zM37 19h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM12 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM22 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM30 20h1v1h-1zM32 20h1v1h-1zM33 20h1v1h-1zM34 20h1v1h-1zM36 20h1v1h-1zM6 21h1v1h-1zM7 21h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM13 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM19 21h1v1h-1zM21 21h1v1h-1zM24 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM29 21h1v1h-1zM31 21h1v1h-1zM32 21h1v1h-1zM34 21h1v1h-1zM36 21h1v1h-1zM9 22h1v1h-1zM11 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM34 22h1v1h-1zM35 22h1v1h-1zM36 22h1v1h-1zM6 23h1v1h-1zM7 23h1v1h-1zM8 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM13 23h1v1h-1zM15 23h1v1h-1zM16 23h1v1h-1zM21 23h1v1h-1zM24 23h1v1h-1zM26 23h1v1h-1zM27 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM31 23h1v1h-1zM32 23h1v1h-1zM34 23h1v1h-1zM35 23h1v1h-1zM37 23h1v1h-1zM38 23h1v1h-1zM7 24h1v1h-1zM8 24h1v1h-1zM12 24h1v1h-1zM13 24h1v1h-1zM14 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM28 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM34 24h1v1h-1zM36 24h1v1h-1zM37 24h1v1h-1zM6 25h1v1h-1zM9 25h1v1h-1zM11 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM25 25h1v1h-1zM29 25h1v1h-1zM30 25h1v1h-1zM32 25h1v1h-1zM34 25h1v1h-1zM6 26h1v1h-1zM9 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM16 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM27 26h1v1h-1zM35 26h1v1h-1zM36 26h1v1h-1zM38 26h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM13 27h1v1h-1zM15 27h1v1h-1zM16 27h1v1h-1zM17 27h1v1h-1zM20 27h1v1h-1zM22 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM29 27h1v1h-1zM32 27h1v1h-1zM33 27h1v1h-1zM35 27h1v1h-1zM38 27h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM15 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM23 28h1v1h-1zM24 28h1v1h-1zM27 28h1v1h-1zM29 28h1v1h-1zM30 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM33 28h1v1h-1zM37 28h1v1h-1zM38 28h1v1h-1zM7 29h1v1h-1zM8 29h1v1h-1zM14 29h1v1h-1zM16 29h1v1h-1zM17 29h1v1h-1zM18 29h1v1h-1zM19 29h1v1h-1zM21 29h1v1h-1zM24 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM33 29h1v1h-1zM34 29h1v1h-1zM35 29h1v1h-1zM37 29h1v1h-1zM38 29h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM9 30h1v1h-1zM11 30h1v1h-1zM12 30h1v1h-1zM15 30h1v1h-1zM17 30h1v1h-1zM18 30h1v1h-1zM20 30h1v1h-1zM23 30h1v1h-1zM28 30h1v1h-1zM29 30h1v1h-1zM30 30h1v1h-1zM31 30h1v1h-1zM32 30h1v1h-1zM33 30h1v1h-1zM34 30h1v1h-1zM37 30h1v1h-1zM38 30h1v1h-1zM14 31h1v1h-1zM18 31h1v1h-1zM19 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM25 31h1v1h-1zM26 31h1v1h-1zM30 31h1v1h-1zM34 31h1v1h-1zM35 31h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM8 32h1v1h-1zM9 32h1v1h-1zM10 32h1v1h-1zM11 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM15 32h1v1h-1zM16 32h1v1h-1zM17 32h1v1h-1zM18 32h1v1h-1zM19 32h1v1h-1zM22 32h1v1h-1zM24 32h1v1h-1zM25 32h1v1h-1zM26 32h1v1h-1zM29 32h1v1h-1zM30 32h1v1h-1zM32 32h1v1h-1zM34 32h1v1h-1zM6 33h1v1h-1zM12 33h1v1h-1zM14 33h1v1h-1zM15 33h1v1h-1zM16 33h1v1h-1zM18 33h1v1h-1zM19 33h1v1h-1zM22 33h1v1h-1zM25 33h1v1h-1zM27 33h1v1h-1zM29 33h1v1h-1zM30 33h1v1h-1zM34 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM37 33h1v1h-1zM6 34h1v1h-1zM8 34h1v1h-1zM9 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM15 34h1v1h-1zM18 34h1v1h-1zM19 34h1v1h-1zM21 34h1v1h-1zM27 34h1v1h-1zM29 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM32 34h1v1h-1zM33 34h1v1h-1zM34 34h1v1h-1zM36 34h1v1h-1zM6 35h1v1h-1zM8 35h1v1h-1zM9 35h1v1h-1zM10 35h1v1h-1zM12 35h1v1h-1zM14 35h1v1h-1zM17 35h1v1h-1zM18 35h1v1h-1zM21 35h1v1h-1zM22 35h1v1h-1zM24 35h1v1h-1zM26 35h1v1h-1zM28 35h1v1h-1zM29 35h1v1h-1zM33 35h1v1h-1zM38 35h1v1h-1zM6 36h1v1h-1zM8 36h1v1h-1zM9 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM21 36h1v1h-1zM23 36h1v1h-1zM24 36h1v1h-1zM26 36h1v1h-1zM27 36h1v1h-1zM28 36h1v1h-1zM29 36h1v1h-1zM30 36h1v1h-1zM31 36h1v1h-1zM32 36h1v1h-1zM33 36h1v1h-1zM35 36h1v1h-1zM6 37h1v1h-1zM12 37h1v1h-1zM15 37h1v1h-1zM18 37h1v1h-1zM20 37h1v1h-1zM21 37h1v1h-1zM23 37h1v1h-1zM25 37h1v1h-1zM28 37h1v1h-1zM30 37h1v1h-1zM32 37h1v1h-1zM33 37h1v1h-1zM34 37h1v1h-1zM38 37h1v1h-1zM6 38h1v1h-1zM7 38h1v1h-1zM8 38h1v1h-1zM9 38h1v1h-1zM10 38h1v1h-1zM11 38h1v1h-1zM12 38h1v1h-1zM14 38h1v1h-1zM16 38h1v1h-1zM17 38h1v1h-1zM18 38h1v1h-1zM19 38h1v1h-1zM22 38h1v1h-1zM23 38h1v1h-1zM26 38h1v1h-1zM27 38h1v1h-1zM29 38h1v1h-1zM34 38h1v1h-1zM36 38h1v1h-1z" fill="#1C1713"/></svg></div><p>De opdrachten<br>sessie-2.html</p></div>
-    <div class="tijd">15:10 tot 15:52</div>
+    <div class="tijd">Werkvorm 2 &middot; 15:10 tot 15:55</div>
     <h2>De keten</h2>
     <div class="keten">
       <div class="stap"><span class="klok">15:10</span><span class="nr">0 omgeving</span><span class="wat">Je materiaal erin, instructie zelf schrijven</span></div>
@@ -336,35 +276,6 @@ Tien minuten.</code></pre>
       <p>Na elke stap: wat klopt niet? &middot; wat mist? &middot; wat kan duidelijker?</p>
     </div>
     <p class="sub">Alle prompts staan op <strong>sessie-2.html</strong>. De projectinstructie typ je zelf over.</p>
-  </section>
-
-  <section data-notes="Zet het bord op de beamer via ideeenbord-ce.web.app/beamer.html, dat is de weergave zonder invoervelden. Drie duo's uit spoor A, twee minuten per duo, met alleen die ene vraag. Die werkt beter dan wat is je probleem, want hij laat de keten zien en de rest leert ervan. Is er iemand bij wie een feit uit stap 1 niet in het bestand stond, bewaar die voor het laatst. Als er tijd is een duo uit spoor B: lees de briefing voor, en vraag de groep of ze dit zouden kunnen bouwen met alleen die tekst.">
-    <div class="tijd">15:55 tot 16:08</div>
-    <h2>Oogst</h2>
-    <div class="kolommen">
-      <div class="kolom">
-        <h3>Gemaakt</h3>
-        <p>Staat er sinds half drie</p>
-      </div>
-      <div class="kolom">
-        <h3>Dit willen we</h3>
-        <p>Vanmiddag gevuld</p>
-      </div>
-    </div>
-    <p class="citaat">Bij welke stap moest je iets overdoen?</p>
-  </section>
-
-  <section class="compact" data-notes="Eerst de check op de belofte, met drie vingers: heb je je probleem in een zin met een How Might We, staat je omgeving met je materiaal en je eigen instructie erin, staat je idee op de lijst. Wie iets mist weet wat er vanavond nog moet. Dan de lijst: je houdt hem bij vanaf vandaag, wie een idee ziet dat groter is kan het als kortcyclisch project 2 oppakken met oplevering 15 oktober, kom langs dan denk je mee. Aanbieden, niet opleggen. Als Fabian bevestigd heeft dat de portfolio-app ook hun assessmentportfolio wordt: een zin daarover. Exporteer of fotografeer het bord voor je de zaal uitloopt, dat is je lijst.">
-    <div class="tijd">16:08 tot 16:15</div>
-    <h2>Voor je weggaat</h2>
-    <ol>
-      <li><strong>De check.</strong> Heb je je probleem in &eacute;&eacute;n zin, met een How Might We?
-        Staat je omgeving? Staat je idee op de lijst?</li>
-      <li><strong>De lijst blijft staan.</strong> Zie je een idee dat groter is dan vanmiddag?
-        Dat kan kortcyclisch project 2 worden, oplevering 15 oktober. Kom langs.</li>
-      <li><strong>Sessie 3 is donderdag 8 oktober.</strong> Twee modellen op dezelfde vraag,
-        en varianten naast elkaar. Een week later de Battle.</li>
-    </ol>
   </section>
 
   <div class="balk">
@@ -418,7 +329,7 @@ Tien minuten.</code></pre>
       'font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#B0A49A;',
       'border-bottom:1px solid #3a332d;padding-bottom:.7rem;margin-bottom:1.2rem;}',
       'h1{font-size:1.5rem;line-height:1.25;margin:0 0 1.1rem;color:#fff;}',
-      '#notitie{font-size:1.15rem;line-height:1.65;}',
+      '#notitie{font-size:1.1rem;line-height:1.6;white-space:pre-wrap;}',
       '.volgende{margin-top:2rem;padding-top:1rem;border-top:1px solid #3a332d;',
       'font-size:.95rem;color:#B0A49A;}',
       '.volgende b{color:#D0E3CF;font-weight:600;}',
@@ -435,7 +346,7 @@ Tien minuten.</code></pre>
 
     document.getElementById('knop-notities').addEventListener('click', function () {
       if (notitieVenster && !notitieVenster.closed) { notitieVenster.focus(); return; }
-      notitieVenster = window.open('', 'notities', 'width=580,height=780');
+      notitieVenster = window.open('', 'notities', 'width=620,height=860');
       if (!notitieVenster) {
         alert('Je browser blokkeert het pop-upvenster. Sta pop-ups toe voor deze pagina.');
         return;
@@ -452,12 +363,12 @@ Tien minuten.</code></pre>
       if (!notitieVenster || notitieVenster.closed) return;
       var d = notitieVenster.document;
       if (!d.getElementById('titel')) return;
-      d.getElementById('tel').textContent = 'Slide ' + (i + 1) + ' van ' + secties.length;
+      d.getElementById('tel').textContent = 'Scherm ' + (i + 1) + ' van ' + secties.length;
       d.getElementById('titel').textContent = titelVan(secties[i]);
       var n = secties[i].getAttribute('data-notes');
       d.getElementById('notitie').innerHTML = n
         ? n.replace(/&/g, '&amp;').replace(/</g, '&lt;')
-        : '<span class="leeg">Geen notities bij deze slide.</span>';
+        : '<span class="leeg">Geen notities bij dit scherm.</span>';
       d.getElementById('volgende').textContent =
         secties[i + 1] ? titelVan(secties[i + 1]) : 'einde';
     }
@@ -476,8 +387,7 @@ Tien minuten.</code></pre>
       }
     });
 
-    /* Doorklikken met de muis of een presenter. Klikken op de knoppen
-       rechtsonder en op links tellen niet mee. */
+    /* Doorklikken met de muis of een presenter. */
     document.addEventListener('click', function (e) {
       if (e.target.closest('.balk') || e.target.closest('a')) return;
       ga(huidige() + 1);
