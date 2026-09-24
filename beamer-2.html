@@ -228,7 +228,7 @@
     }
     .keten { margin-top: clamp(1.2rem, 2.2vw, 2.2rem); }
     .stap .nr {
-      font-size: clamp(1.05rem, 2vw, 1.8rem);
+      font-size: clamp(0.95rem, 1.5vw, 1.6rem);
       font-weight: 700;
       color: var(--accent-donker);
       line-height: 1.1;
@@ -246,6 +246,32 @@
       letter-spacing: 0.06em;
       color: var(--accent);
     }
+    .sporenrij {
+      display: flex;
+      align-items: stretch;
+      gap: clamp(0.5rem, 1vw, 1rem);
+      margin-top: clamp(0.8rem, 1.6vw, 1.5rem);
+    }
+    .spoor-blok {
+      flex: 1 1 0;
+      border: 2px dashed var(--accent-medium);
+      border-radius: 10px;
+      padding: clamp(0.5rem, 1vw, 1rem) clamp(0.7rem, 1.3vw, 1.3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15em;
+    }
+    .spoor-blok:first-child { border-style: solid; border-color: var(--accent); background: #fff; }
+    .volgorde {
+      font-size: clamp(0.72rem, 1.1vw, 1.05rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--warm);
+    }
+    .spoor-naam { font-size: clamp(0.95rem, 1.7vw, 1.6rem); font-weight: 700; color: var(--accent-donker); }
+    .spoor-uit { font-size: clamp(0.8rem, 1.3vw, 1.25rem); color: var(--text-muted); }
+    .pijl { align-self: center; font-size: clamp(1.2rem, 2.2vw, 2.2rem); color: var(--accent); font-weight: 700; }
     .drievragen {
       background: var(--accent-licht);
       border-left: clamp(5px, 0.7vw, 10px) solid var(--accent);
@@ -286,7 +312,7 @@
     </div>
   </section>
 
-  <section data-notes="14:33 TOT 14:42&#10;&#10;RODE DRAAD&#10;- Einddoel: opdrachtgever kan zonder jou verder&#10;- Vandaag is het scharnier: van verzamelen naar kiezen&#10;&#10;DE DRAAI&#10;- Wat kun je nu dat je eind augustus nog niet kon?&#10;- Wie vroeg op 14 sep in een keer om een hele site?&#10;- Bouwen lukt. Nu: wat bouw je, en voor wie?&#10;- Hulpmiddel 11: goed antwoord op de verkeerde vraag is nog steeds fout&#10;- NIET Fabians zin over &quot;tool zonder scherp probleem&quot; (12 okt)&#10;&#10;BELOFTE, om 16:15 heb je:&#10;1. Probleem in een zin + How Might We (paper 1 okt)&#10;2. Een AI-omgeving die je opdracht kent&#10;3. Een idee op de lijst&#10;- Keuze werkvorm 2: opdracht scherp of tool briefen&#10;&#10;14:40 JOUW VERHAAL, 2 min&#10;- Eerst het probleem, dan wat je bouwde&#10;- Loop alleen met demo-wereld">
+  <section data-notes="14:33 TOT 14:42&#10;&#10;RODE DRAAD&#10;- Einddoel: opdrachtgever kan zonder jou verder&#10;- Vandaag is het scharnier: van verzamelen naar kiezen&#10;&#10;DE DRAAI&#10;- Wat kun je nu dat je eind augustus nog niet kon?&#10;- Wie vroeg op 14 sep in een keer om een hele site?&#10;- Bouwen lukt. Nu: wat bouw je, en voor wie?&#10;- Hulpmiddel 11: goed antwoord op de verkeerde vraag is nog steeds fout&#10;- NIET Fabians zin over &quot;tool zonder scherp probleem&quot; (12 okt)&#10;&#10;BELOFTE, om 16:15 heb je:&#10;1. Probleem in een zin + How Might We (paper 1 okt)&#10;2. Een AI-omgeving die je opdracht kent&#10;3. Een idee op de lijst&#10;- Werkvorm 2: iedereen eerst spoor A, wie klaar is door naar B&#10;&#10;14:40 JOUW VERHAAL, 2 min&#10;- Eerst het probleem, dan wat je bouwde&#10;- Loop alleen met demo-wereld">
     <div class="tijd">De rode draad</div>
     <h2>Waar staan we in de minor?</h2>
     <div class="fasen">
@@ -343,7 +369,7 @@
     </div>
   </section>
 
-  <section data-notes="15:10 TOT 15:55&#10;&#10;WAAROM&#10;- Een omgeving die je opdracht kent, voor de hele minor&#10;- Komt terug in sessie 4 en 5&#10;- Rommel erin is rommel eruit, dus nu scherp maken&#10;&#10;DE STAPPEN&#10;1. Ordenen: waar rust het op? Aannames mogen, niet als feit&#10;2. Probleemboom: van symptoom naar oorzaak. Waar heeft de opdrachtgever invloed?&#10;3. Aanscherpen: probleem in een zin = bouwsteen 1 paper&#10;4. Aanvallen: een toets. Levert vragen voor de opdrachtgever&#10;&#10;VOOR STAP 0&#10;- AVG: geen namen, geen interne stukken&#10;- Spoor A standaard. B alleen met probleem in een zin&#10;&#10;RONDLOPEN&#10;- Stap 1: twee feiten teruggezocht?&#10;- Niks aangepast? Ladder zonder AANNAME? &quot;En&quot; in het probleem?&#10;&#10;15:55 OOGST&#10;- Bord op de beamer: ideeenbord-ce.web.app/beamer.html&#10;- 3 duo&#x27;s: bij welke stap moest je iets overdoen?&#10;&#10;16:08 AFSLUITEN&#10;- Drie vingers: probleem, omgeving, idee op de lijst&#10;- Lijst = aanbod voor kortcyclisch 2 (15 okt)&#10;- Sessie 3: 8 okt&#10;- Foto van het bord">
+  <section data-notes="15:10 TOT 15:55&#10;&#10;WAAROM&#10;- Een omgeving die je opdracht kent, voor de hele minor&#10;- Komt terug in sessie 4 en 5&#10;- Rommel erin is rommel eruit, dus nu scherp maken&#10;&#10;DE STAPPEN&#10;1. Ordenen: waar rust het op? Aannames mogen, niet als feit&#10;2. Probleemboom: van symptoom naar oorzaak. Waar heeft de opdrachtgever invloed?&#10;3. Aanscherpen: probleem in een zin = bouwsteen 1 paper&#10;4. Aanvallen: een toets. Levert vragen voor de opdrachtgever&#10;&#10;VOOR STAP 0&#10;- AVG: geen namen, geen interne stukken&#10;- Iedereen eerst spoor A&#10;- Naar B? Eerst probleem in een zin laten zien&#10;&#10;RONDLOPEN&#10;- Stap 1: twee feiten teruggezocht?&#10;- Niks aangepast? Ladder zonder AANNAME? &quot;En&quot; in het probleem?&#10;&#10;15:55 OOGST&#10;- Bord op de beamer: ideeenbord-ce.web.app/beamer.html&#10;- 3 duo&#x27;s: bij welke stap moest je iets overdoen?&#10;&#10;16:08 AFSLUITEN&#10;- Drie vingers: probleem, omgeving, idee op de lijst&#10;- Lijst = aanbod voor kortcyclisch 2 (15 okt)&#10;- Sessie 3: 8 okt&#10;- Foto van het bord">
     <div class="tijd">Werkvorm 2 &middot; drie kwartier</div>
     <h2>De keten</h2>
     <div class="keten">
@@ -359,6 +385,11 @@
     </div>
     <div class="drievragen">
       <p>Na elke stap: wat klopt niet? &middot; wat mist? &middot; wat kan duidelijker?</p>
+    </div>
+    <div class="sporenrij">
+      <div class="spoor-blok"><span class="volgorde">Eerst &middot; iedereen</span><span class="spoor-naam">Spoor A &middot; je opdracht scherp</span><span class="spoor-uit">Probleem in &eacute;&eacute;n zin, voor je paper</span></div>
+      <div class="pijl">&rarr;</div>
+      <div class="spoor-blok"><span class="volgorde">Klaar met A?</span><span class="spoor-naam">Spoor B &middot; een tool briefen</span><span class="spoor-uit">Een idee van het bord, als briefing voor Claude Code of Codex</span></div>
     </div>
     <p class="sub">Alle prompts staan op <strong>sessie-2.html</strong>. De projectinstructie typ je zelf over.</p>
   </section>
