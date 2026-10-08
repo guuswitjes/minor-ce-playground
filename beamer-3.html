@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beamer sessie 3 | AI Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --accent: #5C7A5A;
+      --accent-donker: #4A6349;
+      --accent-licht: #EDF3EC;
+      --accent-medium: #D0E3CF;
+      --inkt: #1C1713;
+      --bg: #F7F4F0;
+      --border: #E4DDD6;
+      --text-muted: #7A6E66;
+      --warm: #7D6034;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--inkt);
+      -webkit-font-smoothing: antialiased;
+    }
+    section {
+      position: relative;
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2rem, 5vw, 5rem);
+      border-bottom: 1px solid var(--border);
+    }
+    .tijd {
+      font-size: clamp(0.9rem, 1.4vw, 1.3rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: clamp(0.8rem, 1.6vw, 1.5rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3.4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin-bottom: clamp(1rem, 2vw, 1.8rem);
+    }
+    h3 {
+      font-size: clamp(1.05rem, 2vw, 1.8rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      margin-bottom: 0.4rem;
+    }
+    p, li { font-size: clamp(1rem, 1.8vw, 1.7rem); line-height: 1.5; }
+    strong { color: var(--accent-donker); }
+    .sub { font-size: clamp(0.95rem, 1.6vw, 1.5rem); color: var(--text-muted); margin-top: 1.2rem; }
+
+    /* Scherm 1: twee QR-codes naast elkaar */
+    .openrij {
+      display: flex;
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .qr-kolom { display: flex; flex-direction: column; align-items: center; }
+    .qr {
+      width: clamp(180px, 26vw, 400px);
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+    .qr svg { display: block; width: 100%; height: auto; border-radius: 14px; }
+    .qr-label {
+      font-size: clamp(1.1rem, 2.1vw, 2rem);
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+    .qr-url {
+      font-size: clamp(0.9rem, 1.6vw, 1.5rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      text-align: center;
+      line-height: 1.25;
+      word-break: break-word;
+      margin-top: 0.2rem;
+    }
+
+    /* Werkvorm 1: kop met de QR van het bord rechts */
+    .kopregel {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 0.4rem;
+    }
+    .kopregel h2 { margin-bottom: 0; }
+    .bord-qr { text-align: center; flex: 0 0 auto; }
+    .bord-qr .kader {
+      width: clamp(120px, min(12vw, 21vh), 240px);
+      background: #fff;
+      border-radius: 10px;
+      padding: clamp(4px, 0.5vw, 9px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .bord-qr svg { display: block; width: 100%; height: auto; }
+    .bord-qr p {
+      font-size: clamp(0.75rem, min(1.1vw, 2vh), 1.2rem);
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      line-height: 1.3;
+    }
+
+    /* De rode draad van de minor */
+    .fasen {
+      display: flex;
+      gap: clamp(0.4rem, 0.9vw, 1rem);
+      flex-wrap: wrap;
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+    .fase {
+      flex: 1 1 150px;
+      background: #fff;
+      border: 2px solid var(--accent-medium);
+      border-radius: 10px;
+      padding: clamp(0.7rem, 1.2vw, 1.2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3em;
+    }
+    .fase .wanneer {
+      font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+      font-weight: 700;
+      color: var(--warm);
+    }
+    .fase .naam {
+      font-size: clamp(1.1rem, 2.1vw, 1.9rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      line-height: 1.1;
+    }
+    .fase .wat {
+      font-size: clamp(0.85rem, 1.4vw, 1.3rem);
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .fase.nu {
+      background: var(--accent-licht);
+      border-color: var(--accent);
+      border-width: 3px;
+    }
+    .fase.nu .wanneer { color: var(--accent-donker); }
+
+    /* De twee opdrachtblokken van werkvorm 1, naast elkaar */
+    .opdrachten {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2.5rem);
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+    .opdracht {
+      flex: 1 1 340px;
+      background: #fff;
+      border: 2px solid var(--accent-medium);
+      border-radius: 12px;
+      padding: clamp(1rem, 2vw, 2rem);
+    }
+    .opdracht .duur {
+      font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+      font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .opdracht p, .opdracht li { font-size: clamp(0.95rem, min(1.55vw, 2.75vh), 1.5rem); line-height: 1.4; }
+    .opdracht .sub { font-size: clamp(0.85rem, min(1.3vw, 2.3vh), 1.3rem); margin-top: 0.8rem; }
+    .opdracht h3 { font-size: clamp(1.05rem, min(1.8vw, 3.2vh), 1.7rem); }
+    .opdracht ul { margin: 0.5rem 0 0 1.2em; }
+    .opdracht li { margin-bottom: 0.2em; }
+
+    /* De keten, getekend */
+    .keten {
+      display: flex;
+      align-items: stretch;
+      gap: clamp(0.4rem, 0.9vw, 1rem);
+      flex-wrap: wrap;
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+    .stap {
+      flex: 1 1 140px;
+      background: #fff;
+      border: 2px solid var(--accent-medium);
+      border-radius: 10px;
+      padding: clamp(0.6rem, 1.1vw, 1.1rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+    }
+    .stap .klok {
+      font-size: clamp(0.85rem, 1.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--warm);
+    }
+    .stap { flex: 1 1 0; min-width: 0; position: relative; padding-top: clamp(1.4rem, 2.4vw, 2.4rem); }
+    .stap .badge {
+      position: absolute;
+      top: calc(-1 * clamp(1rem, 1.7vw, 1.7rem));
+      left: calc(-1 * clamp(0.5rem, 0.8vw, 0.8rem));
+      width: clamp(2.2rem, 3.6vw, 3.6rem);
+      height: clamp(2.2rem, 3.6vw, 3.6rem);
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: clamp(1.1rem, 2vw, 2rem);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .keten { margin-top: clamp(1.2rem, 2.2vw, 2.2rem); }
+    .stap .nr {
+      font-size: clamp(0.95rem, 1.5vw, 1.6rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      line-height: 1.1;
+    }
+    .stap .wat {
+      font-size: clamp(0.78rem, 1.3vw, 1.2rem);
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .check {
+      align-self: center;
+      font-size: clamp(0.68rem, 1.1vw, 1rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+    .sporenrij {
+      display: flex;
+      align-items: stretch;
+      gap: clamp(0.5rem, 1vw, 1rem);
+      margin-top: clamp(0.8rem, 1.6vw, 1.5rem);
+    }
+    .spoor-blok {
+      flex: 1 1 0;
+      border: 2px dashed var(--accent-medium);
+      border-radius: 10px;
+      padding: clamp(0.5rem, 1vw, 1rem) clamp(0.7rem, 1.3vw, 1.3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15em;
+    }
+    .spoor-blok:first-child { border-style: solid; border-color: var(--accent); background: #fff; }
+    .volgorde {
+      font-size: clamp(0.72rem, 1.1vw, 1.05rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--warm);
+    }
+    .spoor-naam { font-size: clamp(0.95rem, 1.7vw, 1.6rem); font-weight: 700; color: var(--accent-donker); }
+    .spoor-uit { font-size: clamp(0.8rem, 1.3vw, 1.25rem); color: var(--text-muted); }
+    .pijl { align-self: center; font-size: clamp(1.2rem, 2.2vw, 2.2rem); color: var(--accent); font-weight: 700; }
+    .drievragen {
+      background: var(--accent-licht);
+      border-left: clamp(5px, 0.7vw, 10px) solid var(--accent);
+      border-radius: 8px;
+      padding: clamp(0.9rem, 1.6vw, 1.6rem);
+    }
+    .drievragen p { font-size: clamp(1rem, 1.9vw, 1.8rem); font-weight: 600; margin: 0; }
+
+
+    /* Sessie 3: de stelling groot */
+    .stelling {
+      font-size: clamp(1.8rem, min(4.4vw, 7.5vh), 4.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--inkt);
+      border-left: clamp(6px, 0.8vw, 12px) solid var(--accent);
+      padding-left: clamp(1rem, 2vw, 2rem);
+      margin-bottom: clamp(1.2rem, 2.4vw, 2.4rem);
+    }
+    .stelling::before { content: "\201C"; }
+    .stelling::after { content: "\201D"; }
+
+    .balk {
+      position: fixed; right: 0.9rem; bottom: 0.9rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; z-index: 10;
+      opacity: 0.35; transition: opacity 0.2s;
+    }
+    .balk:hover { opacity: 1; }
+    .balk button {
+      font: inherit; font-weight: 600;
+      color: var(--inkt); background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.35rem 0.7rem; cursor: pointer;
+    }
+    .balk button:hover { background: #fff; border-color: var(--accent); }
+    .teller { color: var(--text-muted); background: rgba(255,255,255,0.92); padding: 0.35rem 0.55rem; border-radius: 6px; }
+    .startknop {
+      display: inline-block;
+      background: #A3362B; color: #fff; text-decoration: none;
+      font-size: clamp(1.2rem, 2.6vw, 2.4rem); font-weight: 700;
+      padding: 0.6em 1.4em; border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    }
+    .startknop:hover { background: #862c23; }
+    @media print { .balk { display: none; } section { min-height: auto; page-break-after: always; } }
+  </style>
+</head>
+<body>
+
+  <section data-notes="TOT 14:33&#10;&#10;- Geen introductie van jezelf&#10;- Open de site, een laptop per duo&#10;- Geen bord vandaag">
+    <div class="tijd">Om te beginnen</div>
+    <h2>Alles staat online</h2>
+    <div class="openrij">
+      <div class="qr-kolom">
+        <div class="qr"><svg viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR-code naar guuswitjes.github.io/minor-ce-playground/"><rect width="41" height="41" fill="#ffffff"/><path d="M4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM20 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM27 4h1v1h-1zM30 4h1v1h-1zM31 4h1v1h-1zM32 4h1v1h-1zM33 4h1v1h-1zM34 4h1v1h-1zM35 4h1v1h-1zM36 4h1v1h-1zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM30 5h1v1h-1zM36 5h1v1h-1zM4 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM33 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM4 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM22 7h1v1h-1zM23 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM30 7h1v1h-1zM32 7h1v1h-1zM33 7h1v1h-1zM34 7h1v1h-1zM36 7h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM17 8h1v1h-1zM18 8h1v1h-1zM19 8h1v1h-1zM20 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM33 8h1v1h-1zM34 8h1v1h-1zM36 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM15 9h1v1h-1zM18 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM36 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM31 10h1v1h-1zM32 10h1v1h-1zM33 10h1v1h-1zM34 10h1v1h-1zM35 10h1v1h-1zM36 10h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM26 11h1v1h-1zM27 11h1v1h-1zM28 11h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM13 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM21 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM30 12h1v1h-1zM31 12h1v1h-1zM32 12h1v1h-1zM33 12h1v1h-1zM34 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM11 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM25 13h1v1h-1zM26 13h1v1h-1zM27 13h1v1h-1zM30 13h1v1h-1zM31 13h1v1h-1zM33 13h1v1h-1zM34 13h1v1h-1zM35 13h1v1h-1zM36 13h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM16 14h1v1h-1zM17 14h1v1h-1zM18 14h1v1h-1zM19 14h1v1h-1zM20 14h1v1h-1zM21 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM32 14h1v1h-1zM34 14h1v1h-1zM35 14h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM21 15h1v1h-1zM22 15h1v1h-1zM23 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM32 15h1v1h-1zM33 15h1v1h-1zM34 15h1v1h-1zM35 15h1v1h-1zM36 15h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM9 16h1v1h-1zM10 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM16 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM24 16h1v1h-1zM26 16h1v1h-1zM29 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM35 16h1v1h-1zM36 16h1v1h-1zM7 17h1v1h-1zM9 17h1v1h-1zM11 17h1v1h-1zM12 17h1v1h-1zM13 17h1v1h-1zM16 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM25 17h1v1h-1zM27 17h1v1h-1zM30 17h1v1h-1zM34 17h1v1h-1zM35 17h1v1h-1zM36 17h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM17 18h1v1h-1zM19 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM26 18h1v1h-1zM29 18h1v1h-1zM30 18h1v1h-1zM35 18h1v1h-1zM4 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM11 19h1v1h-1zM12 19h1v1h-1zM15 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM29 19h1v1h-1zM30 19h1v1h-1zM32 19h1v1h-1zM34 19h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM11 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM26 20h1v1h-1zM29 20h1v1h-1zM31 20h1v1h-1zM32 20h1v1h-1zM36 20h1v1h-1zM4 21h1v1h-1zM5 21h1v1h-1zM9 21h1v1h-1zM12 21h1v1h-1zM15 21h1v1h-1zM16 21h1v1h-1zM20 21h1v1h-1zM23 21h1v1h-1zM24 21h1v1h-1zM27 21h1v1h-1zM30 21h1v1h-1zM31 21h1v1h-1zM33 21h1v1h-1zM34 21h1v1h-1zM36 21h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM7 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM13 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM26 22h1v1h-1zM29 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM32 22h1v1h-1zM34 22h1v1h-1zM35 22h1v1h-1zM5 23h1v1h-1zM7 23h1v1h-1zM8 23h1v1h-1zM13 23h1v1h-1zM14 23h1v1h-1zM15 23h1v1h-1zM17 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM23 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM31 23h1v1h-1zM32 23h1v1h-1zM33 23h1v1h-1zM34 23h1v1h-1zM36 23h1v1h-1zM5 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM13 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM26 24h1v1h-1zM28 24h1v1h-1zM29 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM35 24h1v1h-1zM36 24h1v1h-1zM4 25h1v1h-1zM5 25h1v1h-1zM6 25h1v1h-1zM8 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM16 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM24 25h1v1h-1zM27 25h1v1h-1zM30 25h1v1h-1zM31 25h1v1h-1zM33 25h1v1h-1zM36 25h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM17 26h1v1h-1zM23 26h1v1h-1zM29 26h1v1h-1zM33 26h1v1h-1zM34 26h1v1h-1zM35 26h1v1h-1zM4 27h1v1h-1zM7 27h1v1h-1zM9 27h1v1h-1zM12 27h1v1h-1zM13 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM18 27h1v1h-1zM20 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM28 27h1v1h-1zM29 27h1v1h-1zM30 27h1v1h-1zM33 27h1v1h-1zM34 27h1v1h-1zM35 27h1v1h-1zM4 28h1v1h-1zM10 28h1v1h-1zM14 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM21 28h1v1h-1zM23 28h1v1h-1zM26 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1zM29 28h1v1h-1zM30 28h1v1h-1zM31 28h1v1h-1zM32 28h1v1h-1zM12 29h1v1h-1zM15 29h1v1h-1zM18 29h1v1h-1zM20 29h1v1h-1zM21 29h1v1h-1zM22 29h1v1h-1zM23 29h1v1h-1zM25 29h1v1h-1zM27 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM34 29h1v1h-1zM36 29h1v1h-1zM4 30h1v1h-1zM5 30h1v1h-1zM6 30h1v1h-1zM7 30h1v1h-1zM8 30h1v1h-1zM9 30h1v1h-1zM10 30h1v1h-1zM14 30h1v1h-1zM18 30h1v1h-1zM19 30h1v1h-1zM21 30h1v1h-1zM24 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1zM30 30h1v1h-1zM32 30h1v1h-1zM34 30h1v1h-1zM35 30h1v1h-1zM4 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM15 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM23 31h1v1h-1zM25 31h1v1h-1zM27 31h1v1h-1zM28 31h1v1h-1zM32 31h1v1h-1zM33 31h1v1h-1zM34 31h1v1h-1zM35 31h1v1h-1zM4 32h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM8 32h1v1h-1zM10 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM15 32h1v1h-1zM16 32h1v1h-1zM18 32h1v1h-1zM20 32h1v1h-1zM28 32h1v1h-1zM29 32h1v1h-1zM30 32h1v1h-1zM31 32h1v1h-1zM32 32h1v1h-1zM33 32h1v1h-1zM36 32h1v1h-1zM4 33h1v1h-1zM6 33h1v1h-1zM7 33h1v1h-1zM8 33h1v1h-1zM10 33h1v1h-1zM12 33h1v1h-1zM13 33h1v1h-1zM19 33h1v1h-1zM22 33h1v1h-1zM25 33h1v1h-1zM27 33h1v1h-1zM28 33h1v1h-1zM29 33h1v1h-1zM32 33h1v1h-1zM34 33h1v1h-1zM35 33h1v1h-1zM36 33h1v1h-1zM4 34h1v1h-1zM6 34h1v1h-1zM7 34h1v1h-1zM8 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM14 34h1v1h-1zM16 34h1v1h-1zM17 34h1v1h-1zM18 34h1v1h-1zM19 34h1v1h-1zM20 34h1v1h-1zM21 34h1v1h-1zM22 34h1v1h-1zM24 34h1v1h-1zM25 34h1v1h-1zM26 34h1v1h-1zM27 34h1v1h-1zM28 34h1v1h-1zM29 34h1v1h-1zM30 34h1v1h-1zM31 34h1v1h-1zM33 34h1v1h-1zM4 35h1v1h-1zM10 35h1v1h-1zM13 35h1v1h-1zM15 35h1v1h-1zM16 35h1v1h-1zM19 35h1v1h-1zM22 35h1v1h-1zM23 35h1v1h-1zM24 35h1v1h-1zM25 35h1v1h-1zM26 35h1v1h-1zM27 35h1v1h-1zM32 35h1v1h-1zM33 35h1v1h-1zM34 35h1v1h-1zM4 36h1v1h-1zM5 36h1v1h-1zM6 36h1v1h-1zM7 36h1v1h-1zM8 36h1v1h-1zM9 36h1v1h-1zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM17 36h1v1h-1zM18 36h1v1h-1zM19 36h1v1h-1zM21 36h1v1h-1zM22 36h1v1h-1zM23 36h1v1h-1zM24 36h1v1h-1zM26 36h1v1h-1zM27 36h1v1h-1zM28 36h1v1h-1zM29 36h1v1h-1zM31 36h1v1h-1zM35 36h1v1h-1z" fill="#1C1713"/></svg></div>
+        <p class="qr-label">De site</p>
+        <p class="qr-url">guuswitjes.github.io/<br>minor-ce-playground/</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-notes="14:33 TOT 14:36&#10;&#10;- Ik vroeg Fabian wat de Battle is&#10;- Stof duurzaamheid + business ethics&#10;- Spelshow meets debat, jury haalt alles onderuit&#10;- Vragen geheim, en dat is de bedoeling&#10;- Criteria weten we niet. Niet doen alsof&#10;&#10;BELOFTE, drie vingers&#10;1. Iets wat werkt, gemaakt met AI&#10;2. Een demo van twee minuten&#10;3. De bouwsels van de anderen&#10;&#10;VOOR JE DOORKLIKT: vraag aan de zaal&#10;Hoe bereid je je voor op vragen die je niet kent?&#10;Laat drie of vier antwoorden komen. Dan klikken.">
+
+    <div class="tijd">Donderdag 15 oktober &middot; 12:15</div>
+    <h2>De Battle</h2>
+    <div class="opdrachten">
+      <div class="opdracht">
+        <span class="duur">Waarover</span>
+        <h3>Alle stof</h3>
+        <p>Duurzaamheid en business ethics.</p>
+      </div>
+      <div class="opdracht">
+        <span class="duur">Hoe</span>
+        <h3>Spelshow meets debat</h3>
+        <p>Een jury die alles onderuit haalt.</p>
+      </div>
+      <div class="opdracht">
+        <span class="duur">De vragen</span>
+        <h3>Geheim</h3>
+        <p>Die hoor je pas daar.</p>
+      </div>
+    </div>
+    <div class="drievragen" style="margin-top: clamp(1rem, 2.2vw, 2.2rem);">
+      <p>Antwoorden stampen gaat niet. Voorbereiden wel.</p>
+    </div>
+    <p class="sub">Vanmiddag: <strong>je bouwt iets wat helpt</strong>, je <strong>laat het zien</strong>, en je krijgt <strong>de bouwsels van de anderen</strong>.</p>
+  </section>
+
+  <section data-notes="14:36 TOT 14:40&#10;&#10;Eerst hun antwoorden gehoord? Dan dit.&#10;&#10;- Breedte en kennis: weten wat er kan komen, begrippen paraat&#10;- MUNITIE: een debat win je met een voorbeeld, niet met een definitie&#10;- KADERS: wie een kader noemt, laat inzicht zien&#10;- WEERBAARHEID: onderuit gaan en overeind blijven, en het foute antwoord van een ander doorprikken&#10;&#10;Dan: jullie gaan iets bouwen dat bij een van deze lagen helpt">
+    <div class="tijd">Hoe bereid je je voor op vragen die je niet kent?</div>
+    <h2>Vijf lagen</h2>
+    <div class="keten">
+      <div class="stap"><span class="badge">1</span><span class="nr">Breedte</span><span class="wat">Weten welk terrein er kan komen</span></div>
+      <div class="stap"><span class="badge">2</span><span class="nr">Kennis</span><span class="wat">De begrippen paraat</span></div>
+      <div class="stap"><span class="badge">3</span><span class="nr">Munitie</span><span class="wat">Per onderwerp een voorbeeld of case</span></div>
+      <div class="stap"><span class="badge">4</span><span class="nr">Kaders</span><span class="wat">R-ladder, systeemgrens, stakeholders, morele ontkoppeling</span></div>
+      <div class="stap"><span class="badge">5</span><span class="nr">Weerbaarheid</span><span class="wat">Onderuit gaan, overeind blijven, een ander doorprikken</span></div>
+    </div>
+    <div class="drievragen">
+      <p>Vanmiddag bouw je iets wat bij een of twee van deze lagen helpt.</p>
+    </div>
+  </section>
+
+  <section data-notes="14:40 TOT 14:43&#10;&#10;- Iedereen dezelfde opdracht&#10;- Gereedschap vrij: artifact, canvas, Codex, Claude Code, custom GPT, project&#10;- Materiaal: ze halen de data zelf uit de e-learnings en de learning game. F12, Network, of AI. Links en hint op sessie-3.html&#10;- Noodplan: de stofbestanden staan op jouw laptop (battle/), delen via Teams als een duo vastloopt&#10;- Om 15:35 werkt het, en kan een ander het gebruiken&#10;- Daarna demo&#x27;s: laptop aan het scherm, twee minuten&#10;&#10;- Liever aan kortcyclisch 2? Eerst bouwen en je demo, daarna mag het">
+    <div class="tijd">De opdracht &middot; voor iedereen hetzelfde</div>
+    <h2>Bouw met AI iets wat de klas helpt voor de Battle</h2>
+    <div class="opdrachten">
+      <div class="opdracht">
+        <span class="duur">Je materiaal</span>
+        <h3>Haal het zelf op</h3>
+        <p>De stof staat online. De data erachter vind je met F12, of met AI.</p>
+      </div>
+      <div class="opdracht">
+        <span class="duur">Je gereedschap</span>
+        <h3>Vrij</h3>
+        <p>Een app, een game, een bot, een trainer. Claude, ChatGPT, Codex, Claude Code.</p>
+      </div>
+      <div class="opdracht">
+        <span class="duur">Om 15:35</span>
+        <h3>Het werkt</h3>
+        <p>En een ander kan het gebruiken. Dan laat je het zien.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-notes="14:43 TOT 14:49, DE ADVOCAAT, KORT&#10;&#10;VOORAF: stemserver draait (zwart venster open)&#10;&#10;WAT (klik de knop, opent in een nieuw tabblad)&#10;1. AI tegen AI met een ZWAKKE AI-student: twee rondes. De advocaat pakt hem in, de jury straft af&#10;2. Of zelf: iemand uit de zaal antwoordt via de microfoon&#10;3. Onder de motorkap, kort: twee instructies en een vraag uit Fabians learning game&#10;&#10;HOE: quiz met gimmick, omgegooid naar trainer, toen een echt gesprek met jury. Daarna stem, snelheid, AI-student&#10;KEUZES: inhoud uit de learning game, zodat de jury kan toetsen. Twee rollen, elk een eigen instructie&#10;LASTIG: de stem was vreselijk, het ging traag. Vier versies&#10;&#10;Terug naar dit tabblad, dan de vier vragen: zo vertel je straks over je eigen bouwsel">
+    <div class="tijd">Gebouwd met AI</div>
+    <h2>De advocaat van de duivel</h2>
+    <p class="sub" style="margin-top:0; margin-bottom: clamp(1.4rem, 2.6vw, 2.6rem);">Hij verdedigt het foute antwoord. Jij praat hem onderuit. Dan oordeelt de jury.</p>
+    <p><a class="startknop" href="roaster.html" target="_blank" rel="noopener">Open het debat &rarr;</a></p>
+  </section>
+
+  <section data-notes="14:49 TOT 14:50&#10;&#10;- Zo presenteren jullie straks&#10;- Laptop aan het scherm, laten zien wat je gemaakt hebt&#10;- Twee minuten per duo">
+    <div class="tijd">Straks, om 15:35</div>
+    <h2>Laptop aan het scherm, en laat zien wat je maakte</h2>
+    <div class="drievragen">
+      <p>Twee minuten per duo. Laat het werken.</p>
+    </div>
+  </section>
+
+  <section data-notes="14:50 TOT 15:00 BEDENKEN&#10;&#10;- Nog niet bouwen. Eerst de bouwkaart&#10;- Welke laag? Voor wie? Wat moet het doen?&#10;- Welke data, en waar halen ze die?&#10;- Wat is de kleinste versie die werkt?&#10;&#10;RONDLOPEN&#10;- Te groot? Wat kun je weglaten?&#10;- Weten ze waar de data vandaan komt?&#10;&#10;14:58 roepen: over twee minuten pitch, wie begint?">
+    <div class="tijd">Stap 1 &middot; tien minuten &middot; nog niet bouwen</div>
+    <h2>Bedenk het eerst</h2>
+    <div class="drievragen" style="margin-bottom: clamp(1rem, 2vw, 1.8rem);">
+      <p>Wij bouwen <strong>[wat]</strong> voor <strong>[wie]</strong>, zodat <strong>[welke laag of welk probleem]</strong>.<br>
+      We gebruiken <strong>[welke data]</strong> en <strong>[welk gereedschap]</strong>.<br>
+      De kleinste versie die werkt, is <strong>[...]</strong>.</p>
+    </div>
+    <div class="keten">
+      <div class="stap"><span class="badge">1</span><span class="nr">Bedenken</span><span class="wat">De bouwkaart</span></div>
+      <div class="stap"><span class="badge">2</span><span class="nr">Pitchen</span><span class="wat">Klassikaal</span></div>
+      <div class="stap"><span class="badge">3</span><span class="nr">Ronde 1</span><span class="wat">Kleinste versie die werkt</span></div>
+      <div class="stap"><span class="badge">4</span><span class="nr">Testen</span><span class="wat">Zelf: werkt het, klopt het?</span></div>
+      <div class="stap"><span class="badge">5</span><span class="nr">Ronde 2</span><span class="wat">Verbeteren</span></div>
+    </div>
+  </section>
+
+  <section data-notes="15:00 TOT 15:10 PITCHEN&#10;&#10;- 45 seconden per duo, vanaf de plek, jij houdt de tijd&#10;- Ze lezen hun bouwkaart voor&#10;&#10;DOORVRAGEN, een vraag per duo&#10;- Waarom deze laag? Wat helpt het jullie voor de Battle?&#10;- Waar komt de data vandaan?&#10;- Wat is de kleinste versie? Kan het nog kleiner?&#10;- Bouwen twee duo&#x27;s hetzelfde? Laat ze kiezen of samenwerken&#10;&#10;Elf duo&#x27;s is ongeveer acht minuten. Loopt het uit: alleen wat en waarom">
+    <div class="tijd">Stap 2 &middot; klassikaal</div>
+    <h2>Pitch je bouwkaart</h2>
+    <div class="opdrachten">
+      <div class="opdracht"><span class="duur">Wat</span><h3>Wat bouw je?</h3><p>En voor wie.</p></div>
+      <div class="opdracht"><span class="duur">Waarom</span><h3>Waarom dit?</h3><p>Welke laag, welk probleem bij je voorbereiding.</p></div>
+      <div class="opdracht"><span class="duur">Hoe</span><h3>Hoe pak je het aan?</h3><p>Welke data, welk gereedschap, en de kleinste versie.</p></div>
+    </div>
+  </section>
+
+  <section data-notes="15:10 TOT 15:35 BOUWEN IN RONDES&#10;&#10;15:10 RONDE 1: data ophalen, kleinste versie die werkt&#10;- Data: F12, Network, of AI. Hint staat op sessie-3.html&#10;- Noodplan: stofbestanden op jouw laptop (battle/), delen via Teams&#10;- Na tien minuten moet er iets werken. Zo niet: kleiner maken&#10;&#10;15:22 ROEPEN: TESTEN, ZELF&#10;- Doe alsof je een klasgenoot bent die het voor het eerst gebruikt&#10;- Werkt het? Klopt het met de stof? Stel een vraag waarvan je het antwoord weet&#10;- Schrijf op wat niet werkt of niet klopt&#10;&#10;15:25 RONDE 2: verbeteren wat niet werkte of niet klopte&#10;&#10;RONDLOPEN&#10;- Gebruikt het de stof, of verzint het?&#10;- Houden ze hun drie regels bij?&#10;- Online zetten lukt niet? Eigen laptop is genoeg voor de demo&#10;&#10;15:30 roepen: stoppen met bouwen, demo klaarzetten. Volgorde bepalen">
+    <div class="tijd">Stap 3 tot 5 &middot; tot 15:35</div>
+    <h2>Bouwen in rondes</h2>
+    <div class="keten">
+      <div class="stap"><span class="badge">3</span><span class="nr">Ronde 1 &middot; 15:10</span><span class="wat">Data ophalen en de kleinste versie die werkt</span></div>
+      <div class="stap"><span class="badge">4</span><span class="nr">Testen &middot; 15:22</span><span class="wat">Zelf testen: werkt het, en klopt het met de stof?</span></div>
+      <div class="stap"><span class="badge">5</span><span class="nr">Ronde 2 &middot; 15:25</span><span class="wat">Verbeteren wat niet werkte of niet klopte</span></div>
+    </div>
+    <div class="opdrachten">
+      <div class="opdracht">
+        <span class="duur">Vastgelopen?</span>
+        <ul><li>Flashcards of een quiz</li><li>Een stellingenrad met timer</li><li>Een advocaat van de duivel</li><li>Debatkaarten per onderwerp</li></ul>
+      </div>
+      <div class="opdracht">
+        <span class="duur">Alles staat op</span>
+        <h3>sessie-3.html</h3>
+        <p>De links naar de stof, hoe je de data ophaalt, de bouwkaart, een startprompt en ideeën.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-notes="15:35 TOT 16:10 DEMO&#x27;S&#10;&#10;- Twee minuten per duo, jij houdt de tijd&#10;- Elf duo&#x27;s is ongeveer een half uur&#10;- Laptop aan het scherm, of jij opent hun link&#10;- Na elke demo: een vraag uit de zaal, of van jou:&#10;  welke laag helpt dit? zou je het zelf gebruiken?&#10;&#10;Te weinig tijd? Drie vrijwilligers op het scherm, de rest in tweetallen aan elkaar&#10;&#10;16:10 AFSLUITEN&#10;- Link in het Teams-kanaal van de minor&#10;- Deze week oefenen met elkaars bouwsels, elke dag tien minuten&#10;- Na maandag 12 okt: module 6 is er nog niet in&#10;- Verantwoording in hulpmiddel 06&#10;- Volgende playground: week 46">
+    <div class="tijd">Vanaf 15:35 &middot; laptop aan het scherm</div>
+    <h2>Demo&#39;s</h2>
+    <div class="keten">
+      <div class="stap"><span class="badge">1</span><span class="nr">Wat</span><span class="wat">Laat het werken</span></div>
+      <div class="stap"><span class="badge">2</span><span class="nr">Hoe</span><span class="wat">Hoe kwam je er?</span></div>
+      <div class="stap"><span class="badge">3</span><span class="nr">Keuzes</span><span class="wat">Welke, en waarom?</span></div>
+      <div class="stap"><span class="badge">4</span><span class="nr">Lastig</span><span class="wat">Wat was lastig?</span></div>
+    </div>
+    <div class="drievragen">
+      <p>Deel je link in Teams. Deze week oefent de hele klas met elkaars bouwsels.</p>
+    </div>
+  </section>
+
+  <div class="balk">
+    <span class="teller" id="teller"></span>
+    <button id="knop-notities" type="button">Notities</button>
+    <button id="knop-scherm" type="button">Volledig scherm</button>
+  </div>
+
+  <script>
+    var secties = Array.prototype.slice.call(document.querySelectorAll('section'));
+    var notitieVenster = null;
+
+    function titelVan(sec) {
+      var k = sec.querySelector('h1, h2');
+      return k ? k.textContent.trim() : '';
+    }
+
+    function huidige() {
+      var beste = 0, klein = Infinity;
+      secties.forEach(function (el, i) {
+        var d = Math.abs(el.getBoundingClientRect().top);
+        if (d < klein) { klein = d; beste = i; }
+      });
+      return beste;
+    }
+
+    function ga(i) {
+      if (secties[i]) secties[i].scrollIntoView();
+    }
+
+    /* ---------- Volledig scherm ---------- */
+    document.getElementById('knop-scherm').addEventListener('click', function () {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    });
+    document.addEventListener('fullscreenchange', function () {
+      document.getElementById('knop-scherm').textContent =
+        document.fullscreenElement ? 'Verlaat volledig scherm' : 'Volledig scherm';
+    });
+
+    /* ---------- Notitievenster ---------- */
+    var NOTITIE_HTML = [
+      '<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">',
+      '<title>Notities</title><style>',
+      'body{font:16px/1.55 Inter,system-ui,sans-serif;margin:0;padding:1.6rem;',
+      'background:#1C1713;color:#F7F4F0;}',
+      '.kop{display:flex;justify-content:space-between;align-items:baseline;',
+      'font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#B0A49A;',
+      'border-bottom:1px solid #3a332d;padding-bottom:.7rem;margin-bottom:1.2rem;}',
+      'h1{font-size:1.5rem;line-height:1.25;margin:0 0 1.1rem;color:#fff;}',
+      '#notitie{font-size:1.1rem;line-height:1.6;white-space:pre-wrap;}',
+      '.volgende{margin-top:2rem;padding-top:1rem;border-top:1px solid #3a332d;',
+      'font-size:.95rem;color:#B0A49A;}',
+      '.volgende b{color:#D0E3CF;font-weight:600;}',
+      '.leeg{color:#7A6E66;font-style:italic;}',
+      '</style></head><body>',
+      '<div class="kop"><span id="tel"></span><span id="klok"></span></div>',
+      '<h1 id="titel"></h1><div id="notitie"></div>',
+      '<div class="volgende">Hierna: <b id="volgende"></b></div>',
+      '<script>setInterval(function(){var d=new Date();',
+      'document.getElementById("klok").textContent=',
+      'String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");},1000);',
+      '<\/script></body></html>'
+    ].join('');
+
+    document.getElementById('knop-notities').addEventListener('click', function () {
+      if (notitieVenster && !notitieVenster.closed) { notitieVenster.focus(); return; }
+      notitieVenster = window.open('', 'notities', 'width=620,height=860');
+      if (!notitieVenster) {
+        alert('Je browser blokkeert het pop-upvenster. Sta pop-ups toe voor deze pagina.');
+        return;
+      }
+      notitieVenster.document.open();
+      notitieVenster.document.write(NOTITIE_HTML);
+      notitieVenster.document.close();
+      setTimeout(schrijfNotitie, 60);
+    });
+
+    function schrijfNotitie() {
+      var i = huidige();
+      document.getElementById('teller').textContent = (i + 1) + ' / ' + secties.length;
+      if (!notitieVenster || notitieVenster.closed) return;
+      var d = notitieVenster.document;
+      if (!d.getElementById('titel')) return;
+      d.getElementById('tel').textContent = 'Scherm ' + (i + 1) + ' van ' + secties.length;
+      d.getElementById('titel').textContent = titelVan(secties[i]);
+      var n = secties[i].getAttribute('data-notes');
+      d.getElementById('notitie').innerHTML = n
+        ? n.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        : '<span class="leeg">Geen notities bij dit scherm.</span>';
+      d.getElementById('volgende').textContent =
+        secties[i + 1] ? titelVan(secties[i + 1]) : 'einde';
+    }
+
+    /* ---------- Navigatie ---------- */
+    document.addEventListener('keydown', function (e) {
+      var i = huidige();
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault(); ga(i + 1);
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault(); ga(i - 1);
+      } else if (e.key === 'Home') {
+        e.preventDefault(); ga(0);
+      } else if (e.key === 'End') {
+        e.preventDefault(); ga(secties.length - 1);
+      }
+    });
+
+    /* Doorklikken met de muis of een presenter. */
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.balk') || e.target.closest('a')) return;
+      ga(huidige() + 1);
+    });
+
+    var bezig = false;
+    window.addEventListener('scroll', function () {
+      if (bezig) return;
+      bezig = true;
+      requestAnimationFrame(function () { bezig = false; schrijfNotitie(); });
+    });
+    window.addEventListener('unload', function () {
+      if (notitieVenster && !notitieVenster.closed) notitieVenster.close();
+    });
+
+    schrijfNotitie();
+  </script>
+</body>
+</html>

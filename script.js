@@ -49,6 +49,21 @@ var SESSIES = [
       { href: '#startlijst', label: 'Startlijst met ideeën' }
     ],
     materiaal: []
+  },
+  {
+    id: 'sessie-3',
+    href: 'sessie-3.html',
+    label: '3 · Bouwen voor de Battle',
+    datum: 'do 8 oktober',
+    secties: [
+      { href: '#belofte',      label: 'Wat je aan het eind hebt' },
+      { href: '#lagen',        label: 'Vijf lagen' },
+      { href: '#materiaal',    label: 'Je materiaal' },
+      { href: '#bouwen',       label: 'Zo pak je het aan' },
+      { href: '#demo',         label: 'De demo' },
+      { href: '#daarna',       label: 'Na vanmiddag' }
+    ],
+    materiaal: []
   }
 ];
 

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessie 3, bouwen voor de Battle | AI Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sessie-3" data-pagina="sessie-3">
+  <div class="layout">
+    <div class="sidebar-overlay" onclick="toggleMenu()"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <span class="brand-subtitle">Circulaire Economie</span>
+          <span class="brand-title">AI Playground</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Start</div>
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Sessies</div>
+          <a href="sessie-1.html" class="nav-link">1 &middot; Deep research</a>
+          <a href="sessie-2.html" class="nav-link">2 &middot; Van oplossing naar probleem</a>
+          <a href="sessie-3.html" class="nav-link">3 &middot; Bouwen voor de Battle</a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">8 oktober, 14:30 tot 16:15<br>Connectr, Arnhem</div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
+        <h1 class="page-title">Sessie 3 &middot; Bouwen voor de Battle</h1>
+      </header>
+
+      <div class="main-content">
+        <p class="lead">
+          Volgende week donderdag, 15 oktober, is de Battle. Een spelshow die een debat is, over alle stof
+          van duurzaamheid en business ethics. Er is een jury, en die haalt alles onderuit.
+          De vragen hoor je pas daar.
+        </p>
+
+        <div class="callout callout-primary">
+          <p><strong>De opdracht, voor iedereen hetzelfde:</strong> bouw met AI iets wat jou en je klasgenoten helpt
+          de stof te leren en je voor te bereiden op de Battle. Om 15:35 werkt het, en kan een ander het gebruiken.</p>
+        </div>
+
+        <h2 id="belofte">Wat je aan het eind hebt</h2>
+        <ol>
+          <li><strong>Iets wat werkt.</strong> Een app, een game, een bot of een trainer, gemaakt met AI.</li>
+          <li><strong>Een demo van twee minuten.</strong> Je laptop aan het scherm, en je vertelt hoe je het bouwde.</li>
+          <li><strong>De bouwsels van de anderen.</strong> Elf duo's, elf manieren om te oefenen voor de Battle.</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <h2 id="lagen">Waar kan je bouwsel bij helpen?</h2>
+        <p class="section-intro">De vragen van de Battle zijn geheim. Voorbereiden kan wel, in vijf lagen. Kies er een of twee.</p>
+        <div class="table-wrap">
+          <table class="stappen">
+            <thead>
+              <tr><th>Laag</th><th>Wat het is</th><th>Bijvoorbeeld</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Laag"><strong>1 &middot; Breedte</strong></td><td data-label="Wat het is">Weten welk terrein er kan komen</td><td data-label="Bijvoorbeeld">Een overzicht of kaart van alle onderwerpen</td></tr>
+              <tr><td data-label="Laag"><strong>2 &middot; Kennis</strong></td><td data-label="Wat het is">De begrippen paraat hebben</td><td data-label="Bijvoorbeeld">Flashcards, een quiz, een memory met begrippen</td></tr>
+              <tr><td data-label="Laag"><strong>3 &middot; Munitie</strong></td><td data-label="Wat het is">Per onderwerp een voorbeeld of case. Een debat win je met een voorbeeld, niet met een definitie</td><td data-label="Bijvoorbeeld">Een voorbeeldenzoeker per onderwerp</td></tr>
+              <tr><td data-label="Laag"><strong>4 &middot; Kaders</strong></td><td data-label="Wat het is">Redeneren met R-ladder, planetaire grenzen, systeemgrens, stakeholders, morele ontkoppeling</td><td data-label="Bijvoorbeeld">Een tool die duurzaamheid aan ethiek koppelt</td></tr>
+              <tr><td data-label="Laag"><strong>5 &middot; Weerbaarheid</strong></td><td data-label="Wat het is">Onderuit gehaald worden en overeind blijven, en het foute antwoord van een ander doorprikken</td><td data-label="Bijvoorbeeld">Een stellingenrad, een debatbot, een advocaat van de duivel</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="materiaal">Je materiaal: haal het zelf op</h2>
+        <p>Alle stof voor de Battle staat online. Maar wat je op het scherm ziet, is maar een deel van wat er achter een website zit.
+          Jullie eerste klus: haal de data eruit, zodat je hem kunt gebruiken voor wat je bouwt.</p>
+        <ul>
+          <li><a href="https://fabianb88.github.io/minor-ce-elearnings/player.html?c=duurzaamheid-fundamenten" target="_blank" rel="noopener">E-learning Duurzaamheid, circulariteit en systeemdenken</a></li>
+          <li><a href="https://fabianb88.github.io/minor-ce-elearnings/cursus.html?m=business-ethics" target="_blank" rel="noopener">E-learning Business Ethics</a></li>
+          <li><a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/game.html" target="_blank" rel="noopener">Learning game van Fabian</a></li>
+          <li><a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/" target="_blank" rel="noopener">Studentenhandleiding</a></li>
+        </ul>
+
+        <h3>Hoe dan?</h3>
+        <ol>
+          <li>Open een van de pagina's en druk op <strong>F12</strong>. Dan openen de ontwikkelaarstools.</li>
+          <li>Kies het tabblad <strong>Network</strong> en herlaad de pagina. Je ziet nu elk bestand dat de pagina ophaalt.</li>
+          <li>Zoek de bestanden met de inhoud. Klik erop en kijk bij <strong>Response</strong> wat erin staat.</li>
+          <li>Of laat AI meezoeken: geef de link en vraag welke bestanden de pagina laadt en waar de data staat.</li>
+        </ol>
+
+        <div class="collapsible">
+          <div class="collapsible-header" role="button" tabindex="0" aria-expanded="false" aria-controls="hint-data">
+            <h3 class="collapsible-title">Hint, als je vastzit</h3>
+            <span class="collapsible-icon">+</span>
+          </div>
+          <div class="collapsible-content" id="hint-data">
+            <ul>
+              <li><strong>Learning game:</strong> kijk naar bestanden waarvan de naam met <em>vragen</em> begint. Wat betekent <em>j</em> bij elke vraag?</li>
+              <li><strong>Business Ethics:</strong> zoek een bestand dat eindigt op <em>.json</em>.</li>
+              <li><strong>Duurzaamheid:</strong> de lastigste. De hele cursus zit in een bestand, maar versleuteld als een lange reeks tekens. Vraag AI hoe je die leesbaar maakt.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout callout-info">
+          <p><strong>Kunnen is niet hetzelfde als mogen.</strong> Wat je browser downloadt, is openbaar: dat mag je lezen en gebruiken, met bronvermelding.
+          Wat achter een login of op een server staat, zie je niet, en daar ga je ook niet omheen. Persoonsgegevens laat je altijd liggen.</p>
+        </div>
+        <p class="bij">Module 6, stakeholders, is maandag 12 oktober en zit nog niet online. Klopt er iets niet met wat je in de les hoorde? Dan gaat de les voor.</p>
+
+        <h3>Kies je gereedschap</h3>
+        <div class="table-wrap">
+          <table class="stappen">
+            <thead>
+              <tr><th>Vorm</th><th>Waarmee</th><th>Zo kan een ander het gebruiken</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Vorm"><strong>Webapp of game</strong></td><td data-label="Waarmee">Claude (artifact), ChatGPT (canvas), Codex of Claude Code</td><td data-label="Zo kan een ander het gebruiken">Deellink van het artifact, of online via GitHub Pages of Firebase</td></tr>
+              <tr><td data-label="Vorm"><strong>Bot of trainer</strong></td><td data-label="Waarmee">Een custom GPT, of een project in Claude of ChatGPT met de stof erin</td><td data-label="Zo kan een ander het gebruiken">Deellink van de GPT, of de instructie plus de bestanden</td></tr>
+              <tr><td data-label="Vorm"><strong>Iets anders</strong></td><td data-label="Waarmee">Wat je wilt</td><td data-label="Zo kan een ander het gebruiken">Als je het maar kunt laten zien</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Vastgelopen bij het begin? Een paar ideeën</h3>
+        <ul>
+          <li><strong>Flashcards of een quiz</strong> met de vragen uit de learning game, of de controlevragen uit de e-learnings</li>
+          <li><strong>Een stellingenrad</strong> dat een stelling uit de stof geeft, met een timer van een minuut</li>
+          <li><strong>Een advocaat van de duivel</strong> die een fout antwoord verdedigt dat jij moet doorprikken, zoals <a href="roaster.html" target="_blank" rel="noopener">die van Guus</a> (werkt alleen met een eigen API-sleutel)</li>
+          <li><strong>Een begrippenkaart</strong> die laat zien hoe duurzaamheid en business ethics aan elkaar vastzitten</li>
+          <li><strong>Debatkaarten</strong>: per onderwerp een stelling, een voorbeeld en een tegenargument</li>
+        </ul>
+
+        <h3>Een startprompt voor een app</h3>
+        <p>Plak hem in Claude of ChatGPT, met de data die je hebt opgehaald erbij. Vul in wat je wilt bouwen.</p>
+        <pre class="kopieerbaar"><code>Ik ben student in de minor Circulaire Economie. Volgende week is de Battle: een spelshow die een debat is, over de stof van duurzaamheid en business ethics. De vragen zijn geheim.
+Ik wil een [ quiz / stellingenrad / flashcards / ... ] bouwen die ons helpt om [ wat het moet doen ].
+De inhoud komt uit de data die ik meestuur. Gebruik alleen wat daarin staat, en zet bij elk onderdeel de les of module.
+Bouw eerst een kleine versie die werkt, met vijf onderdelen. Daarna maken we hem samen groter.</code></pre>
+        <p class="bij">Begin klein. Een kleine versie die werkt, is meer waard dan een grote die half af is.</p>
+
+        <div class="collapsible">
+          <div class="collapsible-header" role="button" tabindex="0" aria-expanded="false" aria-controls="voorbeeld-trainer">
+            <h3 class="collapsible-title">Voorbeeld: de Battle-trainer van Guus</h3>
+            <span class="collapsible-icon">+</span>
+          </div>
+          <div class="collapsible-content" id="voorbeeld-trainer">
+            <p class="bij">Een project in Claude of ChatGPT met de stof van beide e-learnings en deze instructie. Gebruik hem zoals hij is,
+              of als begin voor je eigen bot. <a href="battle/instructie.txt" download>Download de instructie</a>.</p>
+            <pre class="kopieerbaar"><code>Wie je bent
+Je bent onze Battle-trainer voor de minor Circulaire Economie van de HAN.
+Op donderdag 15 oktober is de Battle: een spelshow die een debat is, over
+de stof van duurzaamheid en business ethics, met een jury die alles
+onderuit haalt. De vragen zijn geheim. Jij helpt ons de stof te leren en
+ons voor te bereiden.
+
+Je stof
+In dit project staan twee bestanden: stof-duurzaamheid (les 1 tot en met 9)
+en stof-business-ethics (module 1 tot en met 5). Soms ook onze eigen
+aantekeningen. Zoek eerst in die bestanden voor je antwoordt, en noem bij
+alles uit welke les of module het komt.
+Gebruik alleen namen, cijfers, cases en auteurs die echt in de stof staan.
+Vul niets aan uit eigen kennis, ook niet als het klopt. Staan er geen
+cijfers bij een onderwerp, zeg dan: "De stof geeft hier geen cijfers."
+Twijfel je of iets in de stof staat, zeg dat.
+De stof bevat controlevragen met goede antwoorden. Gebruik die om ons
+antwoord te toetsen, maar stel ze niet letterlijk opnieuw.
+
+Commando's
+Menu: laat deze lijst met commando's zien, elk in een zin.
+
+Leer [onderwerp]: leg het onderwerp uit in hooguit vijf zinnen, met een
+voorbeeld uit de stof. Stel daarna een controlevraag en wacht. Zeg na ons
+antwoord wat klopte en wat ontbrak.
+
+Overhoor [onderwerp, of "alles"]: stel een open vraag uit de stof en wacht.
+Zeg daarna wat klopte, wat ontbrak, en waar het staat. Dan de volgende
+vraag.
+
+Munitie [onderwerp]: geef de drie sterkste voorbeelden of cases uit de
+stof bij dit onderwerp, plus het kader dat erbij hoort, met les of module.
+Dit is wat we in een debat paraat moeten hebben. Staat het onderwerp in
+beide bestanden, laat dan de koppeling zien.
+
+Battle [onderwerp, mag leeg]: geef een stelling uit de stof en wacht op
+ons antwoord. Val dan aan op drie punten: waar is ons bewijs, welk kader
+hadden we moeten gebruiken, en wat is het tegenvoorbeeld. Stel een
+vervolgvraag. Geef na onze reactie een score voor kennis en inzicht.
+
+Duivel [onderwerp, mag leeg]: geef een stelling en een fout antwoord van
+hooguit 80 woorden, alsof een ander team het zegt. Bouw het op iets wat
+echt in de stof staat, met les of module, maar trek het een stap te ver:
+maak van een nuance een harde regel, of van een verklaring een excuus. Het
+foute antwoord moet botsen met een andere passage in de stof. Onthoud
+welke, maar noem die niet. Geef geen hint. Wacht. Zeg na onze weerlegging
+of we de fout precies te pakken hadden, met welk begrip uit welke les of
+module, en wat we misten.
+
+Uitleg: geef het volledige goede antwoord op de laatste vraag, stelling
+of Duivel-claim, met les of module.
+
+Gatenlijst: laat zien welke begrippen, kaders en voorbeelden we in dit
+gesprek misten, met de les of module waar we ze kunnen nalezen.
+
+Scores
+Kennis: 1 = begrip fout of afwezig. 2 = begrip genoemd, niet uitgelegd.
+3 = begrip goed uitgelegd (een voldoende). 4 = plus een voorbeeld uit de
+stof. 5 = plus een koppeling tussen duurzaamheid en business ethics.
+Inzicht: 1 = herhaalt de stelling. 3 = eigen redenering die standhoudt.
+5 = weerlegt ook het tegenvoorbeeld.
+Geef per score een zin waarom.
+
+Regels
+Geef bij Overhoor, Battle en Duivel nooit het goede antwoord voor onze
+poging. Na onze poging zeg je wat klopte en wat ontbrak. Het volledige
+antwoord pas als wij "Uitleg" typen. Typen we "weet ik niet", geef dan
+alleen een hint: de les of module waar het staat.
+Houd Overhoor, Battle en Duivel kort: hooguit 120 woorden per beurt, de
+les of module telt mee en laat je nooit weg. De andere commando's mogen
+langer.
+Wees streng. Geen complimenten die de score niet dragen.
+Typen we iets wat geen commando is, help ons dan gewoon, met de stof.</code></pre>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="bouwen">Zo pak je het aan: in rondes</h2>
+        <p class="section-intro">In duo's, van 14:50 tot 15:35. Eerst bedenken, dan delen, dan bouwen, testen en verbeteren.
+          Dezelfde stappen als in <a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/materialen.html" target="_blank" rel="noopener">hulpmiddel 01, design thinking</a>.</p>
+        <div class="table-wrap">
+          <table class="stappen">
+            <thead>
+              <tr><th>Tijd</th><th>Stap</th><th>Wat je doet</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Tijd"><strong>14:50</strong></td><td data-label="Stap"><strong>1 &middot; Bedenken</strong><br><span class="bij">Define en ideate</span></td><td data-label="Wat je doet">Welke laag, voor wie, wat moet het doen, welke data, welk gereedschap? Vul de bouwkaart in. Nog niet bouwen.</td></tr>
+              <tr><td data-label="Tijd"><strong>15:00</strong></td><td data-label="Stap"><strong>2 &middot; Pitchen</strong><br><span class="bij">Delen</span></td><td data-label="Wat je doet">Klassikaal: je bouwkaart hardop. Guus vraagt door.</td></tr>
+              <tr><td data-label="Tijd"><strong>15:10</strong></td><td data-label="Stap"><strong>3 &middot; Ronde 1</strong><br><span class="bij">Prototype</span></td><td data-label="Wat je doet">Data ophalen en de kleinste versie bouwen die werkt.</td></tr>
+              <tr><td data-label="Tijd"><strong>15:22</strong></td><td data-label="Stap"><strong>4 &middot; Testen</strong><br><span class="bij">Test</span></td><td data-label="Wat je doet">Test het zelf, alsof je een klasgenoot bent die het voor het eerst gebruikt. Werkt het? Klopt het met de stof? Stel een vraag waarvan je het antwoord weet.</td></tr>
+              <tr><td data-label="Tijd"><strong>15:25</strong></td><td data-label="Stap"><strong>5 &middot; Ronde 2</strong><br><span class="bij">Itereren</span></td><td data-label="Wat je doet">Verbeteren wat niet werkte of niet klopte. Om 15:35 werkt het.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>De bouwkaart</h3>
+        <p>Vul hem samen in voor je begint. Dit is ook je pitch om 15:00.</p>
+        <pre class="kopieerbaar"><code>Wij bouwen [ wat ] voor [ wie ],
+zodat [ welke laag, of welk probleem bij de voorbereiding op de Battle ].
+We gebruiken [ welke data ] en [ welk gereedschap ].
+De kleinste versie die werkt, is [ ... ].</code></pre>
+        <p class="bij">Twijfel je tussen twee ideeën? Kies het kleinste. Groter maken kan in ronde 2.</p>
+
+        <div class="callout callout-info">
+          <p><strong>Houd onderweg drie regels bij.</strong> Wat probeerde je eerst? Welke keuze maakte je, en waarom?
+          Wat was lastig? Dan is je demo straks al half af.</p>
+        </div>
+        <p>Test je bouwsel op de stof: stelt hij een vraag die klopt met de e-learning? Verzint hij iets? Dan moet je dat in je demo kunnen vertellen.</p>
+
+        <div class="divider"></div>
+
+        <h2 id="demo">De demo</h2>
+        <p class="section-intro">Vanaf 15:35. Laptop aan het scherm, twee minuten per duo.</p>
+        <ol>
+          <li><strong>Wat heb je gebouwd?</strong> Laat het werken.</li>
+          <li><strong>Hoe kwam je er?</strong> Je eerste prompt, en wat je daarna veranderde.</li>
+          <li><strong>Welke keuzes maakte je?</strong> Gereedschap, vorm, wat je wegliet.</li>
+          <li><strong>Wat was lastig?</strong> En wat zou je nu anders doen?</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <h2 id="daarna">Na vanmiddag</h2>
+        <ul>
+          <li><strong>Deel je link in het Teams-kanaal van de minor.</strong> Dan kan iedereen deze week met elkaars bouwsels oefenen.</li>
+          <li><strong>Oefen elke dag tien minuten</strong> met een bouwsel van een ander. Dat werkt beter dan een avond blokken.</li>
+          <li><strong>Kennis oefenen:</strong> de <a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/game.html" target="_blank" rel="noopener">learning game</a> van Fabian.</li>
+          <li><strong>Leg vast hoe je AI gebruikt hebt</strong>, in de verantwoordingstabel van
+            <a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/downloads/06_Slim-AI-gebruiken.docx" target="_blank" rel="noopener">hulpmiddel 06</a>.</li>
+        </ul>
+
+        <div class="divider"></div>
+                <p class="bij">De volgende playground is in week 46, na de herfstvakantie, het tentamen en de midstakes. Dan gaat het over AI aan je eigen bestanden.</p>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
