@@ -64,6 +64,22 @@ var SESSIES = [
       { href: '#daarna',       label: 'Na vanmiddag' }
     ],
     materiaal: []
+  },
+  {
+    id: 'sessie-4',
+    href: 'sessie-4.html',
+    label: '4 · Je projectbrein',
+    datum: 'do 12 november',
+    secties: [
+      { href: '#belofte', label: 'Wat je om 14:00 hebt' },
+      { href: '#brein',   label: 'Je projectbrein' },
+      { href: '#stap-1',  label: '1 · Je brein op orde' },
+      { href: '#stap-2',  label: '2 · Je probleem helder' },
+      { href: '#stap-3',  label: '3 · Oplossingen, AI als partner' },
+      { href: '#demo',    label: '4 · Laten zien' },
+      { href: '#daarna',  label: 'Na vanmiddag' }
+    ],
+    materiaal: []
   }
 ];
 

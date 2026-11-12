@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessie 4, je projectbrein | AI Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sessie-4" data-pagina="sessie-4">
+  <div class="layout">
+    <div class="sidebar-overlay" onclick="toggleMenu()"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <span class="brand-subtitle">Circulaire Economie</span>
+          <span class="brand-title">AI Playground</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Start</div>
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">Sessies</div>
+          <a href="sessie-1.html" class="nav-link">1 &middot; Deep research</a>
+          <a href="sessie-2.html" class="nav-link">2 &middot; Van oplossing naar probleem</a>
+          <a href="sessie-3.html" class="nav-link">3 &middot; Bouwen voor de Battle</a>
+          <a href="sessie-4.html" class="nav-link">4 &middot; Je projectbrein</a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">12 november, 13:30 tot 15:15<br>Arnhem</div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
+        <h1 class="page-title">Sessie 4 &middot; Je projectbrein</h1>
+      </header>
+
+      <div class="main-content">
+        <p class="lead">
+          Volgende week donderdag, 19 november, is de lowstake: dan staat je ideekeuze vast, gekozen op weging van factoren.
+          Vanochtend heb je bij Anouk ideeën bedacht. Vandaag zet je eerst je brein op orde, en daarmee ga je van je probleem naar alle mogelijke oplossingen.
+        </p>
+
+        <div class="callout callout-primary">
+          <p><strong>De lijn van vandaag:</strong> 1. je brein op orde, 2. je probleem helder, 3. oplossingen bedenken, toetsen en scoren,
+          4. laten zien wat je bouwde en hoe je koos. De vraag bij stap 3: hoe ver laat je AI meedenken?</p>
+        </div>
+
+        <h2 id="belofte">Wat je om 15:15 hebt</h2>
+        <ol>
+          <li><strong>Een brein</strong> met je data en kennis op orde: een map waarmee AI je opdrachtgever en je opdracht kent.</li>
+          <li><strong>Een heldere &ldquo;How Might We&rdquo;-vraag</strong> in dat brein.</li>
+          <li><strong>Een lijst mogelijke oplossingen</strong>, van jou en van AI, getoetst en gescoord met bron.</li>
+          <li><strong>Weten welke keuzes van jou waren</strong>, en welke van AI, en in welke rol je AI inzette.</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <h2 id="brein">Je projectbrein</h2>
+        <p class="section-intro">Een second brain is een map die de AI leest voordat hij begint. Dan hoef je niet elke keer opnieuw uit te leggen wie je opdrachtgever is.</p>
+        <div class="table-wrap">
+          <table class="stappen">
+            <thead>
+              <tr><th>Map of bestand</th><th>Wat erin staat</th><th>Wat het is</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Map of bestand"><strong>Start</strong></td><td data-label="Wat erin staat">Je opdrachtgever, je &ldquo;How Might We&rdquo;-vraag, de deadline en de regels voor de AI</td><td data-label="Wat het is">Het startbestand: de routekaart</td></tr>
+              <tr><td data-label="Map of bestand"><strong>Ruw</strong></td><td data-label="Wat erin staat">Gespreksverslagen, research uit sessie 1 en 2, notities, feedback uit de midstakes, de ideeën van vanochtend</td><td data-label="Wat het is">Wat binnenkomt, zoals het is</td></tr>
+              <tr><td data-label="Map of bestand"><strong>Vastgesteld</strong></td><td data-label="Wat erin staat">Wie de opdrachtgever is, de opdracht, eisen en grenzen, besluiten</td><td data-label="Wat het is">Wat vaststaat, met bron</td></tr>
+              <tr><td data-label="Map of bestand"><strong>Ideeen</strong></td><td data-label="Wat erin staat">Elk idee uit de brainstorm, en later de ideeën van AI met het label &ldquo;van AI&rdquo;</td><td data-label="Wat het is">Hypotheses: nog te toetsen</td></tr>
+              <tr><td data-label="Map of bestand"><strong>Logboek</strong></td><td data-label="Wat erin staat">Wat er gemaakt is en wat nog openstaat</td><td data-label="Wat het is">Zo pak je het de volgende keer op</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="bij">Een idee is een hypothese. Wegen is toetsen tegen wat vaststaat. Kiezen is &eacute;&eacute;n idee naar vastgesteld zetten.
+          Fabians <a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/2nd-brain.html" target="_blank" rel="noopener">challenge 2nd brain</a>
+          werkt met dezelfde drie lagen: verified, raw en hypothesis.</p>
+
+        <div class="divider"></div>
+
+        <h2 id="stap-1">Stap 1 &middot; Je brein op orde</h2>
+        <ol>
+          <li><strong>Maak een map</strong> <code>Projectbrein</code> met daarin een map <code>Ruw</code>. Zet daar alles in wat bij je project hoort.</li>
+          <li><strong>Geef de AI toegang tot die ene map</strong>, niet tot je hele gebruikersmap. In de desktop-app van Claude of ChatGPT, in Codex of in Claude Code.
+            Geen app? Maak een project in de browser en upload je bestanden daar.</li>
+          <li><strong>Plak de bouwprompt</strong> en beantwoord zijn vragen.</li>
+        </ol>
+        <p class="bij">Heb je al een second brain van Fabians challenge? Maak er een map voor je project bij, en geef de bouwprompt die map.
+          Staat er iets vertrouwelijks van je opdrachtgever of persoonsgegevens in? Haal het eruit of maak het anoniem.</p>
+
+        <h3>De bouwprompt</h3>
+        <pre class="kopieerbaar"><code>Je helpt ons een projectbrein te bouwen: een map waarmee AI ons project kent.
+We zijn studenten in de minor Circulaire Economie en werken voor een opdrachtgever.
+
+Werk in de map Projectbrein. Alles wat we hebben, staat in de map Ruw.
+
+Stap 1. Lees alles in Ruw. Verander daar niets aan.
+
+Stap 2. Stel ons daarna maximaal vijf vragen, één tegelijk, over wat je mist om ons project te begrijpen. Begin met wat je echt nodig hebt: wie de opdrachtgever is, wat onze "How Might We"-vraag is, en wat er vaststaat aan eisen en grenzen.
+
+Stap 3. Maak deze tekstbestanden en mappen:
+
+Start
+  Het startbestand. Kort: wie de opdrachtgever is, onze "How Might We"-vraag, de belangrijkste deadline, en waar in deze map wat staat. Plus deze regels voor elke AI die met deze map werkt:
+  - Gebruik eerst Vastgesteld, dan Ruw. Ideeen zijn hypotheses, geen feiten.
+  - Zet bij elke bewering uit deze map de bron erbij (bestandsnaam).
+  - Weet je iets niet, zeg dat. Verzin niets.
+  - Kies nooit voor ons. Help ons kiezen.
+
+Vastgesteld/opdrachtgever   Wie ze zijn, wat ze doen, wat ze willen
+Vastgesteld/opdracht        De vraag, onze "How Might We"-vraag, eisen en grenzen
+Vastgesteld/besluiten       Wat we al besloten hebben, met datum
+  Alleen wat in Ruw staat of wat wij in stap 2 zeiden. Zet bij elk punt de bron.
+
+Ideeen
+  Elk idee uit de brainstorm als hypothese: het idee in één zin, waar het vandaan komt, en status "open". Nog niet wegen of rangschikken.
+
+Logboek
+  Vandaag: wat je hebt gemaakt en welke vragen nog open staan.
+
+Stap 4. Zeg ons tot slot in drie zinnen wat er mist in ons brein en wat we deze week moeten uitzoeken.
+
+Kun je geen bestanden schrijven? Geef dan de inhoud van elk bestand, dan slaan wij ze op.
+Werken we in een project in de browser? Geef de tekst van Start dan apart, die zetten wij in de projectinstructie.
+Zie je persoonsgegevens of vertrouwelijke informatie van de opdrachtgever? Meld dat en neem het niet over.</code></pre>
+        <p class="bij">Check het zelf: zoek &eacute;&eacute;n feit op in Vastgesteld en kijk of het klopt met de bron.</p>
+
+        <div class="divider"></div>
+
+        <h2 id="stap-2">Stap 2 &middot; Je probleem helder</h2>
+        <p class="section-intro">Je &ldquo;How Might We&rdquo;-vraag heb je al. Zet hem in je brein, in Start en in Vastgesteld, met de documentatie die erbij hoort.
+          Twijfel je of hij scherp genoeg is? Laat AI hem toetsen zoals
+          <a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/downloads/11_Probleemdefinitie.docx" target="_blank" rel="noopener">hulpmiddel 11 Probleemdefinitie</a> het vraagt.</p>
+        <div class="collapsible">
+          <div class="collapsible-header" role="button" tabindex="0" aria-expanded="false" aria-controls="toets-vraag">
+            <h3 class="collapsible-title">Prompt: toets je &ldquo;How Might We&rdquo;-vraag</h3>
+            <span class="collapsible-icon">+</span>
+          </div>
+          <div class="collapsible-content" id="toets-vraag">
+            <pre class="kopieerbaar"><code>Lees eerst het bestand Start in ons projectbrein.
+
+Toets onze "How Might We"-vraag zoals hulpmiddel 11 Probleemdefinitie het vraagt:
+1. Is hij te breed? Kun je er alles op verzinnen?
+2. Is hij te smal? Zit de oplossing er al in?
+3. Staat er één probleem in? Staat er "en" in, dan zijn het er misschien twee.
+4. Past hij bij wat de opdrachtgever wil, volgens Vastgesteld en Ruw? Zet de bron erbij.
+
+Kan hij beter? Geef twee of drie versies. Wij kiezen.
+Pas Start en Vastgesteld/opdracht pas aan als wij gezegd hebben welke versie het wordt.</code></pre>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="stap-3">Stap 3 &middot; Oplossingen: hoe ver laat je AI meedenken?</h2>
+        <p class="section-intro">Dit is de echte uitdaging. Welke oplossingen kun je allemaal bedenken, en welke rol geef je AI daarbij?
+          Kies er minstens twee. Elke prompt begint bij je brein, dus AI kent je opdrachtgever al.</p>
+
+        <div class="table-wrap">
+          <table class="stappen">
+            <thead>
+              <tr><th>Rol</th><th>Wat AI doet</th><th>Wat jij doet</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Rol"><strong>Sparringpartner</strong></td><td data-label="Wat AI doet">Stelt vragen, daagt je uit, komt met tegenargumenten</td><td data-label="Wat jij doet">Jij bedenkt, AI scherpt aan</td></tr>
+              <tr><td data-label="Rol"><strong>Onderzoekspartner</strong></td><td data-label="Wat AI doet">Zoekt wat er elders al bestaat aan oplossingen, met bron</td><td data-label="Wat jij doet">Jij checkt of de bronnen kloppen</td></tr>
+              <tr><td data-label="Rol"><strong>Testpartner</strong></td><td data-label="Wat AI doet">Verbreedt je ideeën, toetst en scoort ze tegen jouw factoren</td><td data-label="Wat jij doet">Jij kiest de factoren, en straks het idee</td></tr>
+              <tr><td data-label="Rol"><strong>Beeldmaker</strong></td><td data-label="Wat AI doet">Maakt je denkproces zichtbaar, van kansvraag naar oplossingen</td><td data-label="Wat jij doet">Jij kiest de vorm</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Sparringpartner</h3>
+        <pre class="kopieerbaar"><code>Lees eerst het bestand Start in ons projectbrein.
+
+Wees onze sparringpartner bij het bedenken van oplossingen voor onze "How Might We"-vraag.
+- Stel ons één vraag tegelijk.
+- Daag onze ideeën uit: waarom zou dit niet werken bij deze opdrachtgever? Wat zie je over het hoofd?
+- Kom met tegenargumenten uit Vastgesteld en Ruw, met de bron erbij.
+- Bedenk zelf pas oplossingen als wij daarom vragen.
+- Zet aan het eind de ideeën die overeind bleven in Ideeen, met wat we besproken hebben.</code></pre>
+
+        <h3>Onderzoekspartner</h3>
+        <pre class="kopieerbaar"><code>Lees eerst het bestand Start in ons projectbrein.
+
+Zoek uit wat er elders al bestaat aan oplossingen voor een vraag als onze "How Might We"-vraag: bij andere organisaties, in andere sectoren, in onderzoek.
+Geef per voorbeeld: wat het is, waar, wat het opleverde, en de bron met link. Geen bron, dan niet noemen.
+Zeg bij elk voorbeeld of het past bij onze opdrachtgever, volgens Vastgesteld.
+Zet het onderzoek in Ruw, met de datum erbij.</code></pre>
+        <p class="bij">Open minstens twee bronnen zelf. Je weet sinds sessie 1 dat niet elke bron klopt.</p>
+
+        <h3>Testpartner</h3>
+        <pre class="kopieerbaar"><code>Lees eerst het bestand Start in ons projectbrein.
+
+Stap 1, verbreden. In Ideeen staan onze eigen ideeën van de brainstorm. Bedenk er vijf tot tien oplossingen bij die onze "How Might We"-vraag beantwoorden, op basis van wat in Vastgesteld en Ruw staat. Zet ze in Ideeen met het label "van AI", en bij elk idee waar in ons brein het op leunt. Verander niets aan onze eigen ideeën.
+
+Stap 2, factoren. Noem vijf factoren om de ideeën te toetsen. Twee staan vast: "beantwoordt het onze How Might We-vraag?" en "kan het volgende week een prototype worden?". Wacht daarna tot wij gekozen hebben welke factoren we houden.
+
+Stap 3, scoren. Zet elk idee af tegen onze factoren in een tabel: hoog, middel of laag, met één zin onderbouwing en de bron (bestandsnaam). Staat er geen bron in ons brein, schrijf dan "geen bron" en geef geen score. Zet in een kolom of het idee van ons komt of van AI.
+
+Stap 4, matrix. Zet de ideeën in de impact/inspanning-matrix uit hulpmiddel 14 Prioriteren: quick wins, grote projecten, tussendoor, niet doen.
+
+Stap 5. Sluit af met drie vragen die wij moeten beantwoorden voor we kiezen. Geen advies welk idee het wordt. Werk de status van de ideeën niet bij, dat doen wij als we gekozen hebben.</code></pre>
+        <p class="bij">Je weegt met <a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/downloads/14_Prioriteren.docx" target="_blank" rel="noopener">hulpmiddel 14 Prioriteren</a>.</p>
+
+        <h3>Beeldmaker</h3>
+        <pre class="kopieerbaar"><code>Lees eerst het bestand Start in ons projectbrein.
+
+Maak ons denkproces zichtbaar, van onze "How Might We"-vraag naar onze oplossingen, als plaatje (een artifact, canvas of webpagina).
+Vraag ons eerst welke vorm we willen: een boom, een kaart, een poster of een klikbare pagina.
+Laat erin zien: onze vraag, de richtingen die we op kunnen, alle oplossingen met hun score, en welke ideeën van ons komen en welke van AI.
+Gebruik alleen wat in ons brein staat.</code></pre>
+
+        <h3>Drie vragen aan jezelf</h3>
+        <ul>
+          <li><strong>Kiest het voor jou, of helpt het je kiezen?</strong> Doet het het eerste, stuur dan bij.</li>
+          <li><strong>Welke ideeën zijn van jou, en welke van AI?</strong></li>
+          <li><strong>Kan dit idee volgende week een prototype worden?</strong> Dat heb je in week 48 nodig.</li>
+        </ul>
+
+        <div class="collapsible">
+          <div class="collapsible-header" role="button" tabindex="0" aria-expanded="false" aria-controls="snel-klaar">
+            <h3 class="collapsible-title">Snel klaar? Bereid je lowstake voor</h3>
+            <span class="collapsible-icon">+</span>
+          </div>
+          <div class="collapsible-content" id="snel-klaar">
+            <pre class="kopieerbaar"><code>Lees eerst het bestand Start in ons projectbrein.
+
+Volgende week is onze lowstake: onze ideekeuze moet vaststaan, gekozen op weging van factoren. Help ons voorbereiden:
+1. Zet op een rij welke keuzes wij gemaakt hebben (factoren, idee) en wat van AI kwam.
+2. Stel de vijf lastigste vragen die een docent of expert ons over die keuze kan stellen, met waar in ons brein het antwoord staat. Staat het antwoord er niet, zeg dat.
+3. Wat moeten we deze week nog uitzoeken of navragen bij de opdrachtgever?</code></pre>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="demo">Stap 4 &middot; Laten zien, 14:50</h2>
+        <p>Twee minuten, je laptop aan het scherm. Vier vragen:</p>
+        <ol>
+          <li><strong>Wat heb je gebouwd</strong>, en waarom?</li>
+          <li><strong>Welke delen van je brein</strong> heb je gebruikt?</li>
+          <li><strong>In welke rol zette je AI in</strong>, en hoe ver liet je hem meedenken?</li>
+          <li><strong>Welke keuzes waren van jou</strong>, en welke van AI?</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <h2 id="daarna">Na vanmiddag</h2>
+        <ul>
+          <li><strong>Je brein groeit mee.</strong> Wat je deze week hoort, zet je in Ruw. Wat je volgende week kiest, gaat naar Vastgesteld.</li>
+          <li><strong>Volgende week de lowstake.</strong> Neem je weging mee, en kun je uitleggen waarom je koos.</li>
+          <li><strong>Leg vast hoe je AI gebruikt hebt</strong>, in de verantwoordingstabel van
+            <a href="https://fabianb88.github.io/minor-ce-studentenhandleiding/downloads/06_Slim-AI-gebruiken.docx" target="_blank" rel="noopener">hulpmiddel 06</a>.</li>
+        </ul>
+        <p class="bij">De volgende playground is in week 48. Dan wordt je idee een prototype, en je brein helpt mee.</p>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

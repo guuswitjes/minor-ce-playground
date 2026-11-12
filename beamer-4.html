@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beamer sessie 4 | AI Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --accent: #5C7A5A;
+      --accent-donker: #4A6349;
+      --accent-licht: #EDF3EC;
+      --accent-medium: #D0E3CF;
+      --inkt: #1C1713;
+      --bg: #F7F4F0;
+      --border: #E4DDD6;
+      --text-muted: #7A6E66;
+      --warm: #7D6034;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--inkt);
+      -webkit-font-smoothing: antialiased;
+    }
+    section {
+      position: relative;
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2rem, 5vw, 5rem);
+      border-bottom: 1px solid var(--border);
+    }
+    .tijd {
+      font-size: clamp(0.9rem, 1.4vw, 1.3rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: clamp(0.8rem, 1.6vw, 1.5rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3.4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin-bottom: clamp(1rem, 2vw, 1.8rem);
+    }
+    h3 {
+      font-size: clamp(1.05rem, 2vw, 1.8rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      margin-bottom: 0.4rem;
+    }
+    p, li { font-size: clamp(1rem, 1.8vw, 1.7rem); line-height: 1.5; }
+    strong { color: var(--accent-donker); }
+    .sub { font-size: clamp(0.95rem, 1.6vw, 1.5rem); color: var(--text-muted); margin-top: 1.2rem; }
+
+    /* Scherm 1: twee QR-codes naast elkaar */
+    .openrij {
+      display: flex;
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .qr-kolom { display: flex; flex-direction: column; align-items: center; }
+    .qr {
+      width: clamp(180px, 26vw, 400px);
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+    .qr svg { display: block; width: 100%; height: auto; border-radius: 14px; }
+    .qr-label {
+      font-size: clamp(1.1rem, 2.1vw, 2rem);
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+    .qr-url {
+      font-size: clamp(0.9rem, 1.6vw, 1.5rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      text-align: center;
+      line-height: 1.25;
+      word-break: break-word;
+      margin-top: 0.2rem;
+    }
+
+    /* Werkvorm 1: kop met de QR van het bord rechts */
+    .kopregel {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 0.4rem;
+    }
+    .kopregel h2 { margin-bottom: 0; }
+    .bord-qr { text-align: center; flex: 0 0 auto; }
+    .bord-qr .kader {
+      width: clamp(120px, min(12vw, 21vh), 240px);
+      background: #fff;
+      border-radius: 10px;
+      padding: clamp(4px, 0.5vw, 9px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .bord-qr svg { display: block; width: 100%; height: auto; }
+    .bord-qr p {
+      font-size: clamp(0.75rem, min(1.1vw, 2vh), 1.2rem);
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      line-height: 1.3;
+    }
+
+    /* De rode draad van de minor */
+    .fasen {
+      display: flex;
+      gap: clamp(0.4rem, 0.9vw, 1rem);
+      flex-wrap: wrap;
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+    .fase {
+      flex: 1 1 150px;
+      background: #fff;
+      border: 2px solid var(--accent-medium);
+      border-radius: 10px;
+      padding: clamp(0.7rem, 1.2vw, 1.2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3em;
+    }
+    .fase .wanneer {
+      font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+      font-weight: 700;
+      color: var(--warm);
+    }
+    .fase .naam {
+      font-size: clamp(1.1rem, 2.1vw, 1.9rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      line-height: 1.1;
+    }
+    .fase .wat {
+      font-size: clamp(0.85rem, 1.4vw, 1.3rem);
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .fase.nu {
+      background: var(--accent-licht);
+      border-color: var(--accent);
+      border-width: 3px;
+    }
+    .fase.nu .wanneer { color: var(--accent-donker); }
+
+    /* De twee opdrachtblokken van werkvorm 1, naast elkaar */
+    .opdrachten {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2.5rem);
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+    .opdracht {
+      flex: 1 1 340px;
+      background: #fff;
+      border: 2px solid var(--accent-medium);
+      border-radius: 12px;
+      padding: clamp(1rem, 2vw, 2rem);
+    }
+    .opdracht .duur {
+      font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+      font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .opdracht p, .opdracht li { font-size: clamp(0.95rem, min(1.55vw, 2.75vh), 1.5rem); line-height: 1.4; }
+    .opdracht .sub { font-size: clamp(0.85rem, min(1.3vw, 2.3vh), 1.3rem); margin-top: 0.8rem; }
+    .opdracht h3 { font-size: clamp(1.05rem, min(1.8vw, 3.2vh), 1.7rem); }
+    .opdracht ul { margin: 0.5rem 0 0 1.2em; }
+    .opdracht li { margin-bottom: 0.2em; }
+
+    /* De keten, getekend */
+    .keten {
+      display: flex;
+      align-items: stretch;
+      gap: clamp(0.4rem, 0.9vw, 1rem);
+      flex-wrap: wrap;
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+    }
+    .stap {
+      flex: 1 1 140px;
+      background: #fff;
+      border: 2px solid var(--accent-medium);
+      border-radius: 10px;
+      padding: clamp(0.6rem, 1.1vw, 1.1rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+    }
+    .stap .klok {
+      font-size: clamp(0.85rem, 1.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--warm);
+    }
+    .stap { flex: 1 1 0; min-width: 0; position: relative; padding-top: clamp(1.4rem, 2.4vw, 2.4rem); }
+    .stap .badge {
+      position: absolute;
+      top: calc(-1 * clamp(1rem, 1.7vw, 1.7rem));
+      left: calc(-1 * clamp(0.5rem, 0.8vw, 0.8rem));
+      width: clamp(2.2rem, 3.6vw, 3.6rem);
+      height: clamp(2.2rem, 3.6vw, 3.6rem);
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: clamp(1.1rem, 2vw, 2rem);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .keten { margin-top: clamp(1.2rem, 2.2vw, 2.2rem); }
+    .stap .nr {
+      font-size: clamp(0.95rem, 1.5vw, 1.6rem);
+      font-weight: 700;
+      color: var(--accent-donker);
+      line-height: 1.1;
+    }
+    .stap .wat {
+      font-size: clamp(0.78rem, 1.3vw, 1.2rem);
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .check {
+      align-self: center;
+      font-size: clamp(0.68rem, 1.1vw, 1rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+    .sporenrij {
+      display: flex;
+      align-items: stretch;
+      gap: clamp(0.5rem, 1vw, 1rem);
+      margin-top: clamp(0.8rem, 1.6vw, 1.5rem);
+    }
+    .spoor-blok {
+      flex: 1 1 0;
+      border: 2px dashed var(--accent-medium);
+      border-radius: 10px;
+      padding: clamp(0.5rem, 1vw, 1rem) clamp(0.7rem, 1.3vw, 1.3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15em;
+    }
+    .spoor-blok:first-child { border-style: solid; border-color: var(--accent); background: #fff; }
+    .volgorde {
+      font-size: clamp(0.72rem, 1.1vw, 1.05rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--warm);
+    }
+    .spoor-naam { font-size: clamp(0.95rem, 1.7vw, 1.6rem); font-weight: 700; color: var(--accent-donker); }
+    .spoor-uit { font-size: clamp(0.8rem, 1.3vw, 1.25rem); color: var(--text-muted); }
+    .pijl { align-self: center; font-size: clamp(1.2rem, 2.2vw, 2.2rem); color: var(--accent); font-weight: 700; }
+    .drievragen {
+      background: var(--accent-licht);
+      border-left: clamp(5px, 0.7vw, 10px) solid var(--accent);
+      border-radius: 8px;
+      padding: clamp(0.9rem, 1.6vw, 1.6rem);
+    }
+    .drievragen p { font-size: clamp(1rem, 1.9vw, 1.8rem); font-weight: 600; margin: 0; }
+
+
+    /* Sessie 3: de stelling groot */
+    .stelling {
+      font-size: clamp(1.8rem, min(4.4vw, 7.5vh), 4.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--inkt);
+      border-left: clamp(6px, 0.8vw, 12px) solid var(--accent);
+      padding-left: clamp(1rem, 2vw, 2rem);
+      margin-bottom: clamp(1.2rem, 2.4vw, 2.4rem);
+    }
+    .stelling::before { content: "\201C"; }
+    .stelling::after { content: "\201D"; }
+
+    .balk {
+      position: fixed; right: 0.9rem; bottom: 0.9rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; z-index: 10;
+      opacity: 0.35; transition: opacity 0.2s;
+    }
+    .balk:hover { opacity: 1; }
+    .balk button {
+      font: inherit; font-weight: 600;
+      color: var(--inkt); background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.35rem 0.7rem; cursor: pointer;
+    }
+    .balk button:hover { background: #fff; border-color: var(--accent); }
+    .teller { color: var(--text-muted); background: rgba(255,255,255,0.92); padding: 0.35rem 0.55rem; border-radius: 6px; }
+    .startknop {
+      display: inline-block;
+      background: #A3362B; color: #fff; text-decoration: none;
+      font-size: clamp(1.2rem, 2.6vw, 2.4rem); font-weight: 700;
+      padding: 0.6em 1.4em; border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    }
+    .startknop:hover { background: #862c23; }
+    @media print { .balk { display: none; } section { min-height: auto; page-break-after: always; } }
+
+    /* Sessie 4: het brein */
+    .brein { display:flex; flex-direction:column; gap:clamp(0.6rem,1.2vw,1.2rem); }
+    .brein-start, .pb-start { background:var(--accent); color:#fff; border-radius:10px; padding:clamp(0.7rem,1.3vw,1.3rem) clamp(1rem,1.8vw,1.8rem); font-size:clamp(1rem,1.8vw,1.7rem); }
+    .brein-start strong, .pb-start strong { color:#fff; }
+    .brein-label { display:inline-block; font-size:.7em; font-weight:700; letter-spacing:.08em; text-transform:uppercase; opacity:.8; margin-right:.6em; }
+    .brein-werelden { display:flex; gap:clamp(0.5rem,1vw,1rem); }
+    .wereld { flex:1 1 0; background:#fff; border:2px solid var(--accent-medium); border-radius:10px; padding:clamp(0.5rem,1vw,1rem); display:flex; flex-direction:column; gap:.4em; }
+    .wereld-naam { font-weight:700; font-size:clamp(1rem,1.8vw,1.7rem); color:var(--accent-donker); }
+    .laag { border-radius:6px; padding:.35em .6em; font-size:clamp(.85rem,1.4vw,1.35rem); }
+    .laag.ruw { background:#F3ECE2; } .laag.vast { background:var(--accent-licht); } .laag.bezig { background:#EEF0F4; }
+    .brein-stempel { font-size:clamp(.95rem,1.6vw,1.5rem); color:var(--text-muted); }
+    .st { display:inline-block; border-radius:999px; padding:.15em .7em; font-weight:600; margin-left:.3em; }
+    .st-ok { background:var(--accent-medium); color:var(--accent-donker); } .st-werk { background:#F3E3C4; color:var(--warm); } .st-weg { background:#E9E4DF; color:var(--text-muted); text-decoration:line-through; }
+    .projectbrein { display:flex; flex-direction:column; gap:clamp(0.8rem,1.6vw,1.6rem); }
+    .pb-rij { display:flex; align-items:stretch; gap:clamp(0.4rem,0.8vw,0.8rem); }
+    .pb-map { flex:1 1 0; background:#fff; border:2px solid var(--accent-medium); border-radius:10px; padding:clamp(0.6rem,1.2vw,1.2rem); display:flex; flex-direction:column; gap:.3em; }
+    .pb-map strong { font-size:clamp(1rem,1.9vw,1.8rem); }
+    .pb-map span { font-size:clamp(.85rem,1.4vw,1.35rem); color:var(--inkt); }
+    .pb-map em { font-size:clamp(.8rem,1.3vw,1.2rem); color:var(--text-muted); font-style:normal; text-transform:uppercase; letter-spacing:.06em; font-weight:600; margin-top:auto; }
+    .pb-ruw { background:#FBF7F1; } .pb-vast { border-color:var(--accent); } .pb-idee { border-style:dashed; }
+    .pb-pijl { align-self:center; font-size:clamp(1.5rem,3vw,3rem); color:var(--accent); display:flex; flex-direction:column; align-items:center; line-height:1; }
+    .pb-pijl small { font-size:clamp(.7rem,1.1vw,1rem); font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--warm); }
+    .pb-kern { font-size:clamp(1rem,1.9vw,1.8rem); border-left:clamp(5px,.6vw,9px) solid var(--accent); padding-left:clamp(.8rem,1.5vw,1.5rem); }
+    .grote-stappen { padding-left:1.4em; display:flex; flex-direction:column; gap:.7em; }
+    .grote-stappen code { font-size:.9em; background:var(--accent-licht); padding:.05em .35em; border-radius:4px; }
+    @media (max-width:700px) { .brein-werelden, .pb-rij { flex-direction:column; } .pb-pijl { transform:rotate(90deg); } }
+    .lijn { display:flex; gap:clamp(0.6rem,1.2vw,1.2rem); margin-bottom:clamp(1rem,2vw,2rem); }
+    .lijn-stap { flex:1 1 0; background:#fff; border:2px solid var(--accent-medium); border-radius:10px; padding:clamp(0.8rem,1.4vw,1.4rem); display:flex; flex-direction:column; gap:.35em; }
+    .lijn-stap strong { font-size:clamp(1.05rem,2vw,1.9rem); }
+    .lijn-stap span:last-child { font-size:clamp(.85rem,1.4vw,1.35rem); color:var(--text-muted); }
+    .lijn-nr { width:clamp(2rem,3.2vw,3.2rem); height:clamp(2rem,3.2vw,3.2rem); border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:clamp(1rem,1.8vw,1.7rem); display:flex; align-items:center; justify-content:center; }
+    @media (max-width:700px) { .lijn { flex-direction:column; } }
+    .boom { display:grid; grid-template-columns:auto 1fr; column-gap:clamp(1rem,2vw,2rem); row-gap:clamp(0.5rem,1vw,1rem); align-items:center; }
+    .boom-label { font-size:clamp(.75rem,1.2vw,1.1rem); font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--warm); white-space:nowrap; }
+    .boom-rij { display:flex; gap:clamp(0.5rem,1vw,1rem); }
+    .boom-vak { flex:1 1 0; background:#fff; border:2px solid var(--accent-medium); border-radius:10px; padding:clamp(.5rem,1vw,.9rem); text-align:center; font-size:clamp(.85rem,1.5vw,1.4rem); }
+    .boom-wortel .boom-vak { background:#FBF7F1; }
+    .boom-stam { background:var(--accent); color:#fff; border-radius:12px; padding:clamp(.7rem,1.3vw,1.2rem); text-align:center; font-size:clamp(1rem,1.9vw,1.8rem); font-weight:700; }
+    .boom-stam small { display:block; font-size:.55em; letter-spacing:.1em; text-transform:uppercase; opacity:.85; font-weight:600; margin-bottom:.2em; }
+    .boom-pijl { text-align:center; color:var(--accent); font-size:clamp(1rem,1.8vw,1.6rem); line-height:1; }
+    .boom-hmw { border:2px dashed var(--accent); background:var(--accent-licht); border-radius:12px; padding:clamp(.7rem,1.3vw,1.2rem); text-align:center; font-size:clamp(1rem,1.9vw,1.8rem); font-weight:600; color:var(--accent-donker); }
+    .boom-hmw small { display:block; font-size:.55em; letter-spacing:.1em; text-transform:uppercase; font-weight:700; margin-bottom:.2em; color:var(--warm); }
+  </style>
+</head>
+<body>
+
+  <section data-notes="13:30 TOT 13:42&#10;&#10;- Geen introductie van jezelf&#10;- Ruim een maand geleden: tentamen, midstakes, vakantie&#10;- Laat drie of vier duo's iets op het scherm zetten&#10;&#10;DOORVRAGEN&#10;- Waar hielp het echt, waar niet?&#10;- Gebruik je het nog?&#10;- Wat deed je ermee voor je opdrachtgever?&#10;&#10;LUISTER NAAR: losse vragen aan AI, of al met eigen materiaal? Dat is het bruggetje">
+    <h2>Wat heb je de afgelopen maand met AI gemaakt voor je project?</h2>
+    <div class="drievragen">
+      <p>Waar hielp het echt, en waar niet?</p>
+      <p>Gebruik je het nog?</p>
+      <p>Wat deed je ermee voor je opdrachtgever?</p>
+    </div>
+  </section>
+
+  <section data-notes="13:42 TOT 13:45&#10;&#10;- Ik zag het staan in de studentenhandleiding&#10;- Handen tellen: wie heeft het gedaan?&#10;- Wat heb je gebouwd, gebruik je het nog?&#10;&#10;Wie het heeft: vandaag je project erbij&#10;Wie niet: vandaag begin je, met je project">
+    <h2>In de studentenhandleiding staat de challenge &ldquo;2nd brain&rdquo;. Wie is daarmee bezig geweest?</h2>
+    <p class="sub">Wat heb je gebouwd? En gebruik je het nog?</p>
+  </section>
+
+  <section data-notes="13:45 TOT 13:48, ZO BOUW IK HET ZELF&#10;&#10;Niet live in mijn workspace. Dit plaatje is genoeg.&#10;&#10;STARTBESTAND: routekaart, waar staat wat, hoe gedraag je je&#10;BINNEN: alles zoals het binnenkomt, transcript, artikel, notitie. Daar verander ik niets aan&#10;VAST: wat ik zeker weet, collega's, hoe ik schrijf, afspraken. Daar kijkt de AI eerst&#10;BEZIG: per project wat er speelt en besloten is&#10;DRIE KOLOMMEN: werk, eigen bedrijf, privé. Lopen niet door elkaar&#10;&#10;STEMPEL: gecheckt = bouw erop. Werkversie = bruikbaar, nog niet gecheckt. Vervangen = er is een nieuwere versie&#10;&#10;KERN: als de AI niet weet wat feit is en wat nog een gesprek, verzint hij erbij">
+    <h2>Een map die de AI leest voor hij begint</h2>
+    <div class="brein">
+      <div class="brein-start"><span class="brein-label">Startbestand</span><strong>CLAUDE.md</strong> &middot; de routekaart: waar staat wat, en hoe gedraag je je</div>
+      <div class="brein-werelden">
+        <div class="wereld"><div class="wereld-naam">Werk</div><div class="laag ruw">Binnen: ruw</div><div class="laag vast">Vast: wat ik weet</div><div class="laag bezig">Bezig: projecten</div></div>
+        <div class="wereld"><div class="wereld-naam">Eigen bedrijf</div><div class="laag ruw">Binnen: ruw</div><div class="laag vast">Vast: wat ik weet</div><div class="laag bezig">Bezig: projecten</div></div>
+        <div class="wereld"><div class="wereld-naam">Priv&eacute;</div><div class="laag ruw">Binnen: ruw</div><div class="laag vast">Vast: wat ik weet</div><div class="laag bezig">Bezig: projecten</div></div>
+      </div>
+      <div class="brein-stempel">Stempel op elk bestand: <span class="st st-ok">gecheckt</span> <span class="st st-werk">werkversie</span> <span class="st st-weg">vervangen</span></div>
+    </div>
+  </section>
+
+  <section data-notes="13:48 TOT 13:50, ZO DOE JIJ HET VANDAAG&#10;&#10;- Zelfde idee, voor je project&#10;- Fabian noemt de lagen verified, raw en hypothesis. Zelfde drie&#10;&#10;HET BELANGRIJKE&#10;Jullie ideeën van vanochtend (brainstorm bij Anouk) zijn HYPOTHESES&#10;Kiezen = één idee naar vastgesteld&#10;Dat is je lowstake van volgende week">
+    <h2>Je projectbrein</h2>
+    <div class="projectbrein">
+      <div class="pb-start"><strong>Start</strong> &middot; je opdrachtgever, je &ldquo;How Might We&rdquo;-vraag, de regels</div>
+      <div class="pb-rij">
+        <div class="pb-map pb-ruw"><strong>Ruw</strong><span>verslagen, research, notities, midstake-feedback</span><em>wat binnenkomt</em></div>
+        <div class="pb-pijl">&rarr;</div>
+        <div class="pb-map pb-vast"><strong>Vastgesteld</strong><span>opdrachtgever, opdracht, besluiten</span><em>wat vaststaat</em></div>
+        <div class="pb-pijl pb-terug">&larr;<small>kiezen</small></div>
+        <div class="pb-map pb-idee"><strong>Ideeen</strong><span>de ideeën van vanochtend</span><em>hypotheses</em></div>
+      </div>
+      <p class="pb-kern">Een idee is een hypothese. Wegen is toetsen tegen wat vaststaat. <strong>Kiezen is één idee naar vastgesteld zetten: je lowstake van volgende week.</strong></p>
+    </div>
+  </section>
+
+  <section data-notes="13:50 TOT 13:55, DE LIJN. LAATSTE SLIDE, DAARNA BOUWEN TOT 14:50&#10;&#10;1. BREIN OP ORDE: alles wat je verzamelde over je opdrachtgever, je opdracht en je eigen kennis in één map. Plus een instructie: het startbestand, of de projectinstructie als je in een project in Claude of ChatGPT werkt&#10;2. PROBLEEM HELDER: je How Might We-vraag heb je al. Zet hem met de documentatie erbij in je brein. Twijfel? Laat AI hem toetsen&#10;3. OPLOSSINGEN, de echte uitdaging: hoe ver laat je AI meedenken? Sparringpartner in gesprek, partner die het visueel maakt, onderzoekspartner, testpartner die toetst en scoort. Kies er minstens twee&#10;4. LATEN ZIEN, vanaf 14:50&#10;&#10;Prompts op de site: guuswitjes.github.io/minor-ce-playground&#10;&#10;14:25 CHECK-IN, vijf minuten: hoe gaat het, waar loop je tegenaan? Dan verder&#10;&#10;14:50 DEMO, twee minuten per duo&#10;- Wat heb je gebouwd, en waarom?&#10;- Welke delen van je brein heb je gebruikt?&#10;- In welke rol zette je AI in, en hoe ver liet je hem meedenken?&#10;- Welke keuzes waren van jou, en welke van AI?&#10;&#10;15:12 AFSLUITEN, drie minuten: lowstake volgende week, AI-gebruik in hulpmiddel 06, week 48 prototype">
+    <h2>De lijn van vandaag</h2>
+    <div class="lijn">
+      <div class="lijn-stap"><span class="lijn-nr">1</span><strong>Je brein op orde</strong><span>opdrachtgever, opdracht en je kennis in één map, met een instructie erbij</span></div>
+      <div class="lijn-stap"><span class="lijn-nr">2</span><strong>Je probleem helder</strong><span>je &ldquo;How Might We&rdquo;-vraag in je brein</span></div>
+      <div class="lijn-stap"><span class="lijn-nr">3</span><strong>Oplossingen</strong><span>hoe ver laat je AI meedenken? Als sparringpartner, beeldmaker, onderzoeker of tester</span></div>
+      <div class="lijn-stap"><span class="lijn-nr">4</span><strong>Laten zien</strong><span>wat je bouwde, en welke keuzes van jou waren en welke van AI</span></div>
+    </div>
+    <p class="sub">Bouwen tot 14:50, om 14:25 een korte check-in. Alle prompts: guuswitjes.github.io/minor-ce-playground</p>
+  </section>
+
+  <div class="balk">
+    <span class="teller" id="teller"></span>
+    <button id="knop-notities" type="button">Notities</button>
+    <button id="knop-scherm" type="button">Volledig scherm</button>
+  </div>
+
+  <script>
+    var secties = Array.prototype.slice.call(document.querySelectorAll('section'));
+    var notitieVenster = null;
+
+    function titelVan(sec) {
+      var k = sec.querySelector('h1, h2');
+      return k ? k.textContent.trim() : '';
+    }
+
+    function huidige() {
+      var beste = 0, klein = Infinity;
+      secties.forEach(function (el, i) {
+        var d = Math.abs(el.getBoundingClientRect().top);
+        if (d < klein) { klein = d; beste = i; }
+      });
+      return beste;
+    }
+
+    function ga(i) {
+      if (secties[i]) secties[i].scrollIntoView();
+    }
+
+    /* ---------- Volledig scherm ---------- */
+    document.getElementById('knop-scherm').addEventListener('click', function () {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    });
+    document.addEventListener('fullscreenchange', function () {
+      document.getElementById('knop-scherm').textContent =
+        document.fullscreenElement ? 'Verlaat volledig scherm' : 'Volledig scherm';
+    });
+
+    /* ---------- Notitievenster ---------- */
+    var NOTITIE_HTML = [
+      '<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">',
+      '<title>Notities</title><style>',
+      'body{font:16px/1.55 Inter,system-ui,sans-serif;margin:0;padding:1.6rem;',
+      'background:#1C1713;color:#F7F4F0;}',
+      '.kop{display:flex;justify-content:space-between;align-items:baseline;',
+      'font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#B0A49A;',
+      'border-bottom:1px solid #3a332d;padding-bottom:.7rem;margin-bottom:1.2rem;}',
+      'h1{font-size:1.5rem;line-height:1.25;margin:0 0 1.1rem;color:#fff;}',
+      '#notitie{font-size:1.1rem;line-height:1.6;white-space:pre-wrap;}',
+      '.volgende{margin-top:2rem;padding-top:1rem;border-top:1px solid #3a332d;',
+      'font-size:.95rem;color:#B0A49A;}',
+      '.volgende b{color:#D0E3CF;font-weight:600;}',
+      '.leeg{color:#7A6E66;font-style:italic;}',
+      '</style></head><body>',
+      '<div class="kop"><span id="tel"></span><span id="klok"></span></div>',
+      '<h1 id="titel"></h1><div id="notitie"></div>',
+      '<div class="volgende">Hierna: <b id="volgende"></b></div>',
+      '<script>setInterval(function(){var d=new Date();',
+      'document.getElementById("klok").textContent=',
+      'String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");},1000);',
+      '<\/script></body></html>'
+    ].join('');
+
+    document.getElementById('knop-notities').addEventListener('click', function () {
+      if (notitieVenster && !notitieVenster.closed) { notitieVenster.focus(); return; }
+      notitieVenster = window.open('', 'notities', 'width=620,height=860');
+      if (!notitieVenster) {
+        alert('Je browser blokkeert het pop-upvenster. Sta pop-ups toe voor deze pagina.');
+        return;
+      }
+      notitieVenster.document.open();
+      notitieVenster.document.write(NOTITIE_HTML);
+      notitieVenster.document.close();
+      setTimeout(schrijfNotitie, 60);
+    });
+
+    function schrijfNotitie() {
+      var i = huidige();
+      document.getElementById('teller').textContent = (i + 1) + ' / ' + secties.length;
+      if (!notitieVenster || notitieVenster.closed) return;
+      var d = notitieVenster.document;
+      if (!d.getElementById('titel')) return;
+      d.getElementById('tel').textContent = 'Scherm ' + (i + 1) + ' van ' + secties.length;
+      d.getElementById('titel').textContent = titelVan(secties[i]);
+      var n = secties[i].getAttribute('data-notes');
+      d.getElementById('notitie').innerHTML = n
+        ? n.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        : '<span class="leeg">Geen notities bij dit scherm.</span>';
+      d.getElementById('volgende').textContent =
+        secties[i + 1] ? titelVan(secties[i + 1]) : 'einde';
+    }
+
+    /* ---------- Navigatie ---------- */
+    document.addEventListener('keydown', function (e) {
+      var i = huidige();
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault(); ga(i + 1);
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault(); ga(i - 1);
+      } else if (e.key === 'Home') {
+        e.preventDefault(); ga(0);
+      } else if (e.key === 'End') {
+        e.preventDefault(); ga(secties.length - 1);
+      }
+    });
+
+    /* Doorklikken met de muis of een presenter. */
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.balk') || e.target.closest('a')) return;
+      ga(huidige() + 1);
+    });
+
+    var bezig = false;
+    window.addEventListener('scroll', function () {
+      if (bezig) return;
+      bezig = true;
+      requestAnimationFrame(function () { bezig = false; schrijfNotitie(); });
+    });
+    window.addEventListener('unload', function () {
+      if (notitieVenster && !notitieVenster.closed) notitieVenster.close();
+    });
+
+    schrijfNotitie();
+  </script>
+</body>
+</html>
