@@ -334,7 +334,7 @@
     .st { display:inline-block; border-radius:999px; padding:.15em .7em; font-weight:600; margin-left:.3em; }
     .st-ok { background:var(--accent-medium); color:var(--accent-donker); } .st-werk { background:#F3E3C4; color:var(--warm); } .st-weg { background:#E9E4DF; color:var(--text-muted); text-decoration:line-through; }
     .projectbrein { display:flex; flex-direction:column; gap:clamp(0.8rem,1.6vw,1.6rem); }
-    .pb-rij { display:flex; align-items:stretch; gap:clamp(0.4rem,0.8vw,0.8rem); }
+    .pb-rij { display:flex; flex-wrap:wrap; align-items:stretch; gap:clamp(0.4rem,0.8vw,0.8rem); }
     .pb-map { flex:1 1 0; background:#fff; border:2px solid var(--accent-medium); border-radius:10px; padding:clamp(0.6rem,1.2vw,1.2rem); display:flex; flex-direction:column; gap:.3em; }
     .pb-map strong { font-size:clamp(1rem,1.9vw,1.8rem); }
     .pb-map span { font-size:clamp(.85rem,1.4vw,1.35rem); color:var(--inkt); }
@@ -393,22 +393,22 @@
     </div>
   </section>
 
-  <section data-notes="13:48 TOT 13:50, ZO DOE JIJ HET VANDAAG&#10;&#10;- Zelfde idee, voor je project&#10;- Fabian noemt de lagen verified, raw en hypothesis. Zelfde drie&#10;&#10;HET BELANGRIJKE&#10;Jullie ideeën van vanochtend (brainstorm bij Anouk) zijn HYPOTHESES&#10;Kiezen = één idee naar vastgesteld&#10;Dat is je lowstake van volgende week">
+  <section data-notes="13:48 TOT 13:50, ZO DOE JIJ HET VANDAAG&#10;&#10;- Zelfde idee, voor je project&#10;- De bouwprompt vraagt om al je documenten, zet ze om naar .md en ordent ze&#10;- Daarna schrijft hij de instructie, die gaat in je projectinstructies&#10;- Waarom .md: platte tekst, leest AI het best, lichter dan pdf of Word&#10;&#10;HET BELANGRIJKE&#10;Je ideeën van vanochtend zijn nog niet gekozen. Vandaag toets je, volgende week kies je">
     <h2>Je projectbrein</h2>
     <div class="projectbrein">
-      <div class="pb-start"><strong>Start</strong> &middot; je opdrachtgever, je &ldquo;How Might We&rdquo;-vraag, de regels</div>
+      <div class="pb-start"><strong>instructie.md</strong> &middot; je opdrachtgever, je &ldquo;How Might We&rdquo;-vraag, welke map wat bevat, de regels</div>
       <div class="pb-rij">
-        <div class="pb-map pb-ruw"><strong>Ruw</strong><span>verslagen, research, notities, midstake-feedback</span><em>wat binnenkomt</em></div>
-        <div class="pb-pijl">&rarr;</div>
-        <div class="pb-map pb-vast"><strong>Vastgesteld</strong><span>opdrachtgever, opdracht, besluiten</span><em>wat vaststaat</em></div>
-        <div class="pb-pijl pb-terug">&larr;<small>kiezen</small></div>
-        <div class="pb-map pb-idee"><strong>Ideeen</strong><span>de ideeën van vanochtend</span><em>hypotheses</em></div>
+        <div class="pb-map pb-ruw"><strong>opdrachtgever</strong><span>het bedrijf, de mensen</span></div>
+        <div class="pb-map pb-ruw"><strong>opdracht-en-probleem</strong><span>je vraag, wat je schreef</span></div>
+        <div class="pb-map pb-ruw"><strong>gesprekken</strong><span>interviews, transcripties</span></div>
+        <div class="pb-map pb-ruw"><strong>onderzoek</strong><span>research, feedback</span></div>
+        <div class="pb-map pb-idee"><strong>ideeen</strong><span>van de brainstorm</span><em>nog te toetsen</em></div>
       </div>
-      <p class="pb-kern">Een idee is een hypothese. Wegen is toetsen tegen wat vaststaat. <strong>Kiezen is één idee naar vastgesteld zetten: je lowstake van volgende week.</strong></p>
+      <p class="pb-kern">Alles als .md-bestand in één project. <strong>Je ideeën zijn nog niet gekozen: vandaag toets je ze, volgende week kies je.</strong></p>
     </div>
   </section>
 
-  <section data-notes="13:50 TOT 13:55, DE LIJN. LAATSTE SLIDE, DAARNA BOUWEN TOT 14:50&#10;&#10;1. BREIN OP ORDE: alles wat je verzamelde over je opdrachtgever, je opdracht en je eigen kennis in één map. Plus een instructie: het startbestand, of de projectinstructie als je in een project in Claude of ChatGPT werkt&#10;2. PROBLEEM HELDER: je How Might We-vraag heb je al. Zet hem met de documentatie erbij in je brein. Twijfel? Laat AI hem toetsen&#10;3. OPLOSSINGEN, de echte uitdaging: hoe ver laat je AI meedenken? Sparringpartner in gesprek, partner die het visueel maakt, onderzoekspartner, testpartner die toetst en scoort. Kies er minstens twee&#10;4. LATEN ZIEN, vanaf 14:50&#10;&#10;Prompts op de site: guuswitjes.github.io/minor-ce-playground&#10;&#10;14:25 CHECK-IN, vijf minuten: hoe gaat het, waar loop je tegenaan? Dan verder&#10;&#10;14:50 DEMO, twee minuten per duo&#10;- Wat heb je gebouwd, en waarom?&#10;- Welke delen van je brein heb je gebruikt?&#10;- In welke rol zette je AI in, en hoe ver liet je hem meedenken?&#10;- Welke keuzes waren van jou, en welke van AI?&#10;&#10;15:12 AFSLUITEN, drie minuten: lowstake volgende week, AI-gebruik in hulpmiddel 06, week 48 prototype">
+  <section data-notes="13:50 TOT 13:55, DE LIJN. LAATSTE SLIDE, DAARNA BOUWEN TOT 14:50&#10;&#10;1. BREIN OP ORDE: de AI vraagt om al je documenten (wat je schreef, het bedrijf, het probleem, interviews, onderzoek, feedback, brainstorm), zet ze om naar .md, ordent ze in een projectmap en schrijft de instructie voor je project in Claude of ChatGPT&#10;2. PROBLEEM HELDER: je How Might We-vraag heb je al. Staat hij in je instructie? Twijfel? Laat AI hem toetsen&#10;3. OPLOSSINGEN, de echte uitdaging: hoe ver laat je AI meedenken? Sparringpartner in gesprek, partner die het visueel maakt, onderzoekspartner, testpartner die toetst en scoort. Kies er minstens twee&#10;4. LATEN ZIEN, vanaf 14:50&#10;&#10;Prompts op de site: guuswitjes.github.io/minor-ce-playground&#10;&#10;14:25 CHECK-IN, vijf minuten: hoe gaat het, waar loop je tegenaan? Dan verder&#10;&#10;14:50 DEMO, twee minuten per duo&#10;- Wat heb je gebouwd, en waarom?&#10;- Welke delen van je brein heb je gebruikt?&#10;- In welke rol zette je AI in, en hoe ver liet je hem meedenken?&#10;- Welke keuzes waren van jou, en welke van AI?&#10;&#10;15:12 AFSLUITEN, drie minuten: lowstake volgende week, AI-gebruik in hulpmiddel 06, week 48 prototype">
     <h2>De lijn van vandaag</h2>
     <div class="lijn">
       <div class="lijn-stap"><span class="lijn-nr">1</span><strong>Je brein op orde</strong><span>opdrachtgever, opdracht en je kennis in één map, met een instructie erbij</span></div>
